@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    container_name: procedural-documents-backend
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    command: sh -c "npm start"
+
+networks:
+  app-network:
+    driver: bridge
