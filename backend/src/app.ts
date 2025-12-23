@@ -26,7 +26,7 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api-docs', swagger());
 app.use('/', routes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   logger.info(`Server running on port ${PORT}`);
   // '0 * * * *' - every hour for production
