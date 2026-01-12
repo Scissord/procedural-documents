@@ -1,7 +1,14 @@
 import { Router } from 'express';
-import apiRoutes from './api.routes';
+import collectionsRoutes from './collection.routes';
+import documentsRoutes from './document.routes';
+import { health } from '@helpers';
 const router = Router();
 
-router.use('/api', apiRoutes);
+/**
+ * Health check
+ */
+router.get('/health', health);
+router.use('/collections', collectionsRoutes);
+router.use('/documents', documentsRoutes);
 
 export default router;

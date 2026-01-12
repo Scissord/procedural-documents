@@ -4,8 +4,10 @@
     "module": "CommonJS", // Обратите внимание на CommonJS, чтобы Jest мог правильно работать
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "strict": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     "baseUrl": "src",
     "paths": {
       "@controllers": [
@@ -34,6 +36,9 @@
       ],
       "@data": [
         "data/index"
+      ],
+      "@tables": [
+        "tables/index"
       ]
     },
   },

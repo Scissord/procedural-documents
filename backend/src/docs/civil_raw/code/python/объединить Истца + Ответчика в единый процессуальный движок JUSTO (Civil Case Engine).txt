@@ -1,0 +1,96 @@
+import json, datetime, os
+
+pl_path = "/mnt/data/JUSTO_GPK_47_doc_types.json"
+def_path = "/mnt/data/JUSTO_GPK_47_defendant_doc_types.json"
+
+with open(pl_path, "r", encoding="utf-8") as f:
+    pl = json.load(f)
+with open(def_path, "r", encoding="utf-8") as f:
+    df = json.load(f)
+
+# Normalize and combine
+engine = {
+    "schema_version": "1.1",
+    "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+    "product": "JUSTO",
+    "engine": "CivilCaseEngine",
+    "jurisdiction": "KZ",
+    "process": "GPK",
+    "packs": [
+        {
+            "pack_id": pl.get("document_pack", "GPK_PLAINTIFF_47"),
+            "party_role": "plaintiff",
+            "count": len(pl.get("document_types", [])),
+        },
+        {
+            "pack_id": df.get("document_pack", "GPK_DEFENDANT_47"),
+            "party_role": "defendant",
+            "count": len(df.get("document_types", [])),
+        }
+    ],
+    "common_placeholders": {
+        # merge common placeholders (prefer plaintiff pack, fill missing from defendant)
+        **df.get("common_placeholders", {}),
+        **pl.get("common_placeholders", {}),
+    },
+    "stages": ["Подготовка дела","Судебное разбирательство","После решения","Решение","Обжалование","Исполнение"],
+    "party_roles": ["plaintiff","defendant"],
+    "document_types": [],
+    "routing": {
+        "by_party_role": {
+            "plaintiff": [],
+            "defendant": []
+        },
+        "by_stage": {},
+    },
+    "workflow": {
+        "stage_order": ["Подготовка дела","Судебное разбирательство","Решение","Обжалование","Исполнение"],
+        "transitions": [
+            {"from":"Подготовка дела","to":"Судебное разбирательство"},
+            {"from":"Судебное разбирательство","to":"Решение"},
+            {"from":"Решение","to":"Обжалование"},
+            {"from":"Обжалование","to":"Исполнение"},
+        ],
+        "default_checks": [
+            {"code":"REQ_FIELDS", "severity":"error", "message_ru":"Не заполнены обязательные поля."},
+            {"code":"STAGE_ALLOWED", "severity":"error", "message_ru":"Документ недоступен на текущей стадии."}
+        ],
+        "event_model": [
+            "CaseCreated","PartyAdded","DocumentDrafted","DocumentGenerated",
+            "DocumentRevised","ExportReady","AppealFiled","EnforcementStarted"
+        ]
+    }
+}
+
+# Add doc types with ensured party_role field
+pl_docs = pl.get("document_types", [])
+for d in pl_docs:
+    d = dict(d)
+    d.setdefault("party_role", "plaintiff")
+    engine["document_types"].append(d)
+    engine["routing"]["by_party_role"]["plaintiff"].append(d["id"])
+    engine["routing"]["by_stage"].setdefault(d["stage"], []).append(d["id"])
+
+def_docs = df.get("document_types", [])
+for d in def_docs:
+    d = dict(d)
+    d.setdefault("party_role", "defendant")
+    engine["document_types"].append(d)
+    engine["routing"]["by_party_role"]["defendant"].append(d["id"])
+    engine["routing"]["by_stage"].setdefault(d["stage"], []).append(d["id"])
+
+# Add a small "capabilities matrix" for quick feature checks
+engine["capabilities"] = {
+    "docgen": True,
+    "workflow": True,
+    "compliance": True,
+    "virtual_court_ready": True,
+    "virtual_expert_ready": False,
+    "outputs": ["docx","pdf"],
+}
+
+out_path = "/mnt/data/JUSTO_Civil_Case_Engine_GPK_v1_1.json"
+with open(out_path, "w", encoding="utf-8") as f:
+    json.dump(engine, f, ensure_ascii=False, indent=2)
+
+out_path

@@ -15,17 +15,22 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@langchain/openai": "^1.2.0",
+    "@langchain/qdrant": "^1.0.1",
+    "@qdrant/js-client-rest": "^1.16.2",
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
+    "langchain": "^1.2.3",
     "minio": "^8.0.5",
     "node-cron": "^4.2.1",
     "nodemon": "^3.1.10",
     "p-limit": "^7.2.0",
+    "pdf-parse": "^2.4.5",
     "pg": "^8.16.3",
     "soap": "^1.5.0",
     "supertest": "^7.1.1",
@@ -36,7 +41,8 @@
     "winston-daily-rotate-file": "^5.0.0",
     "xlsx": "^0.18.5",
     "xml-formatter": "^3.6.6",
-    "xmlbuilder2": "^3.1.1"
+    "xmlbuilder2": "^3.1.1",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",

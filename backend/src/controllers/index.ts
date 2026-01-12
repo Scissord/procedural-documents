@@ -1,1 +1,2 @@
-export * from './api.controller';
+export * from './collection.controller';
+export * from './document.controller';

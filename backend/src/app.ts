@@ -20,28 +20,12 @@ app.use(
     credentials: true,
   }),
 );
-app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome to procedural-documents-backend!');
-});
 app.use('/api-docs', swagger());
-app.use('/', routes);
+app.use('/api', routes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   logger.info(`Server running on port ${PORT}`);
-  // '0 * * * *' - every hour for production
-  // '* * * * *' - every minute for developing
-  // cron.schedule('0 * * * *', async () => {
-  //   try {
-  //     logger.info('Cron job started: start_cron');
-  //     await start_cron();
-  //     logger.info('Cron job finished: start_cron');
-  //   } catch (error) {
-  //     logger.error(
-  //       'Cron job failed: ' + (error instanceof Error ? error.stack : error),
-  //     );
-  //   }
-  // });
 });
 
 export default app;
