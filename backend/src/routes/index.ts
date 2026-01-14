@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import collectionsRoutes from './collection.routes';
 import documentsRoutes from './document.routes';
+import telegramRoutes from './telegram.routes';
 import { health } from '@helpers';
 const router = Router();
 
@@ -10,5 +11,6 @@ const router = Router();
 router.get('/health', health);
 router.use('/collections', collectionsRoutes);
 router.use('/documents', documentsRoutes);
+router.use('/telegram', telegramRoutes);
 
 export default router;
