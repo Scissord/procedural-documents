@@ -1,15 +1,26 @@
 import { Telegraf } from 'telegraf';
 import axios from 'axios';
+import { logger } from '@services';
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN!);
 
-bot.start((ctx) => ctx.reply('Отправь JSON для генерации документа'));
+bot.start((ctx) => {
+  logger.info('Bot start command', { userId: ctx.from?.id });
+  ctx.reply('Отправь JSON и хуй не надо для генерации документа');
+});
 
 bot.on('text', async (ctx) => {
-  if (ctx.message.text.startsWith('/')) return;
+  const text = ctx.message.text;
+
+  if (text.startsWith('/')) {
+    ctx.reply(
+      '❓ Неизвестная команда. Отправьте JSON для генерации документа.',
+    );
+    return;
+  }
 
   try {
-    const data = JSON.parse(ctx.message.text);
+    const data = JSON.parse(text);
     const msg = await ctx.reply('⏳ Обрабатываю...');
 
     const res = await axios.post(
@@ -23,7 +34,12 @@ bot.on('text', async (ctx) => {
       parse_mode: 'Markdown',
     });
   } catch (error: any) {
-    ctx.reply(`❌ Ошибка: ${error.message}`);
+    logger.error('Bot error', { error: error.message });
+    const errorMsg =
+      error.response?.data?.error ||
+      error.message ||
+      'Ошибка при обработке запроса';
+    ctx.reply(`❌ Ошибка: ${errorMsg}`);
   }
 });
 
