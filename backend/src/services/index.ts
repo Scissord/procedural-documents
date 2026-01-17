@@ -6,3 +6,4 @@ export * from './llm';
 export * from './collection/collection';
 export * from './document/validation';
 export * from './document/document';
+export * from './document/docx';

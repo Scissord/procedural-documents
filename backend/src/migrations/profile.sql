@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS auth.profile (
+  id BIGSERIAL PRIMARY KEY,
+  user_id BIGINT NOT NULL,
+  first_name_encrypted BYTEA,
+  first_name_hash TEXT,
+  last_name_encrypted BYTEA,
+  last_name_hash TEXT,
+  middle_name_encrypted BYTEA,
+  middle_name_hash TEXT,
+  phone_encrypted BYTEA,
+  phone_hash TEXT UNIQUE,
+  avatar_url VARCHAR(255),
+  birthday_encrypted BYTEA,
+  birthday_hash TEXT,
+  gender VARCHAR(10) NOT NULL,
+  locale VARCHAR(10) NOT NULL,
+  timezone VARCHAR(255) NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_profile_user FOREIGN KEY (user_id) REFERENCES auth."user"(id) ON DELETE NO ACTION
+);

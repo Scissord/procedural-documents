@@ -1,4 +1,9 @@
-import { DocumentValidationService, DocumentService, logger } from '@services';
+import {
+  DocumentExportService,
+  DocumentValidationService,
+  DocumentService,
+  logger,
+} from '@services';
 import { normalizeError } from '@helpers';
 import { Request, Response } from 'express';
 import { IGenerateDocumentRequest } from '@interfaces';
@@ -13,6 +18,8 @@ export const DocumentController = {
    * POST /api/documents/generate
    **/
   async generateDocument(req: Request, res: Response): Promise<void> {
+    // message - situation
+    // user_id - user_id
     try {
       const {
         document_id,
@@ -42,6 +49,12 @@ export const DocumentController = {
         opponentData,
       );
 
+      // Ответ пользователелю что ищем шаблон
+      // await axios.post('https://api.telegram.org/bot<token>/sendMessage', {
+      // user_id
+      //  ищем шаблон
+      // });
+
       const structure = await DocumentService.prepareDocument(
         document_id,
         classification_id,
@@ -55,6 +68,13 @@ export const DocumentController = {
         userData,
         opponentData,
       );
+
+      // Ответ пользователелю что нашли шаблон
+      // await axios.post('https://api.telegram.org/bot<token>/sendMessage', {
+      // user_id
+      //  нашли шаблон
+      //  шаблон
+      // });
 
       if (!structure) {
         throw new Error('Document template not found');
@@ -133,14 +153,37 @@ export const DocumentController = {
 
       logger.info('Document generated successfully');
 
-      res.json({
-        success: true,
-        document,
-        metadata: {
-          generatedAt: new Date().toISOString(),
-          collections: ['kz_gk', 'kz_gpk', 'kz_civil_practice'],
-        },
-      });
+      // const acceptHeader = req.headers.accept || '';
+      // const wantsDocx =
+      //   req.query.format === 'docx' ||
+      //   req.body?.output === 'docx' ||
+      //   acceptHeader.includes(
+      //     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      //   );
+
+      // if (wantsDocx) {
+      const buffer = await DocumentExportService.toDocxBuffer(document);
+      const filename = `document_${Date.now()}.docx`;
+      res.setHeader(
+        'Content-Type',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      );
+      res.setHeader(
+        'Content-Disposition',
+        `attachment; filename="${filename}"`,
+      );
+      res.send(buffer);
+      return;
+      // }
+
+      // res.json({
+      //   success: true,
+      //   document,
+      //   metadata: {
+      //     generatedAt: new Date().toISOString(),
+      //     collections: ['kz_gk', 'kz_gpk', 'kz_civil_practice'],
+      //   },
+      // });
     } catch (error: unknown) {
       const message = normalizeError(error);
       logger.error(`
