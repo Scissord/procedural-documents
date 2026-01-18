@@ -21,6 +21,17 @@ services:
       retries: 30
       start_period: 20s
 
+  rabbitmq:
+    image: rabbitmq:4.2.2-management
+    container_name: procedural-documents-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - app-network
+
   app:
     build: .
     container_name: procedural-documents-backend
@@ -29,6 +40,8 @@ services:
     environment:
       # When running inside docker-compose, qdrant is reachable by service name, not localhost.
       - QDRANT_URL=http://qdrant:6333
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - RABBITMQ_QUEUE=document-generation
     ports:
       - "3001:3001"
     networks:
@@ -44,3 +57,4 @@ networks:
 
 volumes:
   qdrant_data:
+  rabbitmq_data:

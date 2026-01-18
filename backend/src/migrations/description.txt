@@ -13,7 +13,8 @@ token - токены, для запросов
 
 2.2 app
 generated_documents
-user_id, document_id, document_text
+user_id, document_id, document_text, status
+
 
 2.3 - ref
 documents - документы, которые можно сгенерить
