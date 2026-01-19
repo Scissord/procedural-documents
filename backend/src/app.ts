@@ -4,8 +4,22 @@ import swagger from '@swagger';
 import { logger } from '@services';
 import routes from '@routes';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import { bot } from './bot/telegram';
 // import cron from 'node-cron';
+
+// Validate required environment variables
+const requiredEnvVars = ['JWT_SECRET', 'JWT_REFRESH_SECRET'];
+const missingEnvVars = requiredEnvVars.filter(
+  (varName) => !process.env[varName],
+);
+
+if (missingEnvVars.length > 0) {
+  logger.error(
+    `Missing required environment variables: ${missingEnvVars.join(', ')}`,
+  );
+  process.exit(1);
+}
 
 const app = express();
 
@@ -15,6 +29,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use(express.json({ limit: '10mb' }));
+app.use(cookieParser());
 app.use(
   cors({
     origin: '*',

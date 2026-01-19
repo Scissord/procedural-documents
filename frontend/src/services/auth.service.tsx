@@ -7,7 +7,8 @@ interface LoginResult {
 }
 
 type ApiError = {
-  error: string;
+  errors?: Array<{ msg: string }>;
+  error?: string;
 };
 
 export const AuthService = {
@@ -23,17 +24,24 @@ export const AuthService = {
 
       const result = await response.json();
       if (!response.ok) {
+        // Бэкенд возвращает { errors: [{ msg: string }] }
+        if (result.errors && Array.isArray(result.errors) && result.errors.length > 0) {
+          return result.errors[0].msg;
+        }
         throw result;
       }
 
       return result;
     } catch (err: unknown) {
       const apiErr = err as ApiError;
+      if (apiErr?.errors && Array.isArray(apiErr.errors) && apiErr.errors.length > 0) {
+        return apiErr.errors[0].msg;
+      }
       if (apiErr?.error) {
-        return apiErr.error; // "EMAIL_EXISTS" | "PHONE_EXISTS"
+        return apiErr.error;
       }
 
-      return 'UNKNOWN_ERROR';
+      return 'Произошла ошибка при регистрации';
     }
   },
 

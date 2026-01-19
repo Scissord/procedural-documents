@@ -5,3 +5,4 @@ node_modules/
 uploads
 logs
 .vscode
+.seed.sql

@@ -6,12 +6,17 @@ export interface IUserLogin extends IUserBase {
   password: string;
 }
 
-export type IRegistration = IUserLogin & {
-  email?: string;
-  phone?: string | '';
+export type IRegistration = {
+  first_name: string;
+  email: string;
+  password: string;
+  gender: 'male' | 'female' | 'other';
+  locale: string;
+  timezone: string;
+  last_name?: string;
+  middle_name?: string;
+  phone?: string;
   birthday?: string;
-  locale?: string;
-  timezone?: string;
 };
 
 export interface IUser extends IUserBase {

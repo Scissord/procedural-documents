@@ -27,14 +27,14 @@ const registrationSchema = z.object({
     .max(32, 'Имя должено быть не более 32 символа'),
   password: z
     .string()
-    .min(8, 'Пароль должен быть не менее 8 символов')
-    .max(128, 'Пароль должен быть не более 128 символов'),
-  email: z.email('Некорректный email').optional().or(z.literal('')),
+    .min(3, 'Пароль должен быть не менее 3 символов')
+    .max(128, 'Пароль должен быть не более 128 символов')
+    .regex(/[A-Z]/, 'Пароль должен содержать хотя бы одну заглавную букву'),
+  email: z.string().email('Некорректный email'),
+  gender: z.enum(['male', 'female', 'other'] as const),
 });
 
-type RegistrationFormData = z.infer<typeof registrationSchema> & {
-  phone?: string; // make optional
-};
+type RegistrationFormData = z.infer<typeof registrationSchema>;
 
 export const RegistrationForm = ({
   setTab,
@@ -60,39 +60,37 @@ export const RegistrationForm = ({
       const locale = navigator.language || navigator.languages[0] || 'ru';
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-      // const response = await AuthService.registration({
-      //   ...data,
-      //   locale,
-      //   timezone,
-      // });
+      const response = await AuthService.registration({
+        first_name: data.name,
+        email: data.email,
+        password: data.password,
+        gender: data.gender,
+        locale,
+        timezone,
+      });
 
-      // don't like this
-      // need to make this:
-      // if (err.error === 'EMAIL_EXISTS') {
-      //   setEmailError('Email already exists');
-      // }
-      // if (err.error === 'PHONE_EXISTS') {
-      //   setPhoneError('Phone already exists');
-      // }
-      // if (typeof response === 'object') {
-      //   // notification success
-      //   notificationsStore.addNotification({
-      //     type: 'default',
-      //     title: 'Успех!',
-      //     description: 'Пользователь успешно зарегестрирован.',
-      //   });
-      //   console.log('Успешная регистрация', response);
-      //   setTab('name');
-      // } else {
-      //   // notification error
-      //   notificationsStore.addNotification({
-      //     type: 'destructive',
-      //     title: 'Ошибка!',
-      //     description: response,
-      //   });
-      // }
+      if (typeof response === 'object' && 'user' in response) {
+        notificationsStore.addNotification({
+          type: 'default',
+          title: 'Успех!',
+          description: 'Пользователь успешно зарегистрирован.',
+        });
+        console.log('Успешная регистрация', response);
+        setTab('login');
+      } else {
+        notificationsStore.addNotification({
+          type: 'destructive',
+          title: 'Ошибка!',
+          description: typeof response === 'string' ? response : 'Ошибка регистрации',
+        });
+      }
     } catch (err) {
       console.error(err);
+      notificationsStore.addNotification({
+        type: 'destructive',
+        title: 'Ошибка!',
+        description: 'Произошла ошибка при регистрации',
+      });
     }
   };
 
@@ -154,8 +152,41 @@ export const RegistrationForm = ({
         )}
       </div>
 
+      <div>
+        <Label>Пол</Label>
+        <Controller
+          name="gender"
+          control={control}
+          render={({ field }) => (
+            <RadioGroup
+              value={field.value}
+              onValueChange={field.onChange}
+              className="flex gap-4"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="male" id="male" />
+                <Label htmlFor="male">Мужской</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="female" id="female" />
+                <Label htmlFor="female">Женский</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="other" id="other" />
+                <Label htmlFor="other">Другой</Label>
+              </div>
+            </RadioGroup>
+          )}
+        />
+        {errors.gender && (
+          <p className="text-red-500 text-sm mt-1">{errors.gender.message}</p>
+        )}
+      </div>
+
       <div className="flex items-center justify-center">
-        <Button variant="link">Уже есть аккаунт?</Button>
+        <Button variant="link" onClick={() => setTab('login')}>
+          Уже есть аккаунт?
+        </Button>
       </div>
 
       <Button className="w-full mt-2" type="submit" disabled={isSubmitting}>
