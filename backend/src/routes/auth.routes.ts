@@ -17,13 +17,9 @@ const registrationValidation = [
     .isLength({ min: 1, max: 255 })
     .withMessage('First name must be between 1 and 255 characters'),
   body('password')
-    .isLength({ min: 8 })
-    .withMessage('Password must be at least 8 characters long')
+    .isLength({ min: 3 })
+    .withMessage('Password must be at least 3 characters long')
     .matches(/[A-Z]/)
-    .withMessage('Password must contain at least one uppercase letter')
-    .matches(/[a-z]/)
-    .withMessage('Password must contain at least one lowercase letter')
-    .matches(/[0-9]/)
     .withMessage('Password must contain at least one number'),
   body('gender')
     .isIn(['male', 'female', 'other'])
@@ -61,45 +57,22 @@ const registrationValidation = [
     .withMessage('Birthday must be a valid date'),
 ];
 
-/**
- * Валидация для входа
- */
 const loginValidation = [
   body('email')
     .isEmail()
     .withMessage('Email must be a valid email address')
     .normalizeEmail(),
-  body('password')
-    .notEmpty()
-    .withMessage('Password is required'),
+  body('password').notEmpty().withMessage('Password is required'),
 ];
 
-/**
- * Регистрация нового пользователя
- * POST /api/auth/registration
- */
 router.post(
   '/registration',
   validate(registrationValidation),
   AuthController.registration,
 );
 
-/**
- * Вход пользователя
- * POST /api/auth/login
- */
 router.post('/login', validate(loginValidation), AuthController.login);
-
-/**
- * Выход пользователя
- * POST /api/auth/logout
- */
 router.post('/logout', AuthController.logout);
-
-/**
- * Обновление access токена
- * POST /api/auth/refresh
- */
 router.post('/refresh', AuthController.refresh);
 
 export default router;

@@ -18,3 +18,5 @@ user_id, document_id, document_text
 2.3 - ref
 documents - документы, которые можно сгенерить
 stages - стадия, на которой можно сгенерить док
+
+добавил верификацию email

@@ -3,6 +3,47 @@ import { AuthService } from '@services';
 import { logger } from '@services';
 import { normalizeError } from '@helpers';
 
+const sendError = (res: Response, status: number, message: string): void => {
+  res.status(status).json({
+    errors: [{ msg: message }],
+  });
+};
+
+const handleAuthError = (
+  res: Response,
+  error: unknown,
+  context: string,
+): void => {
+  const message = normalizeError(error);
+  logger.error(`${context} failed`, { error: message });
+
+  if (message.includes('already exists') || message.includes('duplicate key')) {
+    sendError(res, 409, 'User with this email already exists');
+    return;
+  }
+
+  if (message.includes('Invalid email or password')) {
+    sendError(res, 401, 'Invalid email or password');
+    return;
+  }
+
+  if (message.includes('inactive')) {
+    sendError(res, 401, 'User account is inactive');
+    return;
+  }
+
+  if (
+    message.includes('Invalid') ||
+    message.includes('expired') ||
+    message.includes('revoked')
+  ) {
+    sendError(res, 401, message);
+    return;
+  }
+
+  sendError(res, 400, message || `${context} failed`);
+};
+
 export const AuthController = {
   async registration(req: Request, res: Response): Promise<void> {
     try {
@@ -36,29 +77,10 @@ export const AuthController = {
         user: result.user,
       });
     } catch (error: unknown) {
-      const message = normalizeError(error);
-      logger.error('Registration failed', { error: message });
-
-      if (
-        message.includes('already exists') ||
-        message.includes('duplicate key')
-      ) {
-        res.status(409).json({
-          errors: [{ msg: 'User with this email already exists' }],
-        });
-        return;
-      }
-
-      res.status(400).json({
-        errors: [{ msg: message || 'Registration failed' }],
-      });
+      handleAuthError(res, error, 'Registration');
     }
   },
 
-  /**
-   * Вход пользователя
-   * POST /api/auth/login
-   */
   async login(req: Request, res: Response): Promise<void> {
     try {
       const { email, password } = req.body;
@@ -75,7 +97,6 @@ export const AuthController = {
         userAgent,
       );
 
-      // Установка refresh token в httpOnly cookie
       res.cookie('refresh_token', result.refreshToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
@@ -88,128 +109,87 @@ export const AuthController = {
         accessToken: result.accessToken,
       });
     } catch (error: unknown) {
-      const message = normalizeError(error);
-      logger.error('Login failed', { error: message });
-
-      if (
-        message.includes('Invalid email or password') ||
-        message.includes('inactive')
-      ) {
-        res.status(401).json({
-          errors: [{ msg: message || 'Invalid email or password' }],
-        });
-        return;
-      }
-
-      res.status(400).json({
-        errors: [{ msg: message || 'Login failed' }],
-      });
+      handleAuthError(res, error, 'Login');
     }
   },
 
-  /**
-   * Выход пользователя
-   * POST /api/auth/logout
-   */
   async logout(req: Request, res: Response): Promise<void> {
     try {
-      // Получение токена из заголовка Authorization
       const authHeader = req.headers.authorization;
       if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        res.status(401).json({
-          errors: [{ msg: 'Authorization token required' }],
-        });
+        sendError(res, 401, 'Authorization token required');
         return;
       }
 
       const accessToken = authHeader.substring(7);
       const decoded = AuthService.verifyAccessToken(accessToken);
 
-      // Получение refresh token из cookies или body
       const refreshToken = req.cookies?.refresh_token || req.body?.refreshToken;
 
       if (!refreshToken) {
-        res.status(400).json({
-          errors: [{ msg: 'Refresh token required' }],
-        });
+        sendError(res, 400, 'Refresh token required');
         return;
       }
 
       await AuthService.logout(decoded.userId, refreshToken);
 
-      // Удаление refresh token из cookies
       res.clearCookie('refresh_token');
 
       res.status(200).json({
         message: 'Logged out successfully',
       });
     } catch (error: unknown) {
-      const message = normalizeError(error);
-      logger.error('Logout failed', { error: message });
-
-      if (message.includes('Invalid') || message.includes('expired')) {
-        res.status(401).json({
-          errors: [{ msg: message || 'Invalid token' }],
-        });
-        return;
-      }
-
-      res.status(400).json({
-        errors: [{ msg: message || 'Logout failed' }],
-      });
+      handleAuthError(res, error, 'Logout');
     }
   },
 
-  /**
-   * Обновление access токена
-   * POST /api/auth/refresh
-   */
   async refresh(req: Request, res: Response): Promise<void> {
     try {
-      // Получение refresh token из cookies или body
       const refreshToken = req.cookies?.refresh_token || req.body?.refreshToken;
 
       if (!refreshToken) {
-        res.status(400).json({
-          errors: [{ msg: 'Refresh token required' }],
-        });
+        sendError(res, 400, 'Refresh token required');
         return;
       }
 
       const result = await AuthService.refreshToken(refreshToken);
 
-      // Если вернулся новый refresh token, обновляем cookie
       if (result.refreshToken) {
         res.cookie('refresh_token', result.refreshToken, {
           httpOnly: true,
           secure: process.env.NODE_ENV === 'production',
           sameSite: 'strict',
-          maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дней
+          maxAge: 30 * 24 * 60 * 60 * 1000,
+        });
+
+        res.status(200).json({
+          user: result.user,
+          accessToken: result.accessToken,
+          refreshToken: result.refreshToken,
+        });
+      } else {
+        res.status(200).json({
+          user: result.user,
+          accessToken: result.accessToken,
         });
       }
-
-      res.status(200).json({
-        user: result.user,
-        accessToken: result.accessToken,
-      });
     } catch (error: unknown) {
       const message = normalizeError(error);
-      logger.error('Refresh token failed', { error: message });
 
-      if (
-        message.includes('Invalid') ||
-        message.includes('expired') ||
-        message.includes('revoked')
-      ) {
-        res.status(401).json({
-          errors: [{ msg: message || 'Invalid refresh token' }],
+      if (message === 'TOKEN_MISMATCH') {
+        logger.warn('Token mismatch detected - possible token theft');
+        res.status(405).json({
+          errors: [
+            {
+              msg: 'Token mismatch detected. Please log in again.',
+              code: 'TOKEN_MISMATCH',
+            },
+          ],
         });
         return;
       }
 
-      res.status(400).json({
-        errors: [{ msg: message || 'Token refresh failed' }],
-      });
+      handleAuthError(res, error, 'Token refresh');
     }
   },
 };
