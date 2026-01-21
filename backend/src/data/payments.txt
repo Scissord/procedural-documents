@@ -30,3 +30,5 @@ API простые
 TLS сертификат на сайте
 
 Настройка callback/redirect URL в API провайдера
+
+ROBOKASSA

@@ -31,9 +31,12 @@ app.listen(PORT, () => {
 
 // Запуск Telegram бота
 if (process.env.TELEGRAM_BOT_TOKEN) {
+  const webhookPath = '/api/telegram/webhook';
   const webhookUrl = process.env.WEBHOOK_URL
-    ? `${process.env.WEBHOOK_URL}/api/telegram/webhook`
-    : `${process.env.API_BASE_URL || `http://localhost:${PORT}`}/api/telegram/webhook`;
+    ? process.env.WEBHOOK_URL.endsWith(webhookPath)
+      ? process.env.WEBHOOK_URL
+      : `${process.env.WEBHOOK_URL}${webhookPath}`
+    : `${process.env.API_BASE_URL || `http://localhost:${PORT}`}${webhookPath}`;
 
   bot.telegram
     .setWebhook(webhookUrl)

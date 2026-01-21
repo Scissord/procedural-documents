@@ -9,3 +9,4 @@ export * from './document/document';
 export * from './document/docx';
 export * from './job/job';
 export * from './rabbitmq';
+export * from './document/docx-generator';

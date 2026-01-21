@@ -51,7 +51,7 @@ export const DocumentService = {
       Контакты: ${opponentData?.phone || '<<НУЖНО УТОЧНИТЬ: Телефон ответчика>>'}
       ${opponentData?.email || '<<НУЖНО УТОЧНИТЬ: Email ответчика>>'}
 
-      Представитель (при наличии): ${opponentData?.representative || '<<НУЖНО УТОЧНИТЬ: Представитель ответчика>>'}
+      Представитель: ${opponentData?.representative || '<<НУЖНО УТОЧНИТЬ: Представитель ответчика>>'}
 
       Текст документа (каркас):
 
