@@ -69,3 +69,31 @@ const input = `
 
   Подпись: ____________________
 `.trim();
+
+const access_token = await localStorage.getItem('accessToken');
+
+const response = await axios({
+  method: 'PUT',
+  url: 'http://localhost:3000/api/users/${user_id}?id=5',
+  data: {
+    user_id: 2
+  },
+  headers: {
+    'Authorization': `Bearer ${access_token}`
+  },
+  credentials: 'include', // ← ВАЖНО
+});
+
+controller:
+const { id, dlinniy } = req.query;
+const data = req.body;
+data.user_id
+
+
+
+route
+patch
+/api/users/:id
+const { user_id } = req.params;
+const { id } = req.query;
+const { user_id } = req.body;
