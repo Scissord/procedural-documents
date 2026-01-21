@@ -48,6 +48,9 @@
       ],
       "@repositories": [
         "repositories/index"
+      ],
+      "@validations": [
+        "validations/index"
       ]
     }
   },

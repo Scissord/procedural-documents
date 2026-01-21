@@ -20,18 +20,23 @@ export class SessionRepository {
    * Возвращает ID созданной сессии
    */
   static async createSession(
+    client: PoolClient,
     userId: number,
     ipAddress: string,
     userAgent: string | null,
-    client?: PoolClient,
   ): Promise<number> {
-    const queryClient = client || db;
-
-    const result = await queryClient.query(
-      `INSERT INTO auth.session (
-        user_id, ip_address, user_agent, login_at, is_active
-      ) VALUES ($1, $2, $3, NOW(), true)
-      RETURNING id`,
+    const result = await client.query(
+      `
+        INSERT INTO auth.session (
+          user_id,
+          ip_address,
+          user_agent,
+          login_at,
+          is_active
+        )
+        VALUES ($1, $2, $3, NOW(), true)
+        RETURNING id;
+      `,
       [userId, ipAddress, userAgent],
     );
 
@@ -59,8 +64,14 @@ export class SessionRepository {
     expiresAt: Date,
   ): Promise<void> {
     await db.query(
-      `INSERT INTO auth.token (user_id, refresh_token, expires_at)
-      VALUES ($1, $2, $3)`,
+      `
+        INSERT INTO auth.token (
+          user_id,
+          refresh_token,
+          expires_at
+        )
+        VALUES ($1, $2, $3)
+      `,
       [userId, token, expiresAt],
     );
   }

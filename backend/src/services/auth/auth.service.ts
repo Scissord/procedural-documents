@@ -39,32 +39,36 @@ export const AuthService = {
     try {
       await client.query('BEGIN');
 
+      // вырезать нахуй
+      // проверку на существующюю почту, нужно делать в validations
       const emailHash = await CryptoHelper.hashEmail(data.email);
       if (await UserRepository.existsByEmailHash(emailHash)) {
         throw new Error('User with this email already exists');
       }
+      // до сюда
 
+      // Хэшировать вот так
+      // const salt = await bcrypt.genSalt(10);
+      // const password_hash = await bcrypt.hash(data.password, salt);
       const passwordHash = await CryptoHelper.hashPassword(data.password);
 
-      const userId = await UserRepository.createUser(
-        { email: data.email, passwordHash },
-        client,
-      );
+      // const user =
+      const userId = await UserRepository.createUser(client, {
+        email: data.email,
+        passwordHash,
+      });
 
-      await UserRepository.createProfile(
-        userId,
-        {
-          first_name: data.first_name,
-          last_name: data.last_name,
-          middle_name: data.middle_name,
-          phone: data.phone,
-          birthday: data.birthday,
-          gender: data.gender,
-          locale: data.locale,
-          timezone: data.timezone,
-        },
-        client,
-      );
+      // user.id
+      await UserRepository.createProfile(client, userId, {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        middle_name: data.middle_name,
+        phone: data.phone,
+        birthday: data.birthday,
+        gender: data.gender,
+        locale: data.locale,
+        timezone: data.timezone,
+      });
 
       await client.query('COMMIT');
 
@@ -73,7 +77,7 @@ export const AuthService = {
     } catch (error: unknown) {
       await client.query('ROLLBACK');
       const message = normalizeError(error);
-      logger.error('Registration failed', { error: message });
+      logger.error(`Registration failed ${message}`);
       throw error;
     } finally {
       client.release();
@@ -89,11 +93,17 @@ export const AuthService = {
     accessToken: string;
     refreshToken: string;
   }> {
+    const client = await db.connect();
+
     try {
+      await client.query('BEGIN');
       const emailHash = await CryptoHelper.hashEmail(data.email);
       const user = await UserRepository.findByEmailHash(emailHash);
 
+      // check
+      // Если ошибка вышла, то она должна быть для фронта, чтобы вывести пользователю
       if (!user) {
+        // Данный email не зарегистрирован
         throw new Error('Invalid email or password');
       }
 
@@ -107,24 +117,29 @@ export const AuthService = {
       );
 
       if (!isPasswordValid) {
-        throw new Error('Invalid email or password');
+        throw new Error('Invalid password');
       }
 
       const sessionId = await SessionRepository.createSession(
+        client,
         user.id,
         ipAddress,
         userAgent || null,
       );
 
+      // вынести нахуй
       const tokens = this.generateTokens(user.id, data.email, sessionId);
 
       const expiresAt = new Date();
       expiresAt.setDate(expiresAt.getDate() + 30);
+
       await SessionRepository.saveRefreshToken(
         user.id,
         tokens.refreshToken,
         expiresAt,
       );
+
+      await client.query('COMMIT');
 
       const userData = await UserRepository.getUserWithProfile(user.id);
 
@@ -134,9 +149,12 @@ export const AuthService = {
         refreshToken: tokens.refreshToken,
       };
     } catch (error: unknown) {
+      await client.query('ROLLBACK');
       const message = normalizeError(error);
       logger.error('Login failed', { error: message });
       throw error;
+    } finally {
+      client.release();
     }
   },
 
@@ -239,6 +257,7 @@ export const AuthService = {
     }
   },
 
+  // TODO: TO @helpers
   verifyAccessToken(token: string): TokenPayload {
     try {
       const jwtSecret = process.env.JWT_SECRET;
@@ -253,6 +272,7 @@ export const AuthService = {
     }
   },
 
+  // TODO: TO @helpers
   generateTokens(
     userId: number,
     email: string,
@@ -273,6 +293,7 @@ export const AuthService = {
       expiresIn: '24h',
     });
 
+    // check - tokenId: sessionId || userId вот это понадобится или нет в дальнейшем
     const refreshToken = jwt.sign(
       { userId, tokenId: sessionId || userId },
       jwtRefreshSecret,

@@ -65,13 +65,23 @@ export class UserRepository {
    * Находит пользователя по хэшу email с данными профиля
    */
   static async findByEmailHash(emailHash: string): Promise<UserRow | null> {
+    // WHERE email_hash = encode(digest(upper($1), 'sha256'), 'hex')
     const result = await db.query(
-      `SELECT
-        u.id, u.password_hash, u.is_active, u.created_at,
-        p.avatar_url, p.gender, p.locale, p.timezone
-      FROM auth."user" u
-      LEFT JOIN auth.profile p ON p.user_id = u.id
-      WHERE u.email_hash = $1 AND u.deleted_at IS NULL`,
+      `
+        SELECT
+          t1.id,
+          t1.password_hash,
+          t1.is_active,
+          t1.created_at,
+          t2.avatar_url,
+          t2.gender,
+          t2.locale,
+          t2.timezone
+        FROM auth."user" t1
+        JOIN auth.profile t2 ON t2.user_id = t1.id
+        WHERE t1.email_hash = $1
+        AND t1.deleted_at IS NULL
+      `,
       [emailHash],
     );
 
@@ -83,23 +93,35 @@ export class UserRepository {
    * Возвращает ID созданного пользователя
    */
   static async createUser(
+    client: PoolClient,
     data: CreateUserDto,
-    client?: PoolClient,
   ): Promise<number> {
     const queryClient = client || db;
     const secretKey = CryptoHelper.getSecretKey();
 
     const result = await queryClient.query(
-      `INSERT INTO auth."user" (
-        email_encrypted, email_hash, password_hash, is_active
-      ) VALUES (
-        pgp_sym_encrypt($1, $2),
-        encode(digest(upper($1), 'sha256'), 'hex'),
-        $3, true
-      )
-      RETURNING id, created_at, is_active`,
+      `
+        INSERT INTO auth."user" (
+          email_encrypted,
+          email_hash,
+          password_hash,
+          is_active
+        )
+        VALUES (
+          pgp_sym_encrypt($1, $2),
+          encode(digest(upper($1), 'sha256'), 'hex'),
+          $3, true
+        )
+        RETURNING id, created_at;
+      `,
       [data.email, secretKey, data.passwordHash],
     );
+
+    // delete data.password;
+    // delete data.passwordHash;
+    // data.id = result.rows[0].id;
+    // data.created_at = result.rows[0].created_at;
+    // return data
 
     return result.rows[0].id;
   }
@@ -108,35 +130,38 @@ export class UserRepository {
    * Создает профиль пользователя
    */
   static async createProfile(
+    client: PoolClient,
     userId: number,
     data: ProfileDto,
-    client?: PoolClient,
   ): Promise<void> {
-    const queryClient = client || db;
     const secretKey = CryptoHelper.getSecretKey();
 
-    await queryClient.query(
-      `INSERT INTO auth.profile (
-        user_id, first_name_encrypted, first_name_hash,
-        last_name_encrypted, last_name_hash,
-        middle_name_encrypted, middle_name_hash,
-        phone_encrypted, phone_hash,
-        birthday_encrypted, birthday_hash,
-        gender, locale, timezone
-      ) VALUES (
-        $1,
-        pgp_sym_encrypt($2::text, $3),
-        encode(digest(upper($2::text), 'sha256'), 'hex'),
-        CASE WHEN $4::text IS NOT NULL THEN pgp_sym_encrypt($4::text, $3) ELSE NULL END,
-        CASE WHEN $4::text IS NOT NULL THEN encode(digest(upper($4::text), 'sha256'), 'hex') ELSE NULL END,
-        CASE WHEN $5::text IS NOT NULL THEN pgp_sym_encrypt($5::text, $3) ELSE NULL END,
-        CASE WHEN $5::text IS NOT NULL THEN encode(digest(upper($5::text), 'sha256'), 'hex') ELSE NULL END,
-        CASE WHEN $6::text IS NOT NULL THEN pgp_sym_encrypt($6::text, $3) ELSE NULL END,
-        CASE WHEN $6::text IS NOT NULL THEN encode(digest(upper($6::text), 'sha256'), 'hex') ELSE NULL END,
-        CASE WHEN $7::text IS NOT NULL THEN pgp_sym_encrypt($7::text, $3) ELSE NULL END,
-        CASE WHEN $7::text IS NOT NULL THEN encode(digest(upper($7::text), 'sha256'), 'hex') ELSE NULL END,
-        $8, $9, $10
-      )`,
+    await client.query(
+      `
+        INSERT INTO auth.profile (
+          user_id,
+          first_name_encrypted, first_name_hash,
+          last_name_encrypted, last_name_hash,
+          middle_name_encrypted, middle_name_hash,
+          phone_encrypted, phone_hash,
+          birthday_encrypted, birthday_hash,
+          gender, locale, timezone
+        )
+        VALUES (
+          $1,
+          pgp_sym_encrypt($2::text, $3),
+          encode(digest(upper($2::text), 'sha256'), 'hex'),
+          CASE WHEN $4::text IS NOT NULL THEN pgp_sym_encrypt($4::text, $3) ELSE NULL END,
+          CASE WHEN $4::text IS NOT NULL THEN encode(digest(upper($4::text), 'sha256'), 'hex') ELSE NULL END,
+          CASE WHEN $5::text IS NOT NULL THEN pgp_sym_encrypt($5::text, $3) ELSE NULL END,
+          CASE WHEN $5::text IS NOT NULL THEN encode(digest(upper($5::text), 'sha256'), 'hex') ELSE NULL END,
+          CASE WHEN $6::text IS NOT NULL THEN pgp_sym_encrypt($6::text, $3) ELSE NULL END,
+          CASE WHEN $6::text IS NOT NULL THEN encode(digest(upper($6::text), 'sha256'), 'hex') ELSE NULL END,
+          CASE WHEN $7::text IS NOT NULL THEN pgp_sym_encrypt($7::text, $3) ELSE NULL END,
+          CASE WHEN $7::text IS NOT NULL THEN encode(digest(upper($7::text), 'sha256'), 'hex') ELSE NULL END,
+          $8, $9, $10
+        )
+      `,
       [
         userId,
         data.first_name,
@@ -145,7 +170,7 @@ export class UserRepository {
         data.middle_name ?? null,
         data.phone ?? null,
         data.birthday ?? null,
-        data.gender,
+        data.gender ?? 'O', // M, F, O
         data.locale,
         data.timezone,
       ],

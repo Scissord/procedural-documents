@@ -89,7 +89,12 @@ export const AuthController = {
         (req.headers['x-forwarded-for'] as string)?.split(',')[0] ||
         req.socket.remoteAddress ||
         'unknown';
+
+      // const ip = req.headers['x-forwarded-for'] || req.ip;
+
       const userAgent = req.headers['user-agent'];
+
+      // const user_agent = req.headers['user-agent'] || 'unknown';
 
       const result = await AuthService.login(
         { email, password },
