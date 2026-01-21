@@ -10,3 +10,5 @@ export * from './document/docx';
 export * from './job/job';
 export * from './rabbitmq';
 export * from './document/docx-generator';
+export * from './document/docx';
+export * from './auth/auth.service';
