@@ -81,3 +81,31 @@ export class CryptoHelper {
     return secretKey;
   }
 }
+/*  (mb need potom)   const tokens = TokenHelper.generateTokens(userMeta);
+
+      let newRefreshToken: string | undefined;
+      await SessionRepository.revokeRefreshToken(refreshToken);
+
+      // Создаем новую сессию и сохраняем refresh токен
+      const session = await SessionRepository.createSession(
+        userMeta.id,
+        tokens.refreshToken,
+        reqIpAddress,
+        reqUserAgent,
+      );
+
+      if (session) {
+        newRefreshToken = tokens.refreshToken;
+      }
+
+      return {
+        user: userData,
+        accessToken: tokens.accessToken,
+        refreshToken: newRefreshToken,
+      };
+    } catch (error: unknown) {
+      const message = normalizeError(error);
+      logger.error('Refresh token failed', { error: message });
+      throw error;
+    }
+  },*/
