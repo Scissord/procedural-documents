@@ -51,6 +51,25 @@ services:
         condition: service_healthy
     command: sh -c "npm start"
 
+  worker:
+    build: .
+    container_name: procedural-documents-worker
+    env_file:
+      - .env
+    environment:
+      - API_BASE_URL=http://app:3001
+      - QDRANT_URL=http://qdrant:6333
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - RABBITMQ_QUEUE=document-generation
+    networks:
+      - app-network
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+    command: sh -c "npm run worker"
+
 networks:
   app-network:
     driver: bridge

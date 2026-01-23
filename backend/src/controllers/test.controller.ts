@@ -1,4 +1,4 @@
-import { logger, JobService } from '@services';
+import { logger, JobService, DocumentService } from '@services';
 import { normalizeError } from '@helpers';
 import { Request, Response } from 'express';
 
@@ -14,18 +14,22 @@ export const TestController = {
     // message - situation
     // user_id - user_id
     try {
-      const { situation, document_id = 1 } = req.body;
+      const { situation } = req.body;
+
+      // Создаем запись о генерации документа
+      const document = await DocumentService.createDocument(situation);
 
       // Создаём Job
-      const job = await JobService.createJob(situation, document_id);
+      const job = await JobService.createJob(situation, document.id);
 
       // Пишем в очередь
-      await JobService.writeToQueue(job.id, document_id);
+      await JobService.writeToQueue(job.id, document.id);
 
       // Сразу 202 + jobId
       res.status(202).json({
         success: true,
-        jobId: job.id,
+        job_id: job.id,
+        document_id: document.id,
       });
     } catch (error: unknown) {
       const message = normalizeError(error);

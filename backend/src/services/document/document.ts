@@ -1,6 +1,42 @@
 import { IOpponentData, IUserData } from '@interfaces';
+import { db } from '@services';
+
+interface IDocument {
+  id: number;
+  user_id: number;
+  situation: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string;
+}
 
 export const DocumentService = {
+  async createDocument(situation: string): Promise<IDocument> {
+    const query = `
+      INSERT INTO app.document (
+        user_id,
+        situation
+      )
+      VALUES ($1, $2)
+      RETURNING *;
+    `;
+
+    const document = await db.query(query, [8, situation]);
+
+    return document.rows[0];
+  },
+
+  async getDocument(document_id: number): Promise<IDocument> {
+    const query = `
+      SELECT * FROM app.document
+      WHERE id = $1
+    `;
+
+    const document = await db.query(query, [document_id]);
+
+    return document.rows[0];
+  },
+
   async prepareDocument(
     document_id: number,
     classification_id: number,
