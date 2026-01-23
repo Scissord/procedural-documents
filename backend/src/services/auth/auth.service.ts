@@ -39,26 +39,13 @@ export const AuthService = {
     try {
       await client.query('BEGIN');
 
-      // вырезать нахуй
-      // проверку на существующюю почту, нужно делать в validations
-      const emailHash = await CryptoHelper.hashEmail(data.email);
-      if (await UserRepository.existsByEmailHash(emailHash)) {
-        throw new Error('User with this email already exists');
-      }
-      // до сюда
-
-      // Хэшировать вот так
-      // const salt = await bcrypt.genSalt(10);
-      // const password_hash = await bcrypt.hash(data.password, salt);
       const passwordHash = await CryptoHelper.hashPassword(data.password);
 
-      // const user =
       const userId = await UserRepository.createUser(client, {
         email: data.email,
         passwordHash,
       });
 
-      // user.id
       await UserRepository.createProfile(client, userId, {
         first_name: data.first_name,
         last_name: data.last_name,
