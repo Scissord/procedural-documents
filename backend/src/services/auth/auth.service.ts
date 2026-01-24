@@ -107,6 +107,9 @@ export const AuthService = {
         throw new Error('Invalid password');
       }
 
+      // find exists session
+      // if exists update fields entries +1
+
       const sessionId = await SessionRepository.createSession(
         client,
         user.id,

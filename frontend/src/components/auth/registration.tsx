@@ -30,6 +30,11 @@ const registrationSchema = z.object({
     .min(3, 'Пароль должен быть не менее 3 символов')
     .max(128, 'Пароль должен быть не более 128 символов')
     .regex(/[A-Z]/, 'Пароль должен содержать хотя бы одну заглавную букву'),
+  password_verification: z
+    .string()
+    .min(3, 'Пароль должен быть не менее 3 символов')
+    .max(128, 'Пароль должен быть не более 128 символов')
+    .regex(/[A-Z]/, 'Пароль должен содержать хотя бы одну заглавную букву'),
   email: z.string().email('Некорректный email'),
   gender: z.enum(['male', 'female', 'other'] as const),
 });
@@ -44,6 +49,8 @@ export const RegistrationForm = ({
   const notificationsStore = useNotificationStore.getState();
   const [open, setOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordVerification, setShowPasswordVerification] =
+    useState(false);
 
   const {
     register,
@@ -57,6 +64,11 @@ export const RegistrationForm = ({
 
   const onSubmit = async (data: RegistrationFormData) => {
     try {
+      if (data.password !== data.password_verification) {
+        // notification
+        alert('Incorrect password');
+        return;
+      }
       const locale = navigator.language || navigator.languages[0] || 'ru';
       const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -81,7 +93,8 @@ export const RegistrationForm = ({
         notificationsStore.addNotification({
           type: 'destructive',
           title: 'Ошибка!',
-          description: typeof response === 'string' ? response : 'Ошибка регистрации',
+          description:
+            typeof response === 'string' ? response : 'Ошибка регистрации',
         });
       }
     } catch (err) {
@@ -100,6 +113,7 @@ export const RegistrationForm = ({
       onSubmit={handleSubmit(onSubmit)}
       noValidate
     >
+      {/* Имя */}
       <div>
         <Label htmlFor="name">Имя</Label>
         <Input
@@ -112,7 +126,7 @@ export const RegistrationForm = ({
           <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
         )}
       </div>
-
+      {/* Пароль */}
       <div>
         <Label htmlFor="password">Пароль</Label>
         <div className="relative">
@@ -137,7 +151,40 @@ export const RegistrationForm = ({
           <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
         )}
       </div>
-
+      {/* Подтверждение пароля */}
+      <div>
+        <Label htmlFor="password_verification">Подтверждение пароля</Label>
+        <div className="relative">
+          <Input
+            id="password_verification"
+            placeholder="••••••••"
+            type={showPassword ? 'text' : 'password'}
+            {...register('password_verification')}
+            className={errors.password_verification ? 'border-red-500' : ''}
+          />
+          <button
+            // variant={'ghost'}
+            // size={'sm'}
+            type="button"
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500"
+            onClick={() =>
+              setShowPasswordVerification(!showPasswordVerification)
+            }
+          >
+            {showPasswordVerification ? (
+              <EyeOffIcon size={16} />
+            ) : (
+              <EyeIcon size={16} />
+            )}
+          </button>
+        </div>
+        {errors.password_verification && (
+          <p className="text-red-500 text-sm mt-1">
+            {errors.password_verification.message}
+          </p>
+        )}
+      </div>
+      {/* Почта */}
       <div>
         <Label htmlFor="email">Email</Label>
         <Input
@@ -151,7 +198,7 @@ export const RegistrationForm = ({
           <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
         )}
       </div>
-
+      {/* Пол */}
       <div>
         <Label>Пол</Label>
         <Controller
@@ -182,13 +229,11 @@ export const RegistrationForm = ({
           <p className="text-red-500 text-sm mt-1">{errors.gender.message}</p>
         )}
       </div>
-
       <div className="flex items-center justify-center">
         <Button variant="link" onClick={() => setTab('login')}>
           Уже есть аккаунт?
         </Button>
       </div>
-
       <Button className="w-full mt-2" type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Загрузка...' : 'Зарегистрироваться'}
       </Button>

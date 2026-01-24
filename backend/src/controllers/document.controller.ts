@@ -268,6 +268,12 @@ export const DocumentController = {
         throw new Error('Document template not found');
       }
 
+      // SWITCH CASE
+      // НА 47 ВАРИАНТОВ
+      // IF 1
+      // ПОЗВРАЩАЕТСЯ ТОТ ПРОМПТ ЧТО НИЖЕ
+      // DocumentService.getPrompt
+
       const prompt = `
         Ты — юрист-практик по Республике Казахстан.
 

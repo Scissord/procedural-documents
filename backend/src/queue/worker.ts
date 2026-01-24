@@ -38,6 +38,7 @@ async function startWorker(): Promise<void> {
     if (response.status === 200) {
       // - update job status to completed
       await JobService.updateJobStatus(job_id, 'completed');
+      // - save response from llm to app.document
     } else {
       // - update job status to failed
       await JobService.updateJobStatus(job_id, 'failed');

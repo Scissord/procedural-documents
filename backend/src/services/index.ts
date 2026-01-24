@@ -12,3 +12,5 @@ export * from './rabbitmq';
 export * from './document/docx-generator';
 export * from './document/docx';
 export * from './auth/auth.service';
+export * from './classification/classification';
+export * from './stage/stage';

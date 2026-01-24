@@ -40,31 +40,35 @@ export const LoginForm = () => {
   const onSubmit = async (data: loginFormData) => {
     try {
       router.push('/');
-      // const response = await AuthService.login(data);
-      // if (
-      //   typeof response === 'object' &&
-      //   response.user &&
-      //   response.access_token
-      // ) {
-      //   // notification success
-      //   notificationsStore.addNotification({
-      //     type: 'default',
-      //     title: 'Успех!',
-      //     description: 'Пользователь успешно авторизован.',
-      //   });
-      //   console.log('Успешная авторизация', response);
-      //   userStore.setUser(response.user, response.access_token);
-      //   router.push('/clients');
-      // } else {
-      //   if (typeof response === 'string') {
-      //     // notification error
-      //     notificationsStore.addNotification({
-      //       type: 'destructive',
-      //       title: 'Ошибка!',
-      //       description: response,
-      //     });
-      //   }
-      // }
+      const response = await AuthService.login(data);
+      console.log(response);
+      console.log(typeof response === 'object');
+      console.log(response?.user);
+      console.log(response?.accessToken);
+      if (
+        typeof response === 'object' &&
+        response.user &&
+        response.accessToken
+      ) {
+        // notification success
+        notificationsStore.addNotification({
+          type: 'default',
+          title: 'Успех!',
+          description: 'Пользователь успешно авторизован.',
+        });
+        console.log('Успешная авторизация', response);
+        userStore.setUser(response.user, response.accessToken);
+        router.push('/');
+      } else {
+        if (typeof response === 'string') {
+          // notification error
+          notificationsStore.addNotification({
+            type: 'destructive',
+            title: 'Ошибка!',
+            description: response,
+          });
+        }
+      }
     } catch (err) {
       console.error(err);
     }
@@ -123,7 +127,7 @@ export const LoginForm = () => {
       </div>
 
       <Button className="w-full mt-2" type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Загрузка...' : 'Зарегистрироваться'}
+        {isSubmitting ? 'Загрузка...' : 'Войти'}
       </Button>
     </form>
   );

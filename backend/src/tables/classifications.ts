@@ -7,16 +7,16 @@ export const classifications = [
   {
     id: 2,
     name: 'Уголовное право',
-    code: 'gpk',
+    code: 'upk',
   },
   {
     id: 3,
     name: 'Административное право',
-    code: 'gpk',
+    code: 'apk',
   },
   {
     id: 4,
     name: 'Процессуальное право',
-    code: 'gpk',
+    code: 'ppk',
   },
 ];
