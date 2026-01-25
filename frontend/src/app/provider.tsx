@@ -9,7 +9,7 @@ import {
   FloatingThemeButton,
 } from '@/components';
 import { useRouter } from 'next/navigation';
-import { setup } from '@/api';
+// import { setup } from '@/api';
 
 export default function Provider({ children }: { children: React.ReactNode }) {
   // const router = useRouter();

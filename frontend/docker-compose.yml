@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build: .
+    container_name: procedural-documents-frontend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    command: npm start

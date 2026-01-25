@@ -4,12 +4,9 @@ import { DocumentController } from '@controllers';
 const router = Router();
 
 // Генерация юридического документа
-router.post('/generate', DocumentController.generateDocument);
+// router.post('/generate', DocumentController.generateDocument);
 
 // генерация из ситуации (для Telegram бота)
-router.post(
-  '/generate-from-situation',
-  DocumentController.generateDocumentFromSituation,
-);
+router.post('/telegram/generate', DocumentController.generateDocumentTelegram);
 
 export default router;

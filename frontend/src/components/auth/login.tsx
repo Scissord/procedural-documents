@@ -9,6 +9,7 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { AuthService } from '@/services';
 import { useRouter } from 'next/navigation';
 import { useNotificationStore, useUserStore } from '@/store';
+import { IUserLogin } from '@/interfaces';
 
 const loginSchema = z.object({
   email: z.email('Некорректный email').optional().or(z.literal('')),
@@ -41,10 +42,6 @@ export const LoginForm = () => {
     try {
       router.push('/');
       const response = await AuthService.login(data);
-      console.log(response);
-      console.log(typeof response === 'object');
-      console.log(response?.user);
-      console.log(response?.accessToken);
       if (
         typeof response === 'object' &&
         response.user &&

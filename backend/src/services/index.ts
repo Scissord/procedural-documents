@@ -14,3 +14,5 @@ export * from './document/docx';
 export * from './auth/auth.service';
 export * from './classification/classification';
 export * from './stage/stage';
+export * from './template/template';
+export * from './prompt/prompt';

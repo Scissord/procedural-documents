@@ -42,9 +42,14 @@ export const generateLegalDocument = async (input: string): Promise<string> => {
   const agent = getLegalAgent();
 
   // LangGraph agent использует invoke с messages
-  const result = (await agent.invoke({
-    messages: [{ role: 'user', content: input }],
-  })) as { messages: Array<{ content: string | object }> };
+  const result = (await agent.invoke(
+    {
+      messages: [{ role: 'user', content: input }],
+    },
+    {
+      recursionLimit: 50,
+    },
+  )) as { messages: Array<{ content: string | object }> };
 
   // Получаем последнее сообщение от ассистента
   const lastMessage = result.messages[result.messages.length - 1];

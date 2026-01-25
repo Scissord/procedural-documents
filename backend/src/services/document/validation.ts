@@ -30,4 +30,11 @@ export const DocumentValidationService = {
       throw new Error('Invalid document data');
     }
   },
+
+  sliceSituation(situation: string) {
+    const maxSituationChars = 6000;
+    return typeof situation === 'string' && situation.length > maxSituationChars
+      ? `${situation.slice(0, maxSituationChars)}\n\n<<СИТУАЦИЯ СОКРАЩЕНА: пришёл слишком большой текст; укажи ключевые факты/даты/суммы/документы отдельно>>`
+      : situation;
+  },
 };
