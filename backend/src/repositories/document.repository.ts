@@ -1,5 +1,5 @@
 import { db } from '@services';
-import { IDocumentTemplate } from '@interfaces';
+import { IDocumentTemplate, IUserDocument } from '@interfaces';
 
 export const DocumentRepository = {
   /**
@@ -74,6 +74,29 @@ export const DocumentRepository = {
         ORDER BY id ASC;
       `,
       [],
+    );
+
+    return result.rows;
+  },
+
+  /**
+   * Получить все документы пользователя из app.document
+   */
+  async getUserDocuments(user_id: number): Promise<IUserDocument[]> {
+    const result = await db.query(
+      `
+        SELECT
+          id,
+          user_id,
+          situation,
+          created_at,
+          updated_at,
+          deleted_at
+        FROM app.document
+        WHERE user_id = $1 AND deleted_at IS NULL
+        ORDER BY created_at DESC;
+      `,
+      [user_id],
     );
 
     return result.rows;

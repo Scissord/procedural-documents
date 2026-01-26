@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { AuthService } from '@services';
+import { AuthService, DocumentService } from '@services';
 import { logger } from '@services';
 import { normalizeError } from '@helpers';
 import { AuthRequest } from '@middlewares';
@@ -244,6 +244,23 @@ export const AuthController = {
       });
     } catch (error: unknown) {
       handleAuthError(res, error, 'Update profile');
+    }
+  },
+
+  async getUserDocuments(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      if (!req.user_id) {
+        sendError(res, 401, 'User ID not found in token');
+        return;
+      }
+
+      const documents = await DocumentService.getUserDocuments(req.user_id);
+
+      res.status(200).json({
+        documents,
+      });
+    } catch (error: unknown) {
+      handleAuthError(res, error, 'Get user documents');
     }
   },
 };

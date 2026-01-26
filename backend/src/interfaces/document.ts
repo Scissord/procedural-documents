@@ -18,3 +18,16 @@ export interface IDocumentTemplate {
     stages_allowed?: string[];
   };
 }
+
+/**
+ * Интерфейс для документа пользователя из таблицы app.document
+ * Примечание: Date типы на бэкенде автоматически сериализуются в строки при отправке на фронтенд
+ */
+export interface IUserDocument {
+  id: number;
+  user_id: number;
+  situation: string;
+  created_at: Date;
+  updated_at: Date;
+  deleted_at: Date | null;
+}

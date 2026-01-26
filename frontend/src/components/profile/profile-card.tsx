@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, Button, Input } from '@/components';
-import { IUser } from '@/interfaces';
-import { User, Mail, Phone, Calendar, MapPin, Clock, Edit2, Check, X } from 'lucide-react';
-import { AuthService } from '@/services';
+import { useState, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle, Button, Input, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components';
+import { IUser, IUserDocument } from '@/interfaces';
+import { User, Mail, Phone, Calendar, MapPin, Clock, Edit2, Check, X, FileText } from 'lucide-react';
+import { AuthService, DocumentService } from '@/services';
 import { useUserStore } from '@/store';
 import { useNotificationStore } from '@/store';
 
@@ -19,6 +19,8 @@ export function ProfileCard({ user: initialUser }: ProfileCardProps) {
   const [isEditingPhone, setIsEditingPhone] = useState(false);
   const [phoneValue, setPhoneValue] = useState(currentUser?.phone || '');
   const [isSaving, setIsSaving] = useState(false);
+  const [documents, setDocuments] = useState<IUserDocument[]>([]);
+  const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
 
   const formatDate = (date: string | Date | null | undefined) => {
     if (!date) return 'Не указано';
@@ -87,6 +89,39 @@ export function ProfileCard({ user: initialUser }: ProfileCardProps) {
     const current = user || initialUser;
     setPhoneValue(current?.phone || '');
     setIsEditingPhone(false);
+  };
+
+  useEffect(() => {
+    const loadDocuments = async () => {
+      setIsLoadingDocuments(true);
+      try {
+        const result = await DocumentService.getUserDocuments();
+        if (Array.isArray(result)) {
+          setDocuments(result);
+        } else {
+          notificationsStore.addNotification({
+            type: 'destructive',
+            title: 'Ошибка!',
+            description: typeof result === 'string' ? result : 'Не удалось загрузить документы',
+          });
+        }
+      } catch (error) {
+        notificationsStore.addNotification({
+          type: 'destructive',
+          title: 'Ошибка!',
+          description: 'Произошла ошибка при загрузке документов',
+        });
+      } finally {
+        setIsLoadingDocuments(false);
+      }
+    };
+
+    loadDocuments();
+  }, []);
+
+  const truncateText = (text: string, maxLength: number = 100) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
   };
 
   return (
@@ -204,6 +239,49 @@ export function ProfileCard({ user: initialUser }: ProfileCardProps) {
               </div>
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <FileText className="h-5 w-5" />
+            Сгенерированные документы
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {isLoadingDocuments ? (
+            <p className="text-muted-foreground text-center py-4">Загрузка документов...</p>
+          ) : documents.length === 0 ? (
+            <p className="text-muted-foreground text-center py-4">У вас пока нет сгенерированных документов</p>
+          ) : (
+            <div className="rounded-md border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>ID</TableHead>
+                    <TableHead>Ситуация</TableHead>
+                    <TableHead>Дата создания</TableHead>
+                    <TableHead>Дата обновления</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {documents.map((doc) => (
+                    <TableRow key={doc.id}>
+                      <TableCell className="font-medium">{doc.id}</TableCell>
+                      <TableCell className="max-w-md">
+                        <div className="truncate" title={doc.situation}>
+                          {truncateText(doc.situation, 100)}
+                        </div>
+                      </TableCell>
+                      <TableCell>{formatDate(doc.created_at)}</TableCell>
+                      <TableCell>{formatDate(doc.updated_at)}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

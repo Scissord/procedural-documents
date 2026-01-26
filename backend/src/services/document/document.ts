@@ -1,5 +1,6 @@
 import { db, DocumentValidationService, TemplateService } from '@services';
 import { DocumentRepository } from '@repositories';
+import { IUserDocument } from '@interfaces';
 
 interface IDocument {
   id: number;
@@ -150,5 +151,12 @@ export const DocumentService = {
    */
   async getDocumentsByStageId(stage_id: number) {
     return DocumentRepository.getByStageId(stage_id);
+  },
+
+  /**
+   * Получает список документов пользователя из app.document
+   */
+  async getUserDocuments(user_id: number): Promise<IUserDocument[]> {
+    return DocumentRepository.getUserDocuments(user_id);
   },
 };

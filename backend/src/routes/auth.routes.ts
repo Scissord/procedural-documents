@@ -21,4 +21,5 @@ router.post(
 router.post('/refresh', AuthController.refresh);
 router.get('/profile', auth, AuthController.getProfile);
 router.patch('/profile', auth, AuthController.updateProfile);
+router.get('/documents', auth, AuthController.getUserDocuments);
 export default router;
