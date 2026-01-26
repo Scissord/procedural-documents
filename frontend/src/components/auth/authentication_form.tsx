@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import {
@@ -15,10 +15,19 @@ import {
   RegistrationForm,
   Button,
 } from '@/components';
+import { useUserStore } from '@/store';
 
 export function AuthenticationForm() {
   const [tab, setTab] = useState('login');
   const router = useRouter();
+  const { user } = useUserStore();
+
+  useEffect(() => {
+    // Если пользователь уже зарегистрирован, перенаправляем на /document/generate
+    if (user?.id) {
+      router.push('/document/generate');
+    }
+  }, [user, router]);
 
   const handleGoHome = () => {
     router.push('/');

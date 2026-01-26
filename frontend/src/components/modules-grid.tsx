@@ -6,6 +6,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+  Button,
 } from '@/components';
 import { useRouter } from 'next/navigation';
 import { Users, FileText, Settings, BarChart3 } from 'lucide-react';
@@ -65,43 +70,66 @@ export function ModulesGrid({ showTitle = true }: ModulesGridProps) {
     }
   };
 
+  const handleLoginClick = () => {
+    router.push('/auth');
+  };
+
   return (
-    <div className="bg-background p-8">
-      <div className="max-w-7xl mx-auto">
-        {showTitle && (
-          <h1 className="text-4xl font-bold text-foreground mb-8">
-            Доступные модули
-          </h1>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {modules.map((module) => (
-            <Card
-              key={module.id}
-              className={`transition-all duration-200 ${
-                isAuthenticated
-                  ? 'cursor-pointer hover:shadow-lg hover:scale-105 hover:border-secondary-100/50'
-                  : 'opacity-70 cursor-not-allowed'
-              }`}
-              onClick={() => handleModuleClick(module)}
-            >
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-2">
-                  <div className="text-primary">{module.icon}</div>
-                  <CardTitle>{module.title}</CardTitle>
-                </div>
-                <CardDescription>{module.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
+    <TooltipProvider>
+      <div className="bg-background p-8">
+        <div className="max-w-7xl mx-auto">
+          {showTitle && (
+            <h1 className="text-4xl font-bold text-foreground mb-8">
+              Доступные модули
+            </h1>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {modules.map((module) => (
+              <Tooltip key={module.id}>
+                <TooltipTrigger asChild>
+                  <Card
+                    className={`transition-all duration-200 ${
+                      isAuthenticated
+                        ? 'cursor-pointer hover:shadow-lg hover:scale-105 hover:border-secondary-100/50'
+                        : 'opacity-70 cursor-not-allowed'
+                    }`}
+                    onClick={() => handleModuleClick(module)}
+                  >
+                    <CardHeader>
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="text-primary">{module.icon}</div>
+                        <CardTitle>{module.title}</CardTitle>
+                      </div>
+                      <CardDescription>{module.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      {!isAuthenticated && (
+                        <p className="text-sm text-muted-foreground italic">
+                          Необходимо войти в систему
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                </TooltipTrigger>
                 {!isAuthenticated && (
-                  <p className="text-sm text-muted-foreground italic">
-                    Для использования модуля необходимо войти в систему
-                  </p>
+                  <TooltipContent>
+                    <div className="flex flex-col gap-2">
+                      <p className="text-sm">Необходимо войти в систему</p>
+                      <Button
+                        onClick={handleLoginClick}
+                        size="sm"
+                        className="w-full"
+                      >
+                        Войти
+                      </Button>
+                    </div>
+                  </TooltipContent>
                 )}
-              </CardContent>
-            </Card>
-          ))}
+              </Tooltip>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }
