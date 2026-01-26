@@ -1,102 +1,89 @@
-// // 👉 Клиент (browser, client components)
-// // 👉 Можно:
+/**
+ * Данный файл возвращает только функцию api(), через которую кидается запросы в бэкэнд
+ * Бизнес логика данного файла:
+ * Предназначен для клиентских компонентов
+ * Является неким middleware, для того чтобы, проверять ошибки при истечении срока токена
+ * Если токен истек, то он автоматически перезаписывается и переотправляется запрос
+ */
+'use client';
 
-// // читать Zustand / Redux
+const BASE_URL = process.env.NEXT_BACKEND_API_URL!;
 
-// // показывать уведомления
+import { useUserStore, useNotificationStore } from '@/store';
+import { AuthService } from '@/services';
 
-// // делать refresh по 401
+type ApiFetchOptions = RequestInit & {
+  retry?: boolean;
+};
 
-// // lib/api/fetch.client.ts
-// 'use client';
+export async function api<T>(
+  path: string,
+  options: ApiFetchOptions = {},
+): Promise<T> {
+  const { user, setUser, access_token, setAccessToken, logout } =
+    useUserStore.getState();
+  const notificationStore = useNotificationStore.getState();
 
-// import { useUserStore, useNotificationStore } from '@/store';
+  const headers = new Headers(options.headers);
 
-// const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
+  if (access_token) {
+    headers.set('Authorization', `Bearer ${access_token}`);
+  }
 
-// type ApiFetchOptions = RequestInit & {
-//   retry?: boolean;
-// };
+  headers.set('Content-Type', 'application/json');
 
-// export async function apiFetch<T>(
-//   path: string,
-//   options: ApiFetchOptions = {},
-// ): Promise<T> {
-//   const { user, setAccessToken, logout } = useUserStore.getState();
-//   const notificationStore = useNotificationStore.getState();
+  const response = await fetch(`${BASE_URL}${path}`, {
+    ...options,
+    headers,
+    credentials: 'include',
+  });
 
-//   const headers = new Headers(options.headers);
+  if (response.ok) {
+    return response.json();
+  }
 
-//   if (user?.accessToken) {
-//     headers.set('Authorization', `Bearer ${user.accessToken}`);
-//   }
+  // Если от бэка 400
+  if (response.status === 400) {
+    notificationStore.addNotification({
+      type: 'destructive',
+      title: 'Ошибка при выполнении запроса',
+      description: 'Попробуйте позже',
+    });
+  }
 
-//   headers.set('Content-Type', 'application/json');
+  // Если от бека 500
+  if (response.status === 500) {
+    notificationStore.addNotification({
+      type: 'destructive',
+      title: 'Ошибка сервера',
+      description: 'Попробуйте позже',
+    });
+  }
 
-//   const response = await fetch(`${BASE_URL}${path}`, {
-//     ...options,
-//     headers,
-//     credentials: 'include',
-//   });
+  // Если от бека 401 - Unauthorized
+  if (response.status === 401 && !options.retry) {
+    try {
+      const newAccessToken = await AuthService.refresh();
+      setAccessToken(newAccessToken);
 
-//   if (response.ok) {
-//     return response.json();
-//   }
+      return api(path, {
+        ...options,
+        retry: true,
+        headers: {
+          ...options.headers,
+          Authorization: `Bearer ${newAccessToken}`,
+        },
+      });
+    } catch {
+      logout();
+      notificationStore.addNotification({
+        type: 'destructive',
+        title: 'Сессия истекла',
+        description: 'Войдите заново',
+      });
+      throw response;
+    }
+  }
 
-//   // ---------- errors ----------
-//   if (response.status === 401 && !options.retry) {
-//     try {
-//       const newAccessToken = await refreshToken();
-//       setAccessToken(newAccessToken);
-
-//       return apiFetch(path, {
-//         ...options,
-//         retry: true,
-//         headers: {
-//           ...options.headers,
-//           Authorization: `Bearer ${newAccessToken}`,
-//         },
-//       });
-//     } catch {
-//       logout();
-//       notificationStore.addNotification({
-//         type: 'error',
-//         title: 'Сессия истекла',
-//         description: 'Войдите заново',
-//       });
-//       throw response;
-//     }
-//   }
-
-//   if (response.status === 400) {
-//     notificationStore.addNotification({
-//       type: 'error',
-//       title: 'Ошибка',
-//       description: 'Некорректные данные',
-//     });
-//   }
-
-//   if (response.status === 500) {
-//     notificationStore.addNotification({
-//       type: 'error',
-//       title: 'Ошибка сервера',
-//       description: 'Попробуйте позже',
-//     });
-//   }
-
-//   throw response;
-// }
-
-// async function refreshToken(): Promise<string> {
-//   const res = await fetch(`${BASE_URL}/auth/refresh`, {
-//     method: 'POST',
-//     credentials: 'include',
-//   });
-
-//   if (!res.ok) {
-//     throw new Error('Refresh failed');
-//   }
-
-//   const data = await res.json();
-//   return data.accessToken;
-// }
+  throw response;
+}

@@ -75,6 +75,7 @@ export const AuthController = {
 
       res.status(201).json({
         user: result.user,
+        code:
       });
     } catch (error: unknown) {
       handleAuthError(res, error, 'Registration');

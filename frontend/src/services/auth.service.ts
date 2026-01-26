@@ -22,6 +22,8 @@ const loginSchema = z.object({
 
 type loginFormData = z.infer<typeof loginSchema>;
 
+const BASE_URL = process.env.NEXT_BACKEND_API_URL!;
+
 export const AuthService = {
   async registration(data: IRegistration): Promise<IUser | string> {
     try {
@@ -36,7 +38,11 @@ export const AuthService = {
       const result = await response.json();
       if (!response.ok) {
         // Бэкенд возвращает { errors: [{ msg: string }] }
-        if (result.errors && Array.isArray(result.errors) && result.errors.length > 0) {
+        if (
+          result.errors &&
+          Array.isArray(result.errors) &&
+          result.errors.length > 0
+        ) {
           return result.errors[0].msg;
         }
         throw result;
@@ -45,7 +51,11 @@ export const AuthService = {
       return result;
     } catch (err: unknown) {
       const apiErr = err as ApiError;
-      if (apiErr?.errors && Array.isArray(apiErr.errors) && apiErr.errors.length > 0) {
+      if (
+        apiErr?.errors &&
+        Array.isArray(apiErr.errors) &&
+        apiErr.errors.length > 0
+      ) {
         return apiErr.errors[0].msg;
       }
       if (apiErr?.error) {
@@ -84,5 +94,33 @@ export const AuthService = {
 
   async logout() {},
 
-  async refresh() {},
+  async refresh(): Promise<string> {
+    try {
+      const res = await fetch(`${BASE_URL}/auth/refresh`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (!res.ok) {
+        throw new Error('Refresh failed');
+      }
+
+      const data = await res.json();
+      return data.accessToken;
+    } catch (err: unknown) {
+      const apiErr = err as ApiError;
+      if (
+        apiErr?.errors &&
+        Array.isArray(apiErr.errors) &&
+        apiErr.errors.length > 0
+      ) {
+        return apiErr.errors[0].msg;
+      }
+      if (apiErr?.error) {
+        return apiErr.error;
+      }
+
+      return 'Произошла ошибка при обновлении токена';
+    }
+  },
 };

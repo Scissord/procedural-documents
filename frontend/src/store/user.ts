@@ -1,41 +1,33 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { IUser } from '@/interfaces/user';
-// import { getProfile } from '@/api';
 
 interface State {
   user: IUser | null;
-  setUser: (user: IUser, accessToken: string) => void;
+  access_token: string | null;
+  setUser: (user: IUser) => void;
+  setAccessToken: (access_token: string) => void;
   logout: () => void;
-  getProfile: () => Promise<void>;
 }
 
 export const useUserStore = create<State>()(
   persist(
     (set) => ({
       user: null,
-      getProfile: async () => {
-        try {
-          // const user = await getProfile();
-          // if (user) {
-          //   set({ user });
-          // } else {
-          //   set({ user: null });
-          //   localStorage.removeItem('accessToken');
-          // }
-        } catch (error) {
-          console.error('Ошибка при обновлении профиля в сторе:', error);
-          set({ user: null });
-          localStorage.removeItem('accessToken');
-        }
-      },
-      setUser: (user, accessToken) => {
-        localStorage.setItem('accessToken', accessToken);
+      access_token: null,
+      setUser: (user) => {
+        const parsed_user = JSON.stringify(user);
+        localStorage.setItem('user', parsed_user);
         set({ user });
       },
+      setAccessToken: (access_token) => {
+        localStorage.setItem('access_token', access_token);
+        set({ access_token });
+      },
       logout: () => {
-        localStorage.removeItem('accessToken');
-        set({ user: null });
+        localStorage.removeItem('user');
+        localStorage.removeItem('access_token');
+        set({ user: null, access_token: null });
       },
     }),
     {
