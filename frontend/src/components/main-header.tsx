@@ -24,7 +24,7 @@ const navItems = [
 
 export function MainHeader() {
   const router = useRouter();
-  const { logout } = useUserStore();
+  const { user, logout } = useUserStore();
   const handleLogout = () => {
     logout();
     router.push('/');
@@ -78,9 +78,11 @@ export function MainHeader() {
           <DropdownMenuContent className="w-56" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">Аккаунт</p>
+                <p className="text-sm font-medium leading-none">
+                  {user?.first_name || 'Пользователь'}
+                </p>
                 <p className="text-xs leading-none text-muted-foreground">
-                  user@example.com
+                  {user?.email || 'user@example.com'}
                 </p>
               </div>
             </DropdownMenuLabel>

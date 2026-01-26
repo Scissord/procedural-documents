@@ -85,4 +85,77 @@ export const AuthService = {
   async logout() {},
 
   async refresh() {},
+
+  async getProfile(): Promise<IUser | string> {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      if (!accessToken) {
+        return 'Токен доступа не найден';
+      }
+
+      const response = await fetch(`${base_url}/auth/profile`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
+        },
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        if (result.errors && Array.isArray(result.errors) && result.errors.length > 0) {
+          return result.errors[0].msg;
+        }
+        throw result;
+      }
+
+      return result.user;
+    } catch (err: unknown) {
+      const apiErr = err as ApiError;
+      if (apiErr?.errors && Array.isArray(apiErr.errors) && apiErr.errors.length > 0) {
+        return apiErr.errors[0].msg;
+      }
+      if (apiErr?.error) {
+        return apiErr.error;
+      }
+      return 'Произошла ошибка при получении профиля';
+    }
+  },
+
+  async updateProfile(data: { phone?: string }): Promise<IUser | string> {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      if (!accessToken) {
+        return 'Токен доступа не найден';
+      }
+
+      const response = await fetch(`${base_url}/auth/profile`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        if (result.errors && Array.isArray(result.errors) && result.errors.length > 0) {
+          return result.errors[0].msg;
+        }
+        throw result;
+      }
+
+      return result.user;
+    } catch (err: unknown) {
+      const apiErr = err as ApiError;
+      if (apiErr?.errors && Array.isArray(apiErr.errors) && apiErr.errors.length > 0) {
+        return apiErr.errors[0].msg;
+      }
+      if (apiErr?.error) {
+        return apiErr.error;
+      }
+      return 'Произошла ошибка при обновлении профиля';
+    }
+  },
 };

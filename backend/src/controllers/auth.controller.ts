@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { AuthService } from '@services';
 import { logger } from '@services';
 import { normalizeError } from '@helpers';
+import { AuthRequest } from '@middlewares';
 
 const sendError = (res: Response, status: number, message: string): void => {
   res.status(status).json({
@@ -197,6 +198,51 @@ export const AuthController = {
       }
 
       handleAuthError(res, error, 'Token refresh');
+    }
+  },
+  async getProfile(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      if (!req.user_id) {
+        sendError(res, 401, 'User ID not found in token');
+        return;
+      }
+
+      const user = await AuthService.getProfile(req.user_id);
+
+      if (!user) {
+        sendError(res, 404, 'User not found');
+        return;
+      }
+
+      res.status(200).json({
+        user,
+      });
+    } catch (error: unknown) {
+      handleAuthError(res, error, 'Get profile');
+    }
+  },
+
+  async updateProfile(req: AuthRequest, res: Response): Promise<void> {
+    try {
+      if (!req.user_id) {
+        sendError(res, 401, 'User ID not found in token');
+        return;
+      }
+
+      const { phone } = req.body;
+
+      const user = await AuthService.updateProfile(req.user_id, { phone });
+
+      if (!user) {
+        sendError(res, 404, 'User not found');
+        return;
+      }
+
+      res.status(200).json({
+        user,
+      });
+    } catch (error: unknown) {
+      handleAuthError(res, error, 'Update profile');
     }
   },
 };
