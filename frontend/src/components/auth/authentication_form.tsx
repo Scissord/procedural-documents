@@ -23,7 +23,6 @@ export function AuthenticationForm() {
   const { user } = useUserStore();
 
   useEffect(() => {
-    // Если пользователь уже зарегистрирован, перенаправляем на /document/generate
     if (user?.id) {
       router.push('/document/generate');
     }

@@ -1,10 +1,27 @@
+import { db } from '@services';
 import { body } from 'express-validator';
 
 export const registrationValidation = [
   body('email')
     .isEmail()
     .withMessage('Email must be a valid email address')
-    .normalizeEmail(),
+    .normalizeEmail()
+    .bail()
+    .custom(async (value) => {
+      const query = `
+        SELECT 1
+        FROM auth."user"
+        WHERE email_hash = encode(digest(upper($1), 'sha256'), 'hex')
+        LIMIT 1
+      `;
+      const { rows } = await db.query(query, [value]);
+
+      if (rows.length) {
+        throw new Error('Данная почта уже зарегестрирована');
+      }
+
+      return true;
+    }),
   body('first_name')
     .trim()
     .notEmpty()
@@ -56,19 +73,3 @@ export const registrationValidation = [
 //   .optional()
 //   .isEmail()
 //   .withMessage('email must be valid')
-//   .bail()
-//   .custom(async (value) => {
-//     const query = `
-//       SELECT 1
-//       FROM auth.profile
-//       WHERE email_hash = encode(digest(upper($1), 'sha256'), 'hex')
-//       LIMIT 1
-//     `;
-//     const { rows } = await db.query(query, [value]);
-
-//     if (rows.length) {
-//       throw new Error('email already exists');
-//     }
-
-//     return true;
-//   }),

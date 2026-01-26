@@ -19,6 +19,7 @@ import { AuthService } from '@/services';
 import { ChevronDownIcon, EyeIcon, EyeOffIcon } from 'lucide-react';
 import { formatDate } from '@/utils';
 import { useNotificationStore } from '@/store';
+import { IRegistrationOutput } from '@/interfaces';
 
 const registrationSchema = z.object({
   name: z
@@ -35,7 +36,7 @@ const registrationSchema = z.object({
     .min(3, 'Пароль должен быть не менее 3 символов')
     .max(128, 'Пароль должен быть не более 128 символов')
     .regex(/[A-Z]/, 'Пароль должен содержать хотя бы одну заглавную букву'),
-  email: z.string().email('Некорректный email'),
+  email: z.email('Некорректный email'),
   gender: z.enum(['male', 'female', 'other'] as const),
 });
 
@@ -46,7 +47,7 @@ export const RegistrationForm = ({
 }: {
   setTab: Dispatch<SetStateAction<string>>;
 }) => {
-  const notificationsStore = useNotificationStore.getState();
+  const notificationStore = useNotificationStore.getState();
   const [open, setOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordVerification, setShowPasswordVerification] =
@@ -60,49 +61,48 @@ export const RegistrationForm = ({
   } = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema),
     mode: 'onBlur',
+    defaultValues: {
+      gender: 'male',
+    },
   });
 
   const onSubmit = async (data: RegistrationFormData) => {
-    try {
-      if (data.password !== data.password_verification) {
-        // notification
-        alert('Incorrect password');
-        return;
-      }
-      const locale = navigator.language || navigator.languages[0] || 'ru';
-      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-      const response = await AuthService.registration({
-        first_name: data.name,
-        email: data.email,
-        password: data.password,
-        gender: data.gender,
-        locale,
-        timezone,
+    if (data.password !== data.password_verification) {
+      notificationStore.addNotification({
+        type: 'destructive',
+        title: 'Ошибка',
+        description: 'Пароли не совпадают!',
       });
+      return;
+    }
 
-      if (typeof response === 'object' && 'user' in response) {
-        notificationsStore.addNotification({
-          type: 'default',
-          title: 'Успех!',
-          description: 'Пользователь успешно зарегистрирован.',
-        });
-        console.log('Успешная регистрация', response);
-        setTab('login');
-      } else {
-        notificationsStore.addNotification({
-          type: 'destructive',
-          title: 'Ошибка!',
-          description:
-            typeof response === 'string' ? response : 'Ошибка регистрации',
-        });
-      }
-    } catch (err) {
-      console.error(err);
-      notificationsStore.addNotification({
+    const locale = navigator.language || navigator.languages[0] || 'ru';
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    const response: IRegistrationOutput = await AuthService.registration({
+      first_name: data.name,
+      email: data.email,
+      password: data.password,
+      gender: data.gender,
+      locale,
+      timezone,
+    });
+
+    if (response.code === 'CREATED') {
+      notificationStore.addNotification({
+        type: 'default',
+        title: 'Успех!',
+        description: 'Пользователь успешно зарегистрирован.',
+      });
+      console.log('Успешная регистрация', response);
+      setTab('login');
+    } else {
+      notificationStore.addNotification({
         type: 'destructive',
         title: 'Ошибка!',
-        description: 'Произошла ошибка при регистрации',
+        description:
+          response.error ||
+          'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
       });
     }
   };

@@ -9,6 +9,14 @@ const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN!, {
   handlerTimeout: 300000,
 });
 
+const safeAnswerCbQuery = async (ctx: any, text?: string) => {
+  try {
+    await ctx.answerCbQuery(text);
+  } catch (error) {
+    logger.warn('Failed to answer callback query', { error });
+  }
+};
+
 const DOCUMENTS_PER_PAGE = 6;
 
 type UserState = {
@@ -100,15 +108,16 @@ bot.command('stage', async (ctx) => {
 });
 
 bot.action('stages', async (ctx) => {
-  await ctx.answerCbQuery();
+  await safeAnswerCbQuery(ctx);
   return promptStageSelection(ctx);
 });
 
 bot.action(/stage:(\d+)/, async (ctx) => {
+  await safeAnswerCbQuery(ctx);
   const stageId = Number(ctx.match[1]);
   const stage = stages.find((item) => item.id === stageId);
   if (!stage) {
-    await ctx.answerCbQuery('Стадия не найдена');
+    await safeAnswerCbQuery(ctx, 'Стадия не найдена');
     return;
   }
   const userId = ctx.from?.id;
@@ -120,7 +129,6 @@ bot.action(/stage:(\d+)/, async (ctx) => {
     state.roleId = undefined;
     state.awaitingSituation = false;
   }
-  await ctx.answerCbQuery();
   await ctx.editMessageText(
     `Стадия: ${stage.name}\nВыберите тип документа:`,
     buildDocumentKeyboard(stageId, 0),
@@ -128,14 +136,14 @@ bot.action(/stage:(\d+)/, async (ctx) => {
 });
 
 bot.action(/page:(\d+):(\d+)/, async (ctx) => {
+  await safeAnswerCbQuery(ctx);
   const stageId = Number(ctx.match[1]);
   const page = Number(ctx.match[2]);
   const stage = stages.find((item) => item.id === stageId);
   if (!stage) {
-    await ctx.answerCbQuery('Стадия не найдена');
+    await safeAnswerCbQuery(ctx, 'Стадия не найдена');
     return;
   }
-  await ctx.answerCbQuery();
   await ctx.editMessageText(
     `Стадия: ${stage.name}\nВыберите тип документа:`,
     buildDocumentKeyboard(stageId, page),
@@ -143,10 +151,11 @@ bot.action(/page:(\d+):(\d+)/, async (ctx) => {
 });
 
 bot.action(/doc:(\d+)/, async (ctx) => {
+  await safeAnswerCbQuery(ctx);
   const documentId = Number(ctx.match[1]);
   const document = documents.find((doc) => doc.id === documentId);
   if (!document) {
-    await ctx.answerCbQuery('Документ не найден');
+    await safeAnswerCbQuery(ctx, 'Документ не найден');
     return;
   }
   const userId = ctx.from?.id;
@@ -158,7 +167,6 @@ bot.action(/doc:(\d+)/, async (ctx) => {
     state.roleId = document.role_id;
     state.awaitingSituation = true;
   }
-  await ctx.answerCbQuery();
   await ctx.editMessageText(
     `Тип документа: ${document.name_ru}\nТеперь отправьте описание ситуации.`,
     Markup.inlineKeyboard([Markup.button.callback('⬅️ К стадиям', 'stages')]),

@@ -40,11 +40,19 @@ export default function DocumentGeneratePage() {
     <div className="container mx-auto px-4 py-6 max-w-7xl">
       {/* Кнопки вверху */}
       <div className="flex justify-center gap-4 mb-6">
-        <Button onClick={handleDownload} variant="default" className="bg-blue-600 hover:bg-blue-700">
+        <Button
+          onClick={handleDownload}
+          variant="default"
+          className="bg-blue-600 hover:bg-blue-700"
+        >
           <Download className="mr-2 h-4 w-4" />
           Скачать без заполнения
         </Button>
-        <Button onClick={handleHelp} variant="default" className="bg-blue-600 hover:bg-blue-700">
+        <Button
+          onClick={handleHelp}
+          variant="default"
+          className="bg-blue-600 hover:bg-blue-700"
+        >
           <HelpCircle className="mr-2 h-4 w-4" />
           Помощь юриста
         </Button>
@@ -61,17 +69,23 @@ export default function DocumentGeneratePage() {
             <Input
               id="insuranceCompany"
               value={formData.insuranceCompany}
-              onChange={(e) => handleInputChange('insuranceCompany', e.target.value)}
+              onChange={(e) =>
+                handleInputChange('insuranceCompany', e.target.value)
+              }
               className="mt-1"
             />
           </div>
 
           <div>
-            <Label htmlFor="insuranceAddress">Адрес страховой организации</Label>
+            <Label htmlFor="insuranceAddress">
+              Адрес страховой организации
+            </Label>
             <Input
               id="insuranceAddress"
               value={formData.insuranceAddress}
-              onChange={(e) => handleInputChange('insuranceAddress', e.target.value)}
+              onChange={(e) =>
+                handleInputChange('insuranceAddress', e.target.value)
+              }
               className="mt-1"
               placeholder="/-----/"
             />
@@ -93,7 +107,9 @@ export default function DocumentGeneratePage() {
             <Input
               id="residentialAddress"
               value={formData.residentialAddress}
-              onChange={(e) => handleInputChange('residentialAddress', e.target.value)}
+              onChange={(e) =>
+                handleInputChange('residentialAddress', e.target.value)
+              }
               className="mt-1"
               placeholder="/-----/"
             />
@@ -123,7 +139,9 @@ export default function DocumentGeneratePage() {
           </div>
 
           <div>
-            <Label htmlFor="creditDate">Дата заключения кредитного договора</Label>
+            <Label htmlFor="creditDate">
+              Дата заключения кредитного договора
+            </Label>
             <Input
               id="creditDate"
               type="date"
@@ -134,7 +152,9 @@ export default function DocumentGeneratePage() {
           </div>
 
           <div>
-            <Label htmlFor="bankName">Полное фирменное наименование Банка</Label>
+            <Label htmlFor="bankName">
+              Полное фирменное наименование Банка
+            </Label>
             <Input
               id="bankName"
               value={formData.bankName}
@@ -149,7 +169,9 @@ export default function DocumentGeneratePage() {
             <Input
               id="creditNumber"
               value={formData.creditNumber}
-              onChange={(e) => handleInputChange('creditNumber', e.target.value)}
+              onChange={(e) =>
+                handleInputChange('creditNumber', e.target.value)
+              }
               className="mt-1"
               placeholder="/-----/"
             />
@@ -161,7 +183,9 @@ export default function DocumentGeneratePage() {
           <div className="space-y-4 text-sm leading-relaxed">
             {/* Адрес получателя */}
             <div className="text-right mb-4">
-              <div className="font-semibold">{formData.insuranceCompany || '/-----/'}</div>
+              <div className="font-semibold">
+                {formData.insuranceCompany || '/-----/'}
+              </div>
               <div>Адрес: {formData.insuranceAddress || '/-----/'}</div>
               <div>/-----/</div>
               <div>/-----/</div>
@@ -172,41 +196,57 @@ export default function DocumentGeneratePage() {
 
             {/* Текст документа */}
             <div className="space-y-2">
-              <p>
-                {formData.fullName || '/-----/'}
-              </p>
-              <p>
-                {formData.residentialAddress || '/-----/'}
-              </p>
-              <p>
-                Телефон: {formData.phone || '/-----/'}
-              </p>
-              <p>
-                Эл. почта: {formData.email || '/-----/'}
-              </p>
+              <p>{formData.fullName || '/-----/'}</p>
+              <p>{formData.residentialAddress || '/-----/'}</p>
+              <p>Телефон: {formData.phone || '/-----/'}</p>
+              <p>Эл. почта: {formData.email || '/-----/'}</p>
             </div>
 
             <div className="mt-6 space-y-2">
               <p>
-                {formData.creditDate ? `«${new Date(formData.creditDate).toLocaleDateString('ru-RU')}»` : '/-----/'} мной был заключен кредитный договор № {formData.creditNumber || '/-----/'} с {formData.bankName || '/-----/'}, в соответствии с которым мне был предоставлен кредит на сумму /-----/ руб. с установленной процентной ставкой /-----/%.
+                {formData.creditDate
+                  ? `«${new Date(formData.creditDate).toLocaleDateString('ru-RU')}»`
+                  : '/-----/'}{' '}
+                мной был заключен кредитный договор №{' '}
+                {formData.creditNumber || '/-----/'} с{' '}
+                {formData.bankName || '/-----/'}, в соответствии с которым мне
+                был предоставлен кредит на сумму /-----/ руб. с установленной
+                процентной ставкой /-----/%.
               </p>
               <p>
-                Одновременно с кредитным договором мной был заключен договор страхования с {formData.insuranceCompany || '/-----/'}, предусматривающий страхование следующих страховых рисков: /-----/.
+                Одновременно с кредитным договором мной был заключен договор
+                страхования с {formData.insuranceCompany || '/-----/'},
+                предусматривающий страхование следующих страховых рисков:
+                /-----/.
               </p>
               <p>
-                Страховая премия в размере /-----/ руб. была уплачена мной единовременно и включена в сумму кредита.
+                Страховая премия в размере /-----/ руб. была уплачена мной
+                единовременно и включена в сумму кредита.
               </p>
               <p>
-                В соответствии с условиями кредитного договора мной досрочно были исполнены все обязательства перед Банком, что подтверждается справкой об отсутствии задолженности, выданной Банком /-----/.
+                В соответствии с условиями кредитного договора мной досрочно
+                были исполнены все обязательства перед Банком, что
+                подтверждается справкой об отсутствии задолженности, выданной
+                Банком /-----/.
               </p>
               <p>
-                В связи с досрочным исполнением обязательств по кредитному договору договор страхования прекратил свое действие досрочно.
+                В связи с досрочным исполнением обязательств по кредитному
+                договору договор страхования прекратил свое действие досрочно.
               </p>
               <p>
-                В соответствии с частью 11 статьи 7 Федерального закона N 353-ФЗ "О потребительском кредите (займе)" при досрочном возврате потребительского кредита (займа) заемщик имеет право требовать от страховщика возврата части уплаченной страховой премии пропорционально не истекшему периоду действия договора страхования.
+                В соответствии с частью 11 статьи 7 Федерального закона N 353-ФЗ
+                "О потребительском кредите (займе)" при досрочном возврате
+                потребительского кредита (займа) заемщик имеет право требовать
+                от страховщика возврата части уплаченной страховой премии
+                пропорционально не истекшему периоду действия договора
+                страхования.
               </p>
               <p>
-                На основании изложенного, руководствуясь частью 11 статьи 7 Федерального закона N 353-ФЗ "О потребительском кредите (займе)", прошу вернуть мне денежные средства в размере страховой премии пропорционально не истекшему периоду действия договора страхования.
+                На основании изложенного, руководствуясь частью 11 статьи 7
+                Федерального закона N 353-ФЗ "О потребительском кредите
+                (займе)", прошу вернуть мне денежные средства в размере
+                страховой премии пропорционально не истекшему периоду действия
+                договора страхования.
               </p>
             </div>
           </div>

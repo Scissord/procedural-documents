@@ -85,5 +85,7 @@ export async function api<T>(
     }
   }
 
+  // if 402 - session.expired -> logout
+
   throw response;
 }

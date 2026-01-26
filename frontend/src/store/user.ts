@@ -5,8 +5,8 @@ import { IUser } from '@/interfaces/user';
 interface State {
   user: IUser | null;
   access_token: string | null;
-  setUser: (user: IUser) => void;
-  setAccessToken: (access_token: string) => void;
+  setUser: (user: any) => void;
+  setAccessToken: (access_token: any) => void;
   logout: () => void;
   updateUser: (user: IUser) => void;
 }

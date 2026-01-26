@@ -9,17 +9,17 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { AuthService } from '@/services';
 import { useRouter } from 'next/navigation';
 import { useNotificationStore, useUserStore } from '@/store';
-import { IUserLogin } from '@/interfaces';
+import { ILoginOutput, IUserLogin } from '@/interfaces';
 
 const loginSchema = z.object({
-  email: z.email('Некорректный email').optional().or(z.literal('')),
+  email: z.email('Некорректный email'),
   password: z
     .string()
     .min(8, 'Пароль должен быть не менее 8 символов')
     .max(128, 'Пароль должен быть не более 128 символов'),
 });
 
-type loginFormData = z.infer<typeof loginSchema>;
+type LoginFormData = z.infer<typeof loginSchema>;
 
 export const LoginForm = () => {
   const router = useRouter();
@@ -33,41 +33,31 @@ export const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<loginFormData>({
+  } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
     mode: 'onBlur',
   });
 
-  const onSubmit = async (data: loginFormData) => {
-    try {
+  const onSubmit = async (data: LoginFormData) => {
+    const response: ILoginOutput = await AuthService.login(data);
 
-      const response = await AuthService.login(data);
-      if (
-        typeof response === 'object' &&
-        response.user &&
-        response.accessToken
-      ) {
-        // notification success
-        notificationsStore.addNotification({
-          type: 'default',
-          title: 'Успех!',
-          description: 'Пользователь успешно авторизован.',
-        });
-        console.log('Успешная авторизация', response);
-        userStore.setUser(response.user, response.accessToken);
-        router.push('/document/generate');
-      } else {
-        if (typeof response === 'string') {
-          // notification error
-          notificationsStore.addNotification({
-            type: 'destructive',
-            title: 'Ошибка!',
-            description: response,
-          });
-        }
-      }
-    } catch (err) {
-      console.error(err);
+    if (response.code === 'OK') {
+      notificationsStore.addNotification({
+        type: 'default',
+        title: 'Успех!',
+        description: 'Пользователь успешно авторизован.',
+      });
+      userStore.setUser(response.user);
+      userStore.setAccessToken(response.access_token);
+      router.push('/document/generate');
+    } else {
+      notificationsStore.addNotification({
+        type: 'destructive',
+        title: 'Ошибка!',
+        description:
+          response.error ||
+          'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
+      });
     }
   };
 

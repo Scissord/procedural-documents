@@ -3,47 +3,7 @@ import { AuthService, DocumentService } from '@services';
 import { logger } from '@services';
 import { normalizeError } from '@helpers';
 import { AuthRequest } from '@middlewares';
-
-const sendError = (res: Response, status: number, message: string): void => {
-  res.status(status).json({
-    errors: [{ msg: message }],
-  });
-};
-
-const handleAuthError = (
-  res: Response,
-  error: unknown,
-  context: string,
-): void => {
-  const message = normalizeError(error);
-  logger.error(`${context} failed`, { error: message });
-
-  if (message.includes('already exists') || message.includes('duplicate key')) {
-    sendError(res, 409, 'User with this email already exists');
-    return;
-  }
-
-  if (message.includes('Invalid email or password')) {
-    sendError(res, 401, 'Invalid email or password');
-    return;
-  }
-
-  if (message.includes('inactive')) {
-    sendError(res, 401, 'User account is inactive');
-    return;
-  }
-
-  if (
-    message.includes('Invalid') ||
-    message.includes('expired') ||
-    message.includes('revoked')
-  ) {
-    sendError(res, 401, message);
-    return;
-  }
-
-  sendError(res, 400, message || `${context} failed`);
-};
+import { RESPONSE_CODE, RESPONSE_STATUS } from '@data';
 
 export const AuthController = {
   async registration(req: Request, res: Response): Promise<void> {
@@ -74,12 +34,17 @@ export const AuthController = {
         birthday,
       });
 
-      res.status(201).json({
+      res.status(RESPONSE_STATUS.CREATED).json({
         user: result.user,
-        code:
+        code: RESPONSE_CODE.CREATED,
       });
     } catch (error: unknown) {
-      handleAuthError(res, error, 'Registration');
+      const message = normalizeError(error);
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
 
@@ -113,12 +78,18 @@ export const AuthController = {
 
       logger.info(result.accessToken);
 
-      res.status(200).json({
+      res.status(RESPONSE_STATUS.OK).json({
         user: result.user,
-        accessToken: result.accessToken,
+        access_token: result.accessToken,
+        code: RESPONSE_CODE.OK,
       });
     } catch (error: unknown) {
-      handleAuthError(res, error, 'Login');
+      const message = normalizeError(error);
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
 
@@ -126,7 +97,7 @@ export const AuthController = {
     try {
       const authHeader = req.headers.authorization;
       if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        sendError(res, 401, 'Authorization token required');
+        res.status(401).send('Authorization token required');
         return;
       }
 
@@ -136,7 +107,7 @@ export const AuthController = {
       const refreshToken = req.cookies?.refresh_token || req.body?.refreshToken;
 
       if (!refreshToken) {
-        sendError(res, 400, 'Refresh token required');
+        res.status(401).send('Refresh token required');
         return;
       }
 
@@ -148,7 +119,12 @@ export const AuthController = {
         message: 'Logged out successfully',
       });
     } catch (error: unknown) {
-      handleAuthError(res, error, 'Logout');
+      const message = normalizeError(error);
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
 
@@ -157,7 +133,7 @@ export const AuthController = {
       const refreshToken = req.cookies?.refresh_token || req.body?.refreshToken;
 
       if (!refreshToken) {
-        sendError(res, 400, 'Refresh token required');
+        res.status(400).send('Refresh token required');
         return;
       }
 
@@ -183,35 +159,45 @@ export const AuthController = {
         });
       }
     } catch (error: unknown) {
+      // const message = normalizeError(error);
+
+      // if (message === 'TOKEN_MISMATCH') {
+      //   logger.warn('Token mismatch detected - possible token theft');
+      //   res.status(405).json({
+      //     errors: [
+      //       {
+      //         msg: 'Token mismatch detected. Please log in again.',
+      //         code: 'TOKEN_MISMATCH',
+      //       },
+      //     ],
+      //   });
+      //   return;
+      // }
+
+      // handleAuthError(res, error, 'Token refresh');
+
       const message = normalizeError(error);
-
-      if (message === 'TOKEN_MISMATCH') {
-        logger.warn('Token mismatch detected - possible token theft');
-        res.status(405).json({
-          errors: [
-            {
-              msg: 'Token mismatch detected. Please log in again.',
-              code: 'TOKEN_MISMATCH',
-            },
-          ],
-        });
-        return;
-      }
-
-      handleAuthError(res, error, 'Token refresh');
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
+
   async getProfile(req: AuthRequest, res: Response): Promise<void> {
     try {
       if (!req.user_id) {
-        sendError(res, 401, 'User ID not found in token');
+        res.status(401).send('User ID not found in token');
+
         return;
       }
 
       const user = await AuthService.getProfile(req.user_id);
 
       if (!user) {
-        sendError(res, 404, 'User not found');
+        res.status(404).send('User not found');
+
         return;
       }
 
@@ -219,14 +205,20 @@ export const AuthController = {
         user,
       });
     } catch (error: unknown) {
-      handleAuthError(res, error, 'Get profile');
+      const message = normalizeError(error);
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
 
   async updateProfile(req: AuthRequest, res: Response): Promise<void> {
     try {
       if (!req.user_id) {
-        sendError(res, 401, 'User ID not found in token');
+        res.status(401).send('User ID not found in token');
+
         return;
       }
 
@@ -235,7 +227,8 @@ export const AuthController = {
       const user = await AuthService.updateProfile(req.user_id, { phone });
 
       if (!user) {
-        sendError(res, 404, 'User not found');
+        res.status(404).send('User not found');
+
         return;
       }
 
@@ -243,14 +236,19 @@ export const AuthController = {
         user,
       });
     } catch (error: unknown) {
-      handleAuthError(res, error, 'Update profile');
+      const message = normalizeError(error);
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
 
   async getUserDocuments(req: AuthRequest, res: Response): Promise<void> {
     try {
       if (!req.user_id) {
-        sendError(res, 401, 'User ID not found in token');
+        res.status(401).send('User ID not found in token');
         return;
       }
 
@@ -260,7 +258,12 @@ export const AuthController = {
         documents,
       });
     } catch (error: unknown) {
-      handleAuthError(res, error, 'Get user documents');
+      const message = normalizeError(error);
+      res.status(RESPONSE_STATUS.INTERNAL_SERVER).json({
+        message,
+        error: 'Ошибка на стороне сервера, пожалуйста попробуйте позже.',
+        code: RESPONSE_CODE.INTERNAL_SERVER_ERROR,
+      });
     }
   },
 };
