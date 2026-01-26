@@ -1,5 +1,5 @@
 export interface IUserBase {
-  login: string;
+  login?: string;
 }
 
 export interface IUserLogin extends IUserBase {
@@ -24,14 +24,14 @@ export interface IUser extends IUserBase {
   created_at: string;
   is_active: boolean;
   first_name: string;
-  last_name: string;
-  middle_name: string;
+  last_name?: string | null;
+  middle_name?: string | null;
   email: string;
-  phone: string;
-  avatar_url: string;
-  birthday: Date;
+  phone?: string | null;
+  avatar_url?: string | null;
+  birthday?: Date | string | null;
   gender: 'male' | 'female' | 'other';
   locale: string;
   timezone: string;
-  access_token: string;
+  access_token?: string;
 }

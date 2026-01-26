@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { AuthController } from '@controllers';
 import { validate } from '@middlewares';
 import { registrationValidation, loginValidation } from '@validations';
+import { auth } from '@middlewares';
 
 const router = Router();
 
@@ -18,5 +19,6 @@ router.post(
   AuthController.logout,
 );
 router.post('/refresh', AuthController.refresh);
-
+router.get('/profile', auth, AuthController.getProfile);
+router.patch('/profile', auth, AuthController.updateProfile);
 export default router;

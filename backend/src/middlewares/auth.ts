@@ -10,7 +10,7 @@ interface TokenPayload {
   tokenId?: number;
 }
 
-interface AuthRequest extends Request {
+export interface AuthRequest extends Request {
   user_id?: number;
   user?: TokenPayload;
 }

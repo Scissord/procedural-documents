@@ -7,6 +7,11 @@ const router = Router();
 // router.post('/generate', DocumentController.generateDocument);
 
 // генерация из ситуации (для Telegram бота)
-router.post('/telegram/generate', DocumentController.generateDocumentTelegram);
+router.post(
+  '/telegram/generate',
+  DocumentController.generateDocumentFromSituation,
+);
+
+router.get('/stage/:stage_id', DocumentController.getDocumentsByStageId);
 
 export default router;

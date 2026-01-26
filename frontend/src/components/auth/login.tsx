@@ -40,7 +40,7 @@ export const LoginForm = () => {
 
   const onSubmit = async (data: loginFormData) => {
     try {
-      router.push('/');
+
       const response = await AuthService.login(data);
       if (
         typeof response === 'object' &&
@@ -55,7 +55,7 @@ export const LoginForm = () => {
         });
         console.log('Успешная авторизация', response);
         userStore.setUser(response.user, response.accessToken);
-        router.push('/');
+        router.push('/document/generate');
       } else {
         if (typeof response === 'string') {
           // notification error

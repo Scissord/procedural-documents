@@ -247,6 +247,57 @@ export const AuthService = {
     }
   },
 
+  async getProfile(userId: number): Promise<UserWithProfile | null> {
+    try {
+      const user = await UserRepository.getUserWithProfile(userId);
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      if (!user.is_active) {
+        throw new Error('User account is inactive');
+      }
+
+      return user;
+    } catch (error: unknown) {
+      const message = normalizeError(error);
+      logger.error('Get profile failed', {
+        userId,
+        error: message,
+      });
+      throw error;
+    }
+  },
+
+  async updateProfile(
+    userId: number,
+    data: { phone?: string },
+  ): Promise<UserWithProfile | null> {
+    const client = await db.connect();
+
+    try {
+      await client.query('BEGIN');
+
+      await UserRepository.updateProfile(client, userId, data);
+
+      await client.query('COMMIT');
+
+      const user = await UserRepository.getUserWithProfile(userId);
+      return user;
+    } catch (error: unknown) {
+      await client.query('ROLLBACK');
+      const message = normalizeError(error);
+      logger.error('Update profile failed', {
+        userId,
+        error: message,
+      });
+      throw error;
+    } finally {
+      client.release();
+    }
+  },
+
   // TODO: TO @helpers
   verifyAccessToken(token: string): TokenPayload {
     try {

@@ -29,6 +29,9 @@ export const useUserStore = create<State>()(
         localStorage.removeItem('access_token');
         set({ user: null, access_token: null });
       },
+      updateUser: (user) => {
+        set({ user });
+      },
     }),
     {
       name: 'user',

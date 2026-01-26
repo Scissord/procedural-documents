@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
   Button,
 } from '@/components';
+  import { useUserStore } from '@/store';
 
 const navItems = [
   { label: 'Главная', href: '/' },
@@ -23,6 +24,11 @@ const navItems = [
 
 export function MainHeader() {
   const router = useRouter();
+  const { user, logout } = useUserStore();
+  const handleLogout = () => {
+    logout();
+    router.push('/');
+  };
   const pathname = usePathname();
 
   return (
@@ -72,9 +78,11 @@ export function MainHeader() {
           <DropdownMenuContent className="w-56" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">Аккаунт</p>
+                <p className="text-sm font-medium leading-none">
+                  {user?.first_name || 'Пользователь'}
+                </p>
                 <p className="text-xs leading-none text-muted-foreground">
-                  user@example.com
+                  {user?.email || 'user@example.com'}
                 </p>
               </div>
             </DropdownMenuLabel>
@@ -92,8 +100,10 @@ export function MainHeader() {
               Настройки
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer text-destructive">
-              Выйти
+            <DropdownMenuItem className="cursor-pointer text-destructive" onClick={handleLogout}>
+              <Button variant="ghost" className="cursor-pointer text-destructive">
+                Выйти
+              </Button>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

@@ -17,6 +17,7 @@ export * from './ui/tabs';
 export * from './ui/popover';
 export * from './ui/calendar';
 export * from './ui/radio-group';
+export * from './ui/tooltip';
 
 // AUTH
 export * from './auth/authentication_form';

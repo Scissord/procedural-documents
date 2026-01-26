@@ -292,4 +292,47 @@ export class UserRepository {
 
     return result.rows.length > 0 ? result.rows[0] : null;
   }
+
+  static async updateProfile(
+    client: PoolClient,
+    userId: number,
+    data: Partial<ProfileDto>,
+  ): Promise<void> {
+    const secretKey = CryptoHelper.getSecretKey();
+    const updates: string[] = [];
+    const values: any[] = [];
+    let paramIndex = 1;
+
+    if (data.phone !== undefined) {
+      if (data.phone) {
+        updates.push(
+          `phone_encrypted = pgp_sym_encrypt($${paramIndex}::text, $${paramIndex + 1}::text)`,
+        );
+        updates.push(
+          `phone_hash = encode(digest(upper($${paramIndex}::text), 'sha256'), 'hex')`,
+        );
+        values.push(data.phone, secretKey);
+        paramIndex += 2;
+      } else {
+        updates.push('phone_encrypted = NULL');
+        updates.push('phone_hash = NULL');
+      }
+    }
+
+    if (updates.length === 0) {
+      return; // Нет полей для обновления
+    }
+
+    updates.push(`updated_at = CURRENT_TIMESTAMP`);
+    values.push(userId);
+
+    await client.query(
+      `
+        UPDATE auth.profile
+        SET ${updates.join(', ')}
+        WHERE user_id = $${paramIndex}
+      `,
+      values,
+    );
+  }
 }
