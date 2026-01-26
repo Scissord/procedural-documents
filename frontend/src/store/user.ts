@@ -8,6 +8,7 @@ interface State {
   setUser: (user: IUser) => void;
   setAccessToken: (access_token: string) => void;
   logout: () => void;
+  updateUser: (user: IUser) => void;
 }
 
 export const useUserStore = create<State>()(
