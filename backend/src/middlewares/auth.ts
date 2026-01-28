@@ -36,10 +36,22 @@ export const auth = async (
       ? authHeader.substring(7)
       : null;
 
+    if (!accessToken) {
+      res.status(401).json({
+        errors: [
+          {
+            msg: 'Authorization token required',
+            code: 'AUTH_REQUIRED',
+          },
+        ],
+      });
+      return;
+    }
+
     // 2. Получаем refreshToken из куков
     const refreshToken = req.cookies?.refresh_token;
 
-    if (!accessToken && !refreshToken) {
+    if (!refreshToken) {
       res.status(401).json({
         errors: [
           {
@@ -55,9 +67,9 @@ export const auth = async (
     if (accessToken) {
       try {
         const decodedAccess = AuthService.verifyAccessToken(accessToken);
+        console.log(decodedAccess);
         // 4. Если access валидный - пускаем в контроллер
         req.user_id = decodedAccess.userId;
-        req.user = decodedAccess;
         next();
         return;
       } catch (error: unknown) {
@@ -76,19 +88,6 @@ export const auth = async (
               {
                 msg: 'Invalid access token',
                 code: 'INVALID_TOKEN',
-              },
-            ],
-          });
-          return;
-        }
-
-        // Токен истек, пытаемся обновить через refresh
-        if (!refreshToken) {
-          res.status(401).json({
-            errors: [
-              {
-                msg: 'Access token expired and no refresh token provided',
-                code: 'TOKEN_EXPIRED',
               },
             ],
           });
@@ -116,7 +115,6 @@ export const auth = async (
 
         // Устанавливаем user_id для запроса
         req.user_id = decodedRefresh.userId;
-        req.user = decodedRefresh;
 
         // Устанавливаем новый refresh token в куки, если он был обновлен
         if (result.refreshToken) {

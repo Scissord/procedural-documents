@@ -71,7 +71,8 @@ export const AuthController = {
 
       res.cookie('refresh_token', result.refreshToken, {
         httpOnly: false,
-        secure: process.env.NODE_ENV === 'production',
+        // secure: process.env.NODE_ENV === 'production',
+        secure: false,
         sameSite: 'lax',
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 дней
       });

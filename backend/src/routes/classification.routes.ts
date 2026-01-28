@@ -1,8 +1,9 @@
 import { Router } from 'express';
 import { ClassificationController } from '@controllers';
+import { auth } from '@middlewares';
 
 const router = Router();
 
-router.get('/', ClassificationController.get);
+router.get('/', auth, ClassificationController.get);
 
 export default router;
