@@ -1,4 +1,4 @@
-import { IUser } from '@/interfaces';
+import { IBaseResponse, IUser } from '@/interfaces';
 
 export type IRegistrationInput = {
   first_name: string;
@@ -9,9 +9,6 @@ export type IRegistrationInput = {
   timezone: string;
 };
 
-export type IRegistrationOutput = {
-  user?: IUser;
-  code: string;
-  error?: string;
-  message?: string;
-};
+export type IRegistrationOutput = IBaseResponse<{
+  user: IUser;
+}>;

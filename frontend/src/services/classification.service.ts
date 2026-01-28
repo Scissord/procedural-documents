@@ -1,24 +1,10 @@
 import { base_url } from '@/utils';
-import { IClassification } from '@/interfaces';
+import { IBaseResponse, IClassification } from '@/interfaces';
+import { api } from '@/lib/api/fetch.client';
 
 export const ClassificationService = {
-  async get(): Promise<IClassification[] | string> {
-    try {
-      const response = await fetch(`${base_url}/classifications`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const result = await response.json();
-      if (!response.ok) {
-        throw result;
-      }
-
-      return result.classifications;
-    } catch (err: unknown) {
-      return 'Произошла ошибка при регистрации';
-    }
+  async get() {
+    const response = await api('/classifications');
+    return response;
   },
 };

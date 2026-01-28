@@ -10,14 +10,7 @@ export default function ModulesPage() {
 
   const getClassifications = async () => {
     const response = await ClassificationService.get();
-
-    console.log(response);
-
-    if (Array.isArray(response)) {
-      setClassifications(response);
-    } else {
-      console.error(response);
-    }
+    setClassifications(response.classifications.classifications);
   };
 
   const getStages = async (classification_id: string) => {
@@ -40,30 +33,32 @@ export default function ModulesPage() {
         Выберите судопроизводство
       </h1>
 
-      <div className='flex items-center justify-between'>
-        {classifications.map((classification: IClassification, index: number) => (
-          <div
-            key={classification?.id}
-            id={classification?.id}
-            className='p-2 border-2 border-white rounded-md bg-red-200'
-            onClick={() => getStages(classification?.id)}
-          >
-            <div>{classification?.name}</div>
-          </div>
-        ))}
+      <div className="flex items-center justify-between">
+        {classifications?.map(
+          (classification: IClassification, index: number) => (
+            <div
+              key={classification?.id}
+              id={classification?.id}
+              className="p-2 border-2 border-white rounded-md bg-red-200"
+              onClick={() => getStages(classification?.id)}
+            >
+              <div>{classification?.name}</div>
+            </div>
+          ),
+        )}
       </div>
 
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         {stages.map((stage: IStage, index: number) => (
           <div
             key={stage?.id}
             id={stage?.id}
-            className='p-2 border-2 border-white rounded-md'
+            className="p-2 border-2 border-white rounded-md"
           >
             <div>{stage?.name}</div>
           </div>
         ))}
       </div>
     </div>
-    );
-  }
+  );
+}

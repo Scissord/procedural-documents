@@ -7,24 +7,20 @@
  */
 'use client';
 
-const BASE_URL = process.env.NEXT_BACKEND_API_URL!;
+// const BASE_URL = process.env.NEXT_BACKEND_API_URL;
+const BASE_URL = 'http://localhost:3001/api';
 
 import { useUserStore, useNotificationStore } from '@/store';
 import { AuthService } from '@/services';
+import { IBaseResponse } from '@/interfaces';
+import { useRouter } from 'next/navigation';
 
-type ApiFetchOptions = RequestInit & {
-  retry?: boolean;
-};
-
-export async function api<T>(
-  path: string,
-  options: ApiFetchOptions = {},
-): Promise<T> {
-  const { user, setUser, access_token, setAccessToken, logout } =
-    useUserStore.getState();
+export async function api(path: string, options?: any) {
+  const router = useRouter();
+  const { access_token, setAccessToken, logout } = useUserStore.getState();
   const notificationStore = useNotificationStore.getState();
 
-  const headers = new Headers(options.headers);
+  const headers = new Headers(options?.headers ?? {});
 
   if (access_token) {
     headers.set('Authorization', `Bearer ${access_token}`);
@@ -38,54 +34,60 @@ export async function api<T>(
     credentials: 'include',
   });
 
-  if (response.ok) {
-    return response.json();
+  const result = await response.json();
+
+  if (result.code === 'OK') {
+    return result;
+  } else if (result.code === 'ACCESS_EXPIRED') {
+    setAccessToken(result.access_token);
+
+    return api(path, {
+      ...options,
+      retry: true,
+      headers: {
+        ...options.headers,
+        Authorization: `Bearer ${result.access_token}`,
+      },
+    });
+  } else if (result.code === 'REFRESH_EXPIRED') {
+    logout();
+    router.push('/');
   }
 
   // Если от бэка 400
-  if (response.status === 400) {
-    notificationStore.addNotification({
-      type: 'destructive',
-      title: 'Ошибка при выполнении запроса',
-      description: 'Попробуйте позже',
-    });
-  }
+  // if (response.status === 400) {
+  //   notificationStore.addNotification({
+  //     type: 'destructive',
+  //     title: 'Ошибка при выполнении запроса',
+  //     description: 'Попробуйте позже',
+  //   });
+  // }
 
   // Если от бека 500
-  if (response.status === 500) {
-    notificationStore.addNotification({
-      type: 'destructive',
-      title: 'Ошибка сервера',
-      description: 'Попробуйте позже',
-    });
-  }
+  // if (response.status === 500) {
+  //   notificationStore.addNotification({
+  //     type: 'destructive',
+  //     title: 'Ошибка сервера',
+  //     description: 'Попробуйте позже',
+  //   });
+  // }
 
   // Если от бека 401 - Unauthorized
-  if (response.status === 401 && !options.retry) {
-    try {
-      const newAccessToken = await AuthService.refresh();
-      setAccessToken(newAccessToken);
+  // if (response.status === 401 && !options.retry) {
+  //   try {
 
-      return api(path, {
-        ...options,
-        retry: true,
-        headers: {
-          ...options.headers,
-          Authorization: `Bearer ${newAccessToken}`,
-        },
-      });
-    } catch {
-      logout();
-      notificationStore.addNotification({
-        type: 'destructive',
-        title: 'Сессия истекла',
-        description: 'Войдите заново',
-      });
-      throw response;
-    }
-  }
+  //   } catch {
+  //     logout();
+  //     notificationStore.addNotification({
+  //       type: 'destructive',
+  //       title: 'Сессия истекла',
+  //       description: 'Войдите заново',
+  //     });
+  //     throw response;
+  //   }
+  // }
 
   // if 402 - session.expired -> logout
 
-  throw response;
+  return result;
 }
