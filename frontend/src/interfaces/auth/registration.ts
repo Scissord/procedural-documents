@@ -11,4 +11,6 @@ export type IRegistrationInput = {
 
 export type IRegistrationOutput = IBaseResponse<{
   user: IUser;
+  code?: string;
+  error?: string;
 }>;

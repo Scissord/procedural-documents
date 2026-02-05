@@ -25,20 +25,15 @@ export const AuthService = {
 
       const result: IRegistrationOutput = await response.json();
 
-      if (!response.ok || result.error) {
+      if (!response.ok || result?.error) {
         notificationStore.addNotification({
           type: 'destructive',
           title: 'Ошибка!',
-          description:
-            result.error || result.message || 'Ошибка при регистрации',
+          description: 'Ошибка при регистрации',
         });
       }
 
-      return {
-        ...result,
-        code:
-          result.code || (response.ok ? 'CREATED' : 'INTERNAL_SERVER_ERROR'),
-      };
+      return result;
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : 'Ошибка сети при регистрации';
@@ -79,10 +74,7 @@ export const AuthService = {
         });
       }
 
-      return {
-        ...result,
-        code: result.code || (response.ok ? 'OK' : 'INTERNAL_SERVER_ERROR'),
-      };
+      return result;
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : 'Ошибка сети при входе';

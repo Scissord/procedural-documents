@@ -9,27 +9,27 @@ import { Loader2 } from 'lucide-react';
 
 export default function ProfilePage() {
   const router = useRouter();
-  const { user, getProfile } = useUserStore();
+  const { user } = useUserStore();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const loadProfile = async () => {
-      if (!user) {
-        // Пытаемся загрузить профиль из стора
-        try {
-          await getProfile();
-        } catch (err) {
-          setError('Не удалось загрузить профиль');
-          setLoading(false);
-          return;
-        }
-      }
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const loadProfile = async () => {
+  //     if (!user) {
+  //       // Пытаемся загрузить профиль из стора
+  //       try {
+  //         await getProfile();
+  //       } catch (err) {
+  //         setError('Не удалось загрузить профиль');
+  //         setLoading(false);
+  //         return;
+  //       }
+  //     }
+  //     setLoading(false);
+  //   };
 
-    loadProfile();
-  }, [user, getProfile]);
+  //   loadProfile();
+  // }, [user, getProfile]);
 
   if (loading) {
     return (
@@ -45,7 +45,9 @@ export default function ProfilePage() {
         <div className="max-w-2xl mx-auto">
           <Card>
             <CardContent className="p-6">
-              <p className="text-destructive mb-4">{error || 'Пользователь не авторизован'}</p>
+              <p className="text-destructive mb-4">
+                {error || 'Пользователь не авторизован'}
+              </p>
               <Button onClick={() => router.push('/auth')}>
                 Войти в систему
               </Button>

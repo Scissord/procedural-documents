@@ -56,7 +56,7 @@ if (process.env.TELEGRAM_BOT_TOKEN) {
       ? process.env.WEBHOOK_URL
       : `${process.env.WEBHOOK_URL}${webhookPath}`
     : `${process.env.API_BASE_URL || `http://localhost:${PORT}`}${webhookPath}`;
-
+  // www.justo.kz/api/telegram/webhook
   bot.telegram
     .setWebhook(webhookUrl)
     .then(() => {
