@@ -70,19 +70,19 @@ services:
         condition: service_started
     command: sh -c "npm run worker"
 
-  # frontend:
-  #   build: ./frontend
-  #   container_name: procedural-documents-frontend
-  #   ports:
-  #     - "3000:3000"
-  #   environment:
-  #     - NODE_ENV=production
-  #     - PORT=3000
-  #   networks:
-  #     - app-network
-  #   depends_on:
-  #     - app
-  #   command: npm start
+  frontend:
+    build: ./frontend
+    container_name: procedural-documents-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    networks:
+      - app-network
+    depends_on:
+      - app
+    command: npm start
 
 networks:
   app-network:
