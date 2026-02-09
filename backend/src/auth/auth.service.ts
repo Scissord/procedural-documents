@@ -25,7 +25,7 @@ export class AuthService {
    * @param password - The password of the user
    * @returns The user
    */
-  async login(email: string, password: string) {
+  async loginTx(email: string, password: string) {
     // find user
     const user = await this.userService.findByEmail(email);
 
@@ -71,6 +71,12 @@ export class AuthService {
     //   secure: process.env.NODE_ENV === 'production',
     // });
 
+    // save tokens in db
+    // this.tokenService.create()
+
+    // create session ip_address(x-forwarded-for) + user_agent
+    // this.sessionService.create()
+
     return {
       user,
       access_token,
@@ -84,7 +90,7 @@ export class AuthService {
    * @param password - The password of the user
    * @returns The user
    */
-  async registerTx(email: string, password: string) {
+  async registerTx(email: string, password: string, first_name: string) {
     const existing = await this.userService.findByEmail(email);
 
     if (existing) {
@@ -98,10 +104,18 @@ export class AuthService {
     try {
       await client.query('BEGIN');
 
+      // create user
       user = await this.userService.create(client, email, password_hash);
       if (!user) {
         throw new Error('Failed to create user');
       }
+
+      // create profile
+      const profile = await this.profileService.create(client, user.id, {
+        first_name,
+      });
+
+      user.profile = profile;
 
       await client.query('COMMIT');
     } catch (error: unknown) {

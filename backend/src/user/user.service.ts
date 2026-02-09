@@ -32,7 +32,6 @@ export class UserService {
     return result.rows[0] ?? null;
   }
 
-  // 3. GET USER BY ID
   async findById(id: string) {
     const result = await this.pgService.query<IUser>(userQuery.findById, [
       SECRET_KEY,

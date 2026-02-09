@@ -1,17 +1,12 @@
 export interface IProfile extends Record<string, unknown> {
   id: string;
   user_id: number;
-  first_name_encrypted: Buffer;
-  first_name_hash: string;
-  last_name_encrypted: Buffer;
-  last_name_hash: string;
-  middle_name_encrypted: Buffer;
-  middle_name_hash: string;
-  phone_encrypted: Buffer;
-  phone_hash: string;
+  first_name: string;
+  last_name: string;
+  middle_name: string;
+  phone: string;
   avatar_url: string;
-  birthday_encrypted: Buffer;
-  birthday_hash: string;
+  birthday: string;
   gender: string;
   locale: string;
   timezone: string;

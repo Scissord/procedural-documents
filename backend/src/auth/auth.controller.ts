@@ -14,17 +14,17 @@ export class AuthController {
 
   @Post('login')
   login(@Body() dto: LoginDto) {
-    return this.authService.login(dto.email, dto.password);
+    return this.authService.loginTx(dto.email, dto.password);
   }
 
   @Post('register')
   register(@Body() dto: RegisterDto) {
-    return this.authService.registerTx(dto.email, dto.password);
+    return this.authService.registerTx(dto.email, dto.password, dto.first_name);
   }
 
   @Post('logout')
   logout(@Body() dto: RegisterDto) {
-    return this.authService.registerTx(dto.email, dto.password);
+    return this.authService.registerTx(dto.email, dto.password, dto.first_name);
   }
 
   @ApiBearerAuth()
