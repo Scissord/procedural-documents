@@ -10,6 +10,8 @@ import { JwtTokenGuard } from './jwt-token.guard';
 import { DatabaseModule } from 'src/db/database.module';
 import { UserModule } from 'src/user/user.module';
 import { ProfileModule } from 'src/profile/profile.module';
+import { SessionModule } from 'src/session/session.module';
+import { TokenModule } from 'src/token/token.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { ProfileModule } from 'src/profile/profile.module';
     }),
     UserModule,
     ProfileModule,
+    SessionModule,
+    TokenModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy, JwtTokenGuard],

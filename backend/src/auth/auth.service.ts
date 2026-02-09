@@ -9,6 +9,8 @@ import { PgService } from '../db/pg.service';
 import type { IUser } from '../user/user.model';
 import { UserService } from '../user/user.service';
 import { ProfileService } from 'src/profile/profile.service';
+import { SessionService } from 'src/session/session.service';
+import { TokenService } from 'src/token/token.service';
 
 @Injectable()
 export class AuthService {
@@ -17,6 +19,8 @@ export class AuthService {
     private readonly pgService: PgService,
     private readonly userService: UserService,
     private readonly profileService: ProfileService,
+    private readonly sessionService: SessionService,
+    private readonly tokenService: TokenService,
   ) {}
 
   /**

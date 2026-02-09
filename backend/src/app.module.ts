@@ -5,11 +5,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { envValidationSchema } from './config/env.validation';
 import { buildWinstonLogger } from './logger/winston.config';
-import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { AccountsModule } from './accounts/accounts.module';
-import { TransactionsModule } from './transactions/transactions.module';
-import { LedgerModule } from './ledger/ledger.module';
+import { UserModule } from './user/user.module';
+import { ProfileModule } from './profile/profile.module';
+import { SessionModule } from './session/session.module';
+import { TokenModule } from './token/token.module';
 
 @Module({
   imports: [
@@ -23,11 +23,11 @@ import { LedgerModule } from './ledger/ledger.module';
       useFactory: (configService: ConfigService) =>
         buildWinstonLogger(configService.get<string>('LOG_LEVEL') ?? 'info'),
     }),
-    LedgerModule,
-    TransactionsModule,
-    AccountsModule,
-    UsersModule,
     AuthModule,
+    UserModule,
+    ProfileModule,
+    SessionModule,
+    TokenModule,
   ],
   controllers: [AppController],
   providers: [AppService],

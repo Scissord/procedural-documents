@@ -7,4 +7,4 @@ import { SessionService } from './session.service';
   providers: [SessionService],
   exports: [SessionService],
 })
-export class TokenModule {}
+export class SessionModule {}
