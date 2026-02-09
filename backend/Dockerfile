@@ -1,18 +1,14 @@
-FROM node:20-alpine
-
+FROM node:20-alpine AS builder
 WORKDIR /app
-
-# Install dependencies first (better layer caching)
-COPY package.json package-lock.json ./
+COPY package*.json ./
 RUN npm ci
-
-# Copy source
 COPY . .
+RUN npm run build
 
-ENV NODE_ENV=production
-EXPOSE 3001
-
-# Note: package.json "start" uses nodemon/ts-node, so dev deps must be present.
-CMD ["npm", "start"]
-
-
+FROM node:20-alpine AS runner
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY --from=builder /app/dist ./dist
+EXPOSE 3000
+CMD ["node", "dist/main.js"]

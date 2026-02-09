@@ -1,0 +1,5 @@
+CREATE SCHEMA auth;
+
+CREATE SCHEMA app;
+
+CREATE SCHEMA ref;

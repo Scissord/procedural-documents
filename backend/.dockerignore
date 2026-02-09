@@ -1,9 +1,7 @@
 node_modules
-logs
-.git
-.DS_Store
-npm-debug.log
-*.log
+dist
 coverage
-
-
+.env
+npm-debug.log
+Dockerfile
+docker-compose.yml

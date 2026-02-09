@@ -16,3 +16,4 @@ export * from './classification/classification';
 export * from './stage/stage';
 export * from './template/template';
 export * from './prompt/prompt';
+export { PromptBuilder } from './prompt/prompt';

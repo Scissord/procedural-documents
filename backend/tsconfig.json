@@ -1,64 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS", // Обратите внимание на CommonJS, чтобы Jest мог правильно работать
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "resolvePackageJsonExports": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "target": "ES2022",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
     "skipLibCheck": true,
-    "strict": true,
-    "types": [
-      "jest"
-    ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
-    ],
-    "baseUrl": "src",
-    "paths": {
-      "@controllers": [
-        "controllers/index"
-      ],
-      "@helpers": [
-        "helpers/index"
-      ],
-      "@interfaces": [
-        "interfaces/index"
-      ],
-      "@middlewares": [
-        "middlewares/index"
-      ],
-      "@services": [
-        "services/index"
-      ],
-      "@swagger": [
-        "swagger/index"
-      ],
-      "@queries": [
-        "queries/index"
-      ],
-      "@routes": [
-        "routes/index"
-      ],
-      "@data": [
-        "data/index"
-      ],
-      "@tables": [
-        "tables/index"
-      ],
-      "@repositories": [
-        "repositories/index"
-      ],
-      "@validations": [
-        "validations/index"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "tests/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false,
+    "types": ["node", "pg", "jest"],
+    "strictBindCallApply": false,
+    "noFallthroughCasesInSwitch": false
+  }
 }

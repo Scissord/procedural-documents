@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS ref.classification (
+  id BIGSERIAL PRIMARY KEY,
+  name varchar(255),
+  code varchar(255),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deleted_at TIMESTAMPTZ
+);
