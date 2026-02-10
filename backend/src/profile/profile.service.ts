@@ -17,14 +17,14 @@ export class ProfileService {
     data: Record<string, any>,
   ) {
     const result = await client.query<IProfile>(profileQuery.create, [
+      this.configService.getOrThrow<string>('SECRET_KEY'),
       user_id,
       data.first_name,
-      this.configService.getOrThrow<string>('SECRET_KEY'),
       data.last_name ?? null,
       data.middle_name ?? null,
       data.phone ?? null,
       data.birthday ?? null,
-      data.gender ?? 'O', // M, F, O
+      data.gender ?? null,
       data.locale,
       data.timezone,
     ]);

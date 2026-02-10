@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Ip,
+  Post,
+  Res,
+  UseGuards,
+  Headers,
+} from '@nestjs/common';
+import type { Response } from 'express';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
@@ -12,20 +22,25 @@ import { JwtTokenGuard } from './jwt-token.guard';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('login')
-  login(@Body() dto: LoginDto) {
-    return this.authService.loginTx(dto.email, dto.password);
-  }
-
   @Post('register')
   register(@Body() dto: RegisterDto) {
-    return this.authService.registerTx(dto.email, dto.password, dto.first_name);
+    return this.authService.registerTx(dto);
   }
 
-  @Post('logout')
-  logout(@Body() dto: RegisterDto) {
-    return this.authService.registerTx(dto.email, dto.password, dto.first_name);
+  @Post('login')
+  login(
+    @Body() dto: LoginDto,
+    @Res({ passthrough: true }) res: Response,
+    @Ip() ip: string,
+    @Headers('user-agent') userAgent: string,
+  ) {
+    return this.authService.loginTx(dto, ip, userAgent, res);
   }
+
+  // @Post('logout')
+  // logout(@Res({ passthrough: true }) res: Response) {
+  //   return this.authService.logoutTx(req, res);
+  // }
 
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, JwtTokenGuard)

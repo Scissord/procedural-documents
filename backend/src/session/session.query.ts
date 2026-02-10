@@ -1,39 +1,28 @@
 export const sessionQuery = {
+  check: `
+    SELECT
+    id
+    FROM auth."session"
+    WHERE user_id = $1
+    AND ip_address = $2
+    AND user_agent = $3
+  `,
+  update: `
+    UPDATE auth."session"
+    SET is_active = true,
+        login_at = NOW(),
+        logout_at = NULL,
+        last_seen_at = NOW()
+    WHERE id = $1
+  `,
   create: `
-    INSERT INTO auth."user" (
-      email_encrypted,
-      email_hash,
-      password_hash,
+    INSERT INTO auth."session" (
+      user_id,
+      ip_address,
+      user_agent,
       is_active
     )
-    VALUES (
-      pgp_sym_encrypt($2, $1),
-      encode(digest(upper($1), 'sha256'), 'hex'),
-      $3,
-      true
-    )
-    RETURNING
-      id,
-      pgp_sym_decrypt(email_encrypted, $1) AS email,
-      is_active,
-      created_at
-  `,
-  findByEmail: `
-    SELECT
-      id,
-      pgp_sym_decrypt(email_encrypted, $1) AS email,
-      is_active,
-      created_at
-    FROM auth."user"
-    WHERE email_hash = encode(digest(upper($1), 'sha256'), 'hex');
-  `,
-  findById: `
-    SELECT
-      id,
-      pgp_sym_decrypt(email_encrypted, $1) AS email,
-      is_active,
-      created_at
-    FROM auth."user"
-    WHERE id = $2
+    VALUES ($1, $2, $3, true)
+    RETURNING id
   `,
 };

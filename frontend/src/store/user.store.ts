@@ -6,9 +6,7 @@ interface State {
   user: IUser | null;
   access_token: string | null;
   setUser: (user: any) => void;
-  setAccessToken: (access_token: any) => void;
   logout: () => void;
-  updateUser: (user: IUser) => void;
 }
 
 export const useUserStore = create<State>()(
@@ -17,9 +15,7 @@ export const useUserStore = create<State>()(
       user: null,
       access_token: null,
       setUser: (user) => set({ user }),
-      setAccessToken: (access_token) => set({ access_token }),
       logout: () => set({ user: null, access_token: null }),
-      updateUser: (user) => set({ user }),
     }),
     {
       name: 'user-storage',

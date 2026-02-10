@@ -1,7 +1,9 @@
 export interface ISession extends Record<string, unknown> {
   id: number;
-  email: string;
-  password_hash?: string;
+  ip_address: string;
+  user_agent: string;
   is_active: boolean;
-  created_at: Date;
+  login_at: Date;
+  logout_at: Date;
+  last_seen_at: Date;
 }

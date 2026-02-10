@@ -11,13 +11,35 @@ export class SessionService {
     private readonly configService: ConfigService,
   ) {}
 
-  async create(client: PgPoolClient, email: string, password_hash: string) {
-    const result = await client.query<ISession>(sessionQuery.create, [
-      this.configService.getOrThrow<string>('SECRET_KEY'),
-      email,
-      password_hash,
+  // check if session exists
+  // if exists, update
+  // if not, create
+  async check(
+    client: PgPoolClient,
+    user_id: number,
+    ip: string,
+    user_agent: string,
+  ) {
+    const exists = await client.query<ISession>(sessionQuery.check, [
+      user_id,
+      ip,
+      user_agent,
     ]);
 
-    return result.rows[0] ?? null;
+    let session: ISession | null = null;
+
+    if (exists.rows.length > 0) {
+      await client.query<ISession>(sessionQuery.update, [exists.rows[0].id]);
+      session = { id: exists.rows[0].id } as ISession;
+    } else {
+      const result = await client.query<ISession>(sessionQuery.create, [
+        user_id,
+        ip,
+        user_agent,
+      ]);
+      session = result.rows[0] ?? null;
+    }
+
+    return session || null;
   }
 }

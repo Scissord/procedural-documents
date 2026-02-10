@@ -19,9 +19,9 @@ import { AuthService } from '@/services';
 import { ChevronDownIcon, EyeIcon, EyeOffIcon } from 'lucide-react';
 import { formatDate } from '@/utils';
 import { useNotificationStore } from '@/store';
-import { IRegistrationOutput } from '@/interfaces';
+import { IResponse } from '@/interfaces';
 
-const registrationSchema = z.object({
+const registerSchema = z.object({
   name: z
     .string()
     .min(2, 'Имя должно быть не менее 2 символов')
@@ -40,9 +40,9 @@ const registrationSchema = z.object({
   gender: z.enum(['male', 'female', 'other'] as const),
 });
 
-type RegistrationFormData = z.infer<typeof registrationSchema>;
+type RegisterFormData = z.infer<typeof registerSchema>;
 
-export const RegistrationForm = ({
+export const RegisterForm = ({
   setTab,
 }: {
   setTab: Dispatch<SetStateAction<string>>;
@@ -58,15 +58,15 @@ export const RegistrationForm = ({
     handleSubmit,
     control,
     formState: { errors, isSubmitting },
-  } = useForm<RegistrationFormData>({
-    resolver: zodResolver(registrationSchema),
+  } = useForm<RegisterFormData>({
+    resolver: zodResolver(registerSchema),
     mode: 'onBlur',
     defaultValues: {
       gender: 'male',
     },
   });
 
-  const onSubmit = async (data: RegistrationFormData) => {
+  const onSubmit = async (data: RegisterFormData) => {
     if (data.password !== data.password_verification) {
       notificationStore.addNotification({
         type: 'destructive',
@@ -79,7 +79,7 @@ export const RegistrationForm = ({
     const locale = navigator.language || navigator.languages[0] || 'ru';
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    const response: IRegistrationOutput = await AuthService.registration({
+    const response: IResponse = await AuthService.register({
       first_name: data.name,
       email: data.email,
       password: data.password,
@@ -88,21 +88,23 @@ export const RegistrationForm = ({
       timezone,
     });
 
-    if (response.code === 'CREATED') {
+    if (response.statusCode === 201) {
       notificationStore.addNotification({
         type: 'default',
         title: 'Успех!',
         description: 'Пользователь успешно зарегистрирован.',
       });
-      console.log('Успешная регистрация', response);
       setTab('login');
     } else {
+      const message = Array.isArray(response.message)
+        ? response.message[0]
+        : response.message;
+
       notificationStore.addNotification({
         type: 'destructive',
         title: 'Ошибка!',
         description:
-          response.error ||
-          'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
+          message || 'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
       });
     }
   };

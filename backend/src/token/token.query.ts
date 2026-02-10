@@ -1,39 +1,31 @@
 export const tokenQuery = {
+  check: `
+    SELECT
+      id
+    FROM auth."token"
+    WHERE user_id = $1
+    AND session_id = $2
+  `,
+  update: `
+    UPDATE auth."token"
+    SET refresh_token = $2,
+        expires_at = $3
+    WHERE id = $1
+    RETURNING id, refresh_token, expires_at
+  `,
   create: `
-    INSERT INTO auth."user" (
-      email_encrypted,
-      email_hash,
-      password_hash,
-      is_active
+    INSERT INTO auth."token" (
+      user_id,
+      session_id,
+      refresh_token,
+      expires_at
     )
-    VALUES (
-      pgp_sym_encrypt($2, $1),
-      encode(digest(upper($1), 'sha256'), 'hex'),
-      $3,
-      true
-    )
+    VALUES ($1, $2, $3, $4)
     RETURNING
       id,
-      pgp_sym_decrypt(email_encrypted, $1) AS email,
-      is_active,
-      created_at
-  `,
-  findByEmail: `
-    SELECT
-      id,
-      pgp_sym_decrypt(email_encrypted, $1) AS email,
-      is_active,
-      created_at
-    FROM auth."user"
-    WHERE email_hash = encode(digest(upper($1), 'sha256'), 'hex');
-  `,
-  findById: `
-    SELECT
-      id,
-      pgp_sym_decrypt(email_encrypted, $1) AS email,
-      is_active,
-      created_at
-    FROM auth."user"
-    WHERE id = $2
+      user_id,
+      session_id,
+      refresh_token,
+      expires_at
   `,
 };

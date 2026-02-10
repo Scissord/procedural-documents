@@ -1,6 +1,9 @@
-export interface IProfile extends Record<string, unknown> {
+export interface IUserProfile extends Record<string, unknown> {
   id: number;
-  user_id: number;
+  email: string;
+  is_active: boolean;
+  created_at: Date;
+  profile_id: number;
   first_name: string;
   last_name: string;
   middle_name: string;
@@ -10,6 +13,4 @@ export interface IProfile extends Record<string, unknown> {
   gender: string;
   locale: string;
   timezone: string;
-  created_at: Date;
-  updated_at: Date;
 }

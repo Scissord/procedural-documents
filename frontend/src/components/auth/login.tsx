@@ -9,7 +9,7 @@ import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { AuthService } from '@/services';
 import { useRouter } from 'next/navigation';
 import { useNotificationStore, useUserStore } from '@/store';
-import { ILoginOutput, IUserLogin } from '@/interfaces';
+import { ILoginOutput, IResponse, IUserLogin } from '@/interfaces';
 
 const loginSchema = z.object({
   email: z.email('Некорректный email'),
@@ -25,7 +25,7 @@ export const LoginForm = () => {
   const router = useRouter();
 
   const userStore = useUserStore.getState();
-  const notificationsStore = useNotificationStore.getState();
+  const notificationStore = useNotificationStore.getState();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -39,24 +39,26 @@ export const LoginForm = () => {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    const response: ILoginOutput = await AuthService.login(data);
+    const response: IResponse = await AuthService.login(data);
 
-    if (response.code === 'OK') {
-      notificationsStore.addNotification({
+    if (response.statusCode === 200) {
+      notificationStore.addNotification({
         type: 'default',
         title: 'Успех!',
         description: 'Пользователь успешно авторизован.',
       });
-      userStore.setUser(response.user);
-      userStore.setAccessToken(response.access_token);
+      userStore.setUser(response?.data?.user);
       router.push('/document/generate');
     } else {
-      notificationsStore.addNotification({
+      const message = Array.isArray(response.message)
+        ? response.message[0]
+        : response.message;
+
+      notificationStore.addNotification({
         type: 'destructive',
         title: 'Ошибка!',
         description:
-          response.error ||
-          'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
+          message || 'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
       });
     }
   };

@@ -12,12 +12,14 @@ export class UserService {
     private readonly pgService: PgService,
     private readonly configService: ConfigService,
   ) {
-    // Do NOT read env vars at module import time.
-    // ConfigModule loads .env during Nest bootstrap.
     this.secretKey = this.configService.getOrThrow<string>('SECRET_KEY');
   }
 
-  async create(client: PgPoolClient, email: string, password_hash: string) {
+  async create(
+    client: PgPoolClient,
+    email: string,
+    password_hash: string,
+  ): Promise<IUser> {
     const result = await client.query<IUser>(userQuery.create, [
       this.secretKey,
       email,

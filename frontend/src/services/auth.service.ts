@@ -1,9 +1,9 @@
 import {
   IUser,
   IRegistrationInput,
-  IRegistrationOutput,
   ILoginInput,
   ILoginOutput,
+  IResponse,
 } from '@/interfaces';
 import { base_url } from '@/utils';
 import { useNotificationStore } from '@/store';
@@ -11,85 +11,34 @@ import { useNotificationStore } from '@/store';
 const BASE_URL = process.env.NEXT_BACKEND_API_URL!;
 
 export const AuthService = {
-  async registration(data: IRegistrationInput): Promise<IRegistrationOutput> {
-    const notificationStore = useNotificationStore.getState();
+  async register(data: IRegistrationInput): Promise<IResponse> {
+    const response = await fetch(`${base_url}/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(data),
+    });
 
-    try {
-      const response = await fetch(`${base_url}/auth/registration`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+    const result: IResponse = await response.json();
 
-      const result: IRegistrationOutput = await response.json();
-
-      if (!response.ok || result?.error) {
-        notificationStore.addNotification({
-          type: 'destructive',
-          title: 'Ошибка!',
-          description: 'Ошибка при регистрации',
-        });
-      }
-
-      return result;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : 'Ошибка сети при регистрации';
-      notificationStore.addNotification({
-        type: 'destructive',
-        title: 'Ошибка!',
-        description: errorMessage,
-      });
-
-      return {
-        code: 'INTERNAL_SERVER_ERROR',
-        error: errorMessage,
-        message: errorMessage,
-      };
-    }
+    return result;
   },
 
-  async login(data: ILoginInput): Promise<ILoginOutput> {
-    const notificationStore = useNotificationStore.getState();
+  async login(data: ILoginInput): Promise<IResponse> {
+    const response = await fetch(`${base_url}/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(data),
+    });
 
-    try {
-      const response = await fetch(`${base_url}/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(data),
-      });
+    const result: IResponse = await response.json();
 
-      const result: ILoginOutput = await response.json();
-
-      if (!response.ok || result.error) {
-        notificationStore.addNotification({
-          type: 'destructive',
-          title: 'Ошибка!',
-          description: result.error || result.message || 'Ошибка при входе',
-        });
-      }
-
-      return result;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : 'Ошибка сети при входе';
-      notificationStore.addNotification({
-        type: 'destructive',
-        title: 'Ошибка!',
-        description: errorMessage,
-      });
-
-      return {
-        code: 'INTERNAL_SERVER_ERROR',
-        error: errorMessage,
-        message: errorMessage,
-      };
-    }
+    return result;
   },
 
   async logout() {},

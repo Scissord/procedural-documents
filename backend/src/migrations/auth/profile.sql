@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS auth.profile (
   avatar_url VARCHAR(255),
   birthday_encrypted BYTEA,
   birthday_hash TEXT,
-  gender VARCHAR(10) NOT NULL,
-  locale VARCHAR(10) NOT NULL,
-  timezone VARCHAR(255) NOT NULL,
+  gender VARCHAR(10),
+  locale VARCHAR(10),
+  timezone VARCHAR(255),
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT fk_profile_user FOREIGN KEY (user_id) REFERENCES auth."user"(id) ON DELETE NO ACTION

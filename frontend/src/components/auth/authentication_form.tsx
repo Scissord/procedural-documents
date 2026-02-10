@@ -12,7 +12,7 @@ import {
   TabsList,
   TabsTrigger,
   LoginForm,
-  RegistrationForm,
+  RegisterForm,
   Button,
 } from '@/components';
 import { useUserStore } from '@/store';
@@ -59,7 +59,7 @@ export function AuthenticationForm() {
               <LoginForm />
             </TabsContent>
             <TabsContent value="register">
-              <RegistrationForm setTab={setTab} />
+              <RegisterForm setTab={setTab} />
             </TabsContent>
           </CardContent>
         </Tabs>
