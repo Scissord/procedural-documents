@@ -1,8 +1,0 @@
-CREATE TABLE IF NOT EXISTS ref.stage (
-  id BIGSERIAL PRIMARY KEY,
-  name varchar(255),
-  classification_id integer REFERENCES ref.classification(id) ON DELETE NO ACTION,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  deleted_at TIMESTAMPTZ
-);

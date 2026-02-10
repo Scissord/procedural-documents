@@ -1,9 +1,0 @@
-node_modules
-logs
-.git
-.DS_Store
-npm-debug.log
-*.log
-coverage
-
-
