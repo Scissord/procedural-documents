@@ -1,0 +1,63 @@
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}

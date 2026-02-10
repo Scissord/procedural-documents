@@ -1,21 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { PgPoolClient, PgService } from '../db/pg.service';
 import type { IUser } from './user.model';
 import { userQuery } from './user.query';
 
-const { SECRET_KEY } = process.env;
-
-if (!SECRET_KEY) {
-  throw new Error('SECRET_KEY is not set');
-}
-
 @Injectable()
 export class UserService {
-  constructor(private readonly pgService: PgService) {}
+  private readonly secretKey: string;
+
+  constructor(
+    private readonly pgService: PgService,
+    private readonly configService: ConfigService,
+  ) {
+    // Do NOT read env vars at module import time.
+    // ConfigModule loads .env during Nest bootstrap.
+    this.secretKey = this.configService.getOrThrow<string>('SECRET_KEY');
+  }
 
   async create(client: PgPoolClient, email: string, password_hash: string) {
     const result = await client.query<IUser>(userQuery.create, [
-      SECRET_KEY,
+      this.secretKey,
       email,
       password_hash,
     ]);
@@ -25,7 +29,7 @@ export class UserService {
 
   async findByEmail(email: string) {
     const result = await this.pgService.query<IUser>(userQuery.findByEmail, [
-      SECRET_KEY,
+      this.secretKey,
       email,
     ]);
 
@@ -34,7 +38,7 @@ export class UserService {
 
   async findById(id: string) {
     const result = await this.pgService.query<IUser>(userQuery.findById, [
-      SECRET_KEY,
+      this.secretKey,
       id,
     ]);
 
