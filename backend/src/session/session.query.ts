@@ -25,4 +25,14 @@ export const sessionQuery = {
     VALUES ($1, $2, $3, true)
     RETURNING id
   `,
+  deactivate: `
+    UPDATE auth."session"
+    SET is_active = false,
+        logout_at = NOW(),
+        last_seen_at = NOW()
+    WHERE id = $1
+      AND user_id = $2
+      AND is_active = true
+    RETURNING id
+  `,
 };

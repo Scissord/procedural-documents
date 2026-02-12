@@ -24,8 +24,9 @@ type LoginFormData = z.infer<typeof loginSchema>;
 export const LoginForm = () => {
   const router = useRouter();
 
-  const userStore = useUserStore.getState();
-  const notificationStore = useNotificationStore.getState();
+  const addNotification = useNotificationStore((s) => s.addNotification);
+
+  const setUser = useUserStore((s) => s.setUser);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -42,19 +43,19 @@ export const LoginForm = () => {
     const response: IResponse = await AuthService.login(data);
 
     if (response.statusCode === 200) {
-      notificationStore.addNotification({
+      addNotification({
         type: 'default',
         title: 'Успех!',
         description: 'Пользователь успешно авторизован.',
       });
-      userStore.setUser(response?.data?.user);
-      router.push('/document/generate');
+      setUser(response?.data);
+      router.push('/');
     } else {
       const message = Array.isArray(response.message)
         ? response.message[0]
         : response.message;
 
-      notificationStore.addNotification({
+      addNotification({
         type: 'destructive',
         title: 'Ошибка!',
         description:

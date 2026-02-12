@@ -16,6 +16,7 @@ export const envValidationSchema = Joi.object({
 
   JWT_SECRET: Joi.string().required(),
   JWT_EXPIRES_IN: Joi.string().default('1d'),
+  JWT_REFRESH_EXPIRES_IN: Joi.string().default('30d'),
 
   LOG_LEVEL: Joi.string()
     .valid('error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly')

@@ -20,13 +20,13 @@ import { useUserStore } from '@/store';
 export function AuthenticationForm() {
   const [tab, setTab] = useState('login');
   const router = useRouter();
-  const { user } = useUserStore();
+  // const { user } = useUserStore();
 
-  useEffect(() => {
-    if (user?.id) {
-      router.push('/document/generate');
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   if (user?.id) {
+  //     router.push('/document/generate');
+  //   }
+  // }, [user, router]);
 
   const handleGoHome = () => {
     router.push('/');

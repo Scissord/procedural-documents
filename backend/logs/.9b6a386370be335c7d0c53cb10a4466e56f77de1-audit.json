@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\scissxrd\\procedural-documents\\backend\\logs\\.9b6a386370be335c7d0c53cb10a4466e56f77de1-audit.json",
+    "files": [
+        {
+            "date": 1770873792319,
+            "name": "C:\\Users\\scissxrd\\procedural-documents\\backend\\logs\\app-2026-02-12.log",
+            "hash": "c84f34ec603f69a4d39bca4d40f2e5e50ca2bb58e46f17d66a649898ddc2c0b5"
+        }
+    ],
+    "hashType": "sha256"
+}

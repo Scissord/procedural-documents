@@ -12,7 +12,10 @@ import {
   DropdownMenuTrigger,
   Button,
 } from '@/components';
-  import { useUserStore } from '@/store';
+import { useNotificationStore, useUserStore } from '@/store';
+import { IResponse } from '@/interfaces';
+import { AuthService } from '@/services';
+import { useShallow } from 'zustand/react/shallow';
 
 const navItems = [
   { label: 'Главная', href: '/' },
@@ -24,12 +27,48 @@ const navItems = [
 
 export function MainHeader() {
   const router = useRouter();
-  const { user, logout } = useUserStore();
-  const handleLogout = () => {
-    logout();
-    router.push('/');
-  };
   const pathname = usePathname();
+
+  const addNotification = useNotificationStore((s) => s.addNotification);
+
+  const { user, logout } = useUserStore(
+    useShallow((state) => ({
+      user: state.user,
+      logout: state.logout,
+    })),
+  );
+
+  const handleLogout = async () => {
+    const response: IResponse = await AuthService.logout();
+
+    if (response.statusCode === 200) {
+      addNotification({
+        type: 'default',
+        title: 'Успех!',
+        description: 'Пользователь успешно вышел из системы.',
+      });
+
+      logout();
+      router.push('/');
+    } else {
+      if (response.statusCode === 401) {
+        logout();
+        router.push('/');
+      } else {
+        const message = Array.isArray(response.message)
+          ? response.message[0]
+          : response.message;
+
+        addNotification({
+          type: 'destructive',
+          title: 'Ошибка!',
+          description:
+            message ||
+            'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
+        });
+      }
+    }
+  };
 
   return (
     <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -100,8 +139,14 @@ export function MainHeader() {
               Настройки
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="cursor-pointer text-destructive" onClick={handleLogout}>
-              <Button variant="ghost" className="cursor-pointer text-destructive">
+            <DropdownMenuItem
+              className="cursor-pointer text-destructive"
+              onClick={handleLogout}
+            >
+              <Button
+                variant="ghost"
+                className="cursor-pointer text-destructive"
+              >
                 Выйти
               </Button>
             </DropdownMenuItem>

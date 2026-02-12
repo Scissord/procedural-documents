@@ -1,4 +1,9 @@
-import { Module } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigService } from '@nestjs/config';
@@ -12,6 +17,8 @@ import { UserModule } from 'src/user/user.module';
 import { ProfileModule } from 'src/profile/profile.module';
 import { SessionModule } from 'src/session/session.module';
 import { TokenModule } from 'src/token/token.module';
+import { AuthMiddleware } from './auth.middleware';
+import { LogoutMiddleware } from './logout.middleware';
 
 @Module({
   imports: [
@@ -32,6 +39,27 @@ import { TokenModule } from 'src/token/token.module';
     TokenModule,
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, JwtTokenGuard],
+  providers: [
+    AuthService,
+    JwtStrategy,
+    JwtTokenGuard,
+    AuthMiddleware,
+    LogoutMiddleware,
+  ],
 })
-export class AuthModule {}
+export class AuthModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(AuthMiddleware)
+      .exclude(
+        { path: 'auth/register', method: RequestMethod.POST },
+        { path: 'auth/login', method: RequestMethod.POST },
+        { path: 'auth/logout', method: RequestMethod.POST },
+      )
+      .forRoutes({ path: '*path', method: RequestMethod.ALL });
+
+    consumer
+      .apply(LogoutMiddleware)
+      .forRoutes({ path: 'auth/logout', method: RequestMethod.POST });
+  }
+}

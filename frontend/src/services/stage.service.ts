@@ -1,24 +1,21 @@
 import { base_url } from '@/utils';
-import { IStage } from '@/interfaces';
+import { IResponse } from '@/interfaces';
 
 export const StageService = {
-  async get(classification_id: string): Promise<IStage[] | string> {
-    try {
-      const response = await fetch(`${base_url}/stages?classification_id=${encodeURIComponent(classification_id)}`, {
+  async findByClassificationId(classification_id: number): Promise<IResponse> {
+    const response = await fetch(
+      `${base_url}/stages/classification/${classification_id}`,
+      {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-      });
+        credentials: 'include',
+      },
+    );
 
-      const result = await response.json();
-      if (!response.ok) {
-        throw result;
-      }
+    const result: IResponse = await response.json();
 
-      return result.stages;
-    } catch (err: unknown) {
-      return 'Произошла ошибка при получении стадий';
-    }
+    return result;
   },
 };

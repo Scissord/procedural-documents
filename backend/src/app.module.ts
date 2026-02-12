@@ -10,6 +10,8 @@ import { UserModule } from './user/user.module';
 import { ProfileModule } from './profile/profile.module';
 import { SessionModule } from './session/session.module';
 import { TokenModule } from './token/token.module';
+import { ClassificationModule } from './classification/classification.module';
+import { StageModule } from './stage/stage.module';
 
 @Module({
   imports: [
@@ -28,6 +30,8 @@ import { TokenModule } from './token/token.module';
     ProfileModule,
     SessionModule,
     TokenModule,
+    ClassificationModule,
+    StageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

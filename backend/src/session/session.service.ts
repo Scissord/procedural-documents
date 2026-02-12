@@ -42,4 +42,17 @@ export class SessionService {
 
     return session || null;
   }
+
+  async deactivate(
+    client: PgPoolClient,
+    user_id: number,
+    session_id: number,
+  ): Promise<boolean> {
+    const result = await client.query<{ id: number }>(sessionQuery.deactivate, [
+      session_id,
+      user_id,
+    ]);
+
+    return result.rows.length > 0;
+  }
 }

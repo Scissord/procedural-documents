@@ -1,5 +1,5 @@
 export interface IClassification {
-  id: string;
+  id: number;
   name: string;
   code: string;
 }

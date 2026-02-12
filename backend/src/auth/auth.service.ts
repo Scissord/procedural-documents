@@ -193,4 +193,62 @@ export class AuthService {
 
     return user;
   }
+
+  async logoutTx(
+    user_id: number,
+    session_id: number,
+    refresh_token: string,
+    res: Response,
+  ) {
+    const client = await this.pgService.getClient();
+
+    try {
+      await client.query('BEGIN');
+
+      const tokenRevoked = await this.tokenService.revokeByPair(
+        client,
+        user_id,
+        session_id,
+        refresh_token,
+      );
+      if (!tokenRevoked) {
+        throw new UnauthorizedException('Refresh token is not active');
+      }
+
+      const sessionClosed = await this.sessionService.deactivate(
+        client,
+        user_id,
+        session_id,
+      );
+      if (!sessionClosed) {
+        throw new UnauthorizedException('Session is not active');
+      }
+
+      await client.query('COMMIT');
+    } catch (error: unknown) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
+
+    const isProduction = process.env.NODE_ENV === 'production';
+    const cookieOptions = {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: 'lax' as const,
+    };
+
+    res.clearCookie('access_token', cookieOptions);
+    res.clearCookie('refresh_token', cookieOptions);
+
+    return {
+      statusCode: 200,
+      message: 'User successfully logged out',
+      data: {
+        user_id,
+        session_id,
+      },
+    };
+  }
 }

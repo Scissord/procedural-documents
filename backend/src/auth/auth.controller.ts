@@ -2,9 +2,11 @@ import {
   Body,
   Controller,
   Get,
+  Req,
   Ip,
   Post,
   Res,
+  UnauthorizedException,
   UseGuards,
   Headers,
 } from '@nestjs/common';
@@ -16,6 +18,7 @@ import { RegisterDto } from './dto/register.dto';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { CurrentAccessToken, CurrentUser } from './current-user.decorator';
 import { JwtTokenGuard } from './jwt-token.guard';
+import type { LogoutRequest } from './logout.middleware';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -37,10 +40,19 @@ export class AuthController {
     return this.authService.loginTx(dto, ip, userAgent, res);
   }
 
-  // @Post('logout')
-  // logout(@Res({ passthrough: true }) res: Response) {
-  //   return this.authService.logoutTx(req, res);
-  // }
+  @Post('logout')
+  logout(@Req() req: LogoutRequest, @Res({ passthrough: true }) res: Response) {
+    if (!req.auth) {
+      throw new UnauthorizedException('Auth context is missing');
+    }
+
+    return this.authService.logoutTx(
+      req.auth.user_id,
+      req.auth.session_id,
+      req.auth.refresh_token,
+      res,
+    );
+  }
 
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard, JwtTokenGuard)

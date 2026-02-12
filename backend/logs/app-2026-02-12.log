@@ -1,0 +1,1507 @@
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"LegacyRouteConverter","level":"warn","message":"Unsupported route path: \"/api/*\". In previous versions, the symbols ?, *, and + were used to denote optional or repeating path parameters. The latest version of \"path-to-regexp\" now requires the use of named parameters. For example, instead of using a route like /users/* to capture all routes starting with \"/users\", you should use /users/*path. For more details, refer to the migration guide. Attempting to auto-convert..."}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"LegacyRouteConverter","level":"warn","message":"Unsupported route path: \"/api/*\". In previous versions, the symbols ?, *, and + were used to denote optional or repeating path parameters. The latest version of \"path-to-regexp\" now requires the use of named parameters. For example, instead of using a route like /users/* to capture all routes starting with \"/users\", you should use /users/*path. For more details, refer to the migration guide. Attempting to auto-convert..."}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"LegacyRouteConverter","level":"warn","message":"Unsupported route path: \"/api/*\". In previous versions, the symbols ?, *, and + were used to denote optional or repeating path parameters. The latest version of \"path-to-regexp\" now requires the use of named parameters. For example, instead of using a route like /users/* to capture all routes starting with \"/users\", you should use /users/*path. For more details, refer to the migration guide. Attempting to auto-convert..."}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"LegacyRouteConverter","level":"warn","message":"Unsupported route path: \"/api/*\". In previous versions, the symbols ?, *, and + were used to denote optional or repeating path parameters. The latest version of \"path-to-regexp\" now requires the use of named parameters. For example, instead of using a route like /users/* to capture all routes starting with \"/users\", you should use /users/*path. For more details, refer to the migration guide. Attempting to auto-convert..."}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"LegacyRouteConverter","level":"warn","message":"Unsupported route path: \"/api/*\". In previous versions, the symbols ?, *, and + were used to denote optional or repeating path parameters. The latest version of \"path-to-regexp\" now requires the use of named parameters. For example, instead of using a route like /users/* to capture all routes starting with \"/users\", you should use /users/*path. For more details, refer to the migration guide. Attempting to auto-convert..."}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token_masked":"missing","has_access_token":false,"has_refresh_token":true,"level":"info","message":"Auth middleware: cookies received","method":"POST","path":"/api/auth/logout","refresh_token_masked":"eyJhbGci...Ke9QKbbQ"}
+{"access_token_masked":"eyJhbGci...t0lzEUFw","has_access_token":true,"has_refresh_token":true,"level":"info","message":"Auth middleware: cookies received","method":"POST","path":"/api/auth/logout","refresh_token_masked":"eyJhbGci...t0lzEUFw"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4Nzk4NjgsImV4cCI6MTc3MDg3OTg3M30.mXiobltLY-QNTZY4URPiURdiz6Bk_qruHQat0lzEUFw","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4Nzk4NjgsImV4cCI6MTc3MDg3OTg3M30.mXiobltLY-QNTZY4URPiURdiz6Bk_qruHQat0lzEUFw"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4Nzk4NjgsImV4cCI6MTc3MDg3OTg3M30.mXiobltLY-QNTZY4URPiURdiz6Bk_qruHQat0lzEUFw","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4Nzk4NjgsImV4cCI6MTc3MDg3OTg3M30.mXiobltLY-QNTZY4URPiURdiz6Bk_qruHQat0lzEUFw"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODAyODIsImV4cCI6MTc3MDg4MDI4N30.M5M6NsltPwkiqO4vZwVEMY1HR4mcmsFKECnyiXk39Hc","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODAyODIsImV4cCI6MTc3MzQ3MjI4Mn0.lcDpKKiWoO7bN0x9a2f8KRNrDq1EC9RBP3k6KbOu_8U"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":"3","user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODAzMzEsImV4cCI6MTc3MDg4MDMzNn0.a5o7BwiQpWBVgFAEIOB_xEtix_VJlNYUjXi1fqq_H4Y","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODAzMzEsImV4cCI6MTc3MzQ3MjMzMX0.HcRjlEoLFB29kaT3JSlGPjXkc1AQ7gdfygm_Kd6qi_w"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODAzMzEsImV4cCI6MTc3MDg4MDMzNn0.a5o7BwiQpWBVgFAEIOB_xEtix_VJlNYUjXi1fqq_H4Y","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODAzMzEsImV4cCI6MTc3MzQ3MjMzMX0.HcRjlEoLFB29kaT3JSlGPjXkc1AQ7gdfygm_Kd6qi_w"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUyIiwic2Vzc2lvbl9pZCI6IjgiLCJpYXQiOjE3NzA4ODA1NjMsImV4cCI6MTc3MDg4MDU2OH0.COMLBPacTYogetpI_JTlA1WExwKSFndgHLyQLI52j9Q","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUyIiwic2Vzc2lvbl9pZCI6IjgiLCJpYXQiOjE3NzA4ODA1NjMsImV4cCI6MTc3MzQ3MjU2M30.3s-mFwSxjMBShcrUlteFukJn5--6Zt_BBN0ZI2WHeBQ"}
+{"access_session_id":"8","access_user_id":"52","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"8","refresh_user_id":"52"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":"8","user_id":"52"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUyIiwic2Vzc2lvbl9pZCI6IjgiLCJpYXQiOjE3NzA4ODA2MTQsImV4cCI6MTc3MDg4MDYxOX0.jvhAw_YYDanbdFLLaJY4mQNuY-gHnhxEbD67O-1s3Q8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUyIiwic2Vzc2lvbl9pZCI6IjgiLCJpYXQiOjE3NzA4ODA2MTQsImV4cCI6MTc3MzQ3MjYxNH0.fjGxx3Ka0Nh7E9R-xPAbpjKQfe_Q12pQFMcuU4P1whM"}
+{"access_session_id":"8","access_user_id":"52","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"8","refresh_user_id":"52"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzIiwic2Vzc2lvbl9pZCI6IjkiLCJpYXQiOjE3NzA4ODE0NjUsImV4cCI6MTc3MDg4MTQ3MH0.zuuBPRIU_3WtrVMWGS0tma6YolnsrhmT6rQax54EPPE","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzIiwic2Vzc2lvbl9pZCI6IjkiLCJpYXQiOjE3NzA4ODE0NjUsImV4cCI6MTc3MzQ3MzQ2NX0._V1Ekq-AXN3h6Nt_aYTr5v_cahCFFBfIz8sfRlu7i7k"}
+{"access_session_id":"9","access_user_id":"53","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"9","refresh_user_id":"53"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":"9","user_id":"53"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzIiwic2Vzc2lvbl9pZCI6IjkiLCJpYXQiOjE3NzA4ODE1NDMsImV4cCI6MTc3MDg4MTU0OH0.8uh_QJiS4GibWrQCxc1aA-XOSkWnA1i89af9OVBl3Ks","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzIiwic2Vzc2lvbl9pZCI6IjkiLCJpYXQiOjE3NzA4ODE1NDMsImV4cCI6MTc3MzQ3MzU0M30.-d8Vf-niRzCaTZgwXXfEJSaaj0ZFVofMPB0P-324gFw"}
+{"access_session_id":"9","access_user_id":"53","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"9","refresh_user_id":"53"}
+{"expires_at":"2026-03-14T07:32:23.000Z","level":"warn","message":"Auth middleware: refresh token is not active","reason":"revoked","revoked_at":"2026-02-12T07:31:29.639Z","session_id":"9","user_id":"53"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzIiwic2Vzc2lvbl9pZCI6IjkiLCJpYXQiOjE3NzA4ODE1NDMsImV4cCI6MTc3MDg4MTU0OH0.8uh_QJiS4GibWrQCxc1aA-XOSkWnA1i89af9OVBl3Ks","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUzIiwic2Vzc2lvbl9pZCI6IjkiLCJpYXQiOjE3NzA4ODE1NDMsImV4cCI6MTc3MzQ3MzU0M30.-d8Vf-niRzCaTZgwXXfEJSaaj0ZFVofMPB0P-324gFw"}
+{"access_session_id":"9","access_user_id":"53","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"9","refresh_user_id":"53"}
+{"expires_at":"2026-03-14T07:32:23.000Z","level":"warn","message":"Auth middleware: refresh token is not active","reason":"revoked","revoked_at":"2026-02-12T07:31:29.639Z","session_id":"9","user_id":"53"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODE3NTMsImV4cCI6MTc3MDg4MTc1OH0.NY2EhqGtPD33j3kR1uqCRRUnCqXwfZz9g9axhuZkivQ","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODE3NTMsImV4cCI6MTc3MzQ3Mzc1M30.VqXX6pgobACNKF76Z81yhG11yWPjd4RZ3TD6iMra8U8"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":"3","user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODE3ODEsImV4cCI6MTc3MDg4MTc4Nn0.lOcsWrXlffJrGODQ-BHsAh50xhFNd9Dw7BuAuVD9ek0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODE3ODEsImV4cCI6MTc3MzQ3Mzc4MX0.pffBDrMPH4MCFzGEHp7W3QqfKTpUOxo7Fj7MhEbDIGI"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":"3","user_id":"46"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"level":"info","message":"Auth middleware: cookies received"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODIyODQsImV4cCI6MTc3MDg4MjI4OX0.bix9hEpW6O8n6FH7Ls3w-8J3aM9TXiMb95TuCP9Ac3M","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODIyODQsImV4cCI6MTc3MzQ3NDI4NH0.6QJjMO0GgOa5pQNAfJckZt-bmwPBknxadYp-7VbLM3k"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODIzMTIsImV4cCI6MTc3MDg4MjMxN30.u98qLCLc3jshDqIFWjx-zZDtT6FSogqn3_6zsoLbdDk","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODIzMTIsImV4cCI6MTc3MzQ3NDMxMn0.za5XiJXwxo_aZ-6fd6nSbvDPKCpyZp2SZUNYhwI7uaU"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"level":"info","message":"Auth middleware: cookies received"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQzODgsImV4cCI6MTc3MDg4NDM5M30.z0xTrigqfklzEL93GUoag-Xvj9Zna-Zoxn726A467k0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQzODgsImV4cCI6MTc3MzQ3NjM4OH0.CmK3YbY6OozMwqkEsLrNniFDE8pmIJeBQ_5--V4q2pg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: expired access allowed for logout route","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ0MzMsImV4cCI6MTc3MDg4NDQzOH0.6DyQE1xex_FWHNpVUt50HgoqsGCmbCUuzpY1CLk-0AU","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ0MzMsImV4cCI6MTc3MzQ3NjQzM30.kWQRiLSLydnE5belNaSkYiJ2dc9CGs_JQIOQ1xTKZw0"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: expired access allowed for logout route","session_id":3,"user_id":46}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew"}
+{"level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODQ1ODEsImV4cCI6MTc3MDg4NDU4Nn0.Ft6SchkWHo4nY8E2Y80ho_gEVGRFgDaqwoprt5I89ew"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4MjQsImV4cCI6MTc3MDg4NjgyOX0.KVC96812jGzK5s5QWUIKOPIE9ql146q3B3OfY6oKPMU","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4MjQsImV4cCI6MTc3MDg4NjgyOX0.KVC96812jGzK5s5QWUIKOPIE9ql146q3B3OfY6oKPMU"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4MjQsImV4cCI6MTc3MDg4NjgyOX0.KVC96812jGzK5s5QWUIKOPIE9ql146q3B3OfY6oKPMU","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4MjQsImV4cCI6MTc3MDg4NjgyOX0.KVC96812jGzK5s5QWUIKOPIE9ql146q3B3OfY6oKPMU"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4MjQsImV4cCI6MTc3MDg4NjgyOX0.KVC96812jGzK5s5QWUIKOPIE9ql146q3B3OfY6oKPMU","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4MjQsImV4cCI6MTc3MDg4NjgyOX0.KVC96812jGzK5s5QWUIKOPIE9ql146q3B3OfY6oKPMU"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MDg4Njg3MX0.BogVHOlkylqr4dGNZXp8vB738jETDVETfIbsyS95Tuk","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MzQ3ODg2Nn0.3XOF6dNvh2Tfi4KJo3E_3tDK_nQ7VmyeWcIkb4q-OT0"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MDg4Njg3MX0.BogVHOlkylqr4dGNZXp8vB738jETDVETfIbsyS95Tuk","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MzQ3ODg2Nn0.3XOF6dNvh2Tfi4KJo3E_3tDK_nQ7VmyeWcIkb4q-OT0"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MDg4Njg3MX0.BogVHOlkylqr4dGNZXp8vB738jETDVETfIbsyS95Tuk","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MzQ3ODg2Nn0.3XOF6dNvh2Tfi4KJo3E_3tDK_nQ7VmyeWcIkb4q-OT0"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njg3NiwiZXhwIjoxNzcwODg2ODgxfQ._lre51A6ZG63hn7zTgUY6JETVttj150jv1rgrxmgXbk","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY4NjYsImV4cCI6MTc3MzQ3ODg2Nn0.3XOF6dNvh2Tfi4KJo3E_3tDK_nQ7VmyeWcIkb4q-OT0"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MDg4NjkzOX0.fhKLg4MneSAtXdyJwQMngrJM7Iixj54PAv_j9bOU6t4","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MDg4NjkzOX0.fhKLg4MneSAtXdyJwQMngrJM7Iixj54PAv_j9bOU6t4","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MDg4NjkzOX0.fhKLg4MneSAtXdyJwQMngrJM7Iixj54PAv_j9bOU6t4","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njk0MCwiZXhwIjoxNzcwODg2OTQ1fQ.hCmwFcO0P731SbRbZLGAlIqZzHO94GT4U9s8jK9GO_I","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njk0MCwiZXhwIjoxNzcwODg2OTQ1fQ.hCmwFcO0P731SbRbZLGAlIqZzHO94GT4U9s8jK9GO_I","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njk0MCwiZXhwIjoxNzcwODg2OTQ1fQ.hCmwFcO0P731SbRbZLGAlIqZzHO94GT4U9s8jK9GO_I","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njk0MCwiZXhwIjoxNzcwODg2OTQ1fQ.hCmwFcO0P731SbRbZLGAlIqZzHO94GT4U9s8jK9GO_I","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njk0MCwiZXhwIjoxNzcwODg2OTQ1fQ.hCmwFcO0P731SbRbZLGAlIqZzHO94GT4U9s8jK9GO_I","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4Njk0MCwiZXhwIjoxNzcwODg2OTQ1fQ.hCmwFcO0P731SbRbZLGAlIqZzHO94GT4U9s8jK9GO_I","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODY5MzQsImV4cCI6MTc3MzQ3ODkzNH0.39HjYDS4cNTjYv02GrENnJvYiO2AzmdmnJ2bvN1wVvg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"POST","path":"/api/auth/logout","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MDg4NzAzOX0.2UEtkg2sMz4OXJIthw4FAs1bCIkLVAiHgAEuvctiD0w","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MDg4NzAzOX0.2UEtkg2sMz4OXJIthw4FAs1bCIkLVAiHgAEuvctiD0w","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MDg4NzAzOX0.2UEtkg2sMz4OXJIthw4FAs1bCIkLVAiHgAEuvctiD0w","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzA0NSwiZXhwIjoxNzcwODg3MDUwfQ.3BCx4eUKkFD0oVJ6UOlr9rscMZZ_H55S2ZHS3ytUOWg","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzA0NSwiZXhwIjoxNzcwODg3MDUwfQ.3BCx4eUKkFD0oVJ6UOlr9rscMZZ_H55S2ZHS3ytUOWg","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzA0NSwiZXhwIjoxNzcwODg3MDUwfQ.3BCx4eUKkFD0oVJ6UOlr9rscMZZ_H55S2ZHS3ytUOWg","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzA0NSwiZXhwIjoxNzcwODg3MDUwfQ.3BCx4eUKkFD0oVJ6UOlr9rscMZZ_H55S2ZHS3ytUOWg","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzA0NSwiZXhwIjoxNzcwODg3MDUwfQ.3BCx4eUKkFD0oVJ6UOlr9rscMZZ_H55S2ZHS3ytUOWg","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIwMiwiZXhwIjoxNzcwODg3MjA3fQ.xkuPeyOZwb4x7T2nAqQqui08vpaxk6cG_19r3qAXnh4","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIwMiwiZXhwIjoxNzcwODg3MjA3fQ.xkuPeyOZwb4x7T2nAqQqui08vpaxk6cG_19r3qAXnh4","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIwNywiZXhwIjoxNzcwODg3MjEyfQ.5L2LZJT1yzXwtkagkr5grfOBS10Wl6UZWGNwtX389ZI","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIwNywiZXhwIjoxNzcwODg3MjEyfQ.5L2LZJT1yzXwtkagkr5grfOBS10Wl6UZWGNwtX389ZI","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIwNywiZXhwIjoxNzcwODg3MjEyfQ.5L2LZJT1yzXwtkagkr5grfOBS10Wl6UZWGNwtX389ZI","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIyMCwiZXhwIjoxNzcwODg3MjI1fQ.cnE56DKUVYufproTjJklDBya0fYG6B-rvFABKzw99BM","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIyMCwiZXhwIjoxNzcwODg3MjI1fQ.cnE56DKUVYufproTjJklDBya0fYG6B-rvFABKzw99BM","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIzMywiZXhwIjoxNzcwODg3MjM4fQ.tdwyZ9SyYgVkt3D2MytCf8-bkPToU4oD9I2cVp-5g48","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4NzIzMywiZXhwIjoxNzcwODg3MjM4fQ.tdwyZ9SyYgVkt3D2MytCf8-bkPToU4oD9I2cVp-5g48","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODcwMzQsImV4cCI6MTc3MzQ3OTAzNH0.uaiIicBYagN6cDcjk6O4PMqYEKcWtNjoBe9DbXFe2Bg"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"level":"info","message":"Auth middleware: cookies received"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODc4MjQsImV4cCI6MTc3MDg4NzgyOX0.MjzGurDCHnYg6fKxK_vTvDgYo6gzVMd1z0dMkMUiZy8"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwNDIsImV4cCI6MTc3MDg4ODA0N30.SeyuDInRogxvwUqVcdusnBnv4OMijlaS9wcfjbbI440","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwNDIsImV4cCI6MTc3MDg4ODA0N30.SeyuDInRogxvwUqVcdusnBnv4OMijlaS9wcfjbbI440"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwNDIsImV4cCI6MTc3MDg4ODA0N30.SeyuDInRogxvwUqVcdusnBnv4OMijlaS9wcfjbbI440","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwNDIsImV4cCI6MTc3MDg4ODA0N30.SeyuDInRogxvwUqVcdusnBnv4OMijlaS9wcfjbbI440"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwNDIsImV4cCI6MTc3MDg4ODA0N30.SeyuDInRogxvwUqVcdusnBnv4OMijlaS9wcfjbbI440","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwNDIsImV4cCI6MTc3MDg4ODA0N30.SeyuDInRogxvwUqVcdusnBnv4OMijlaS9wcfjbbI440"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MDg4ODA5Nn0.apsNwOGM3CWpfvptNBGUz5df3bS8EuRgJ82FC9QIu88","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MDg4ODA5Nn0.apsNwOGM3CWpfvptNBGUz5df3bS8EuRgJ82FC9QIu88","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MDg4ODA5Nn0.apsNwOGM3CWpfvptNBGUz5df3bS8EuRgJ82FC9QIu88","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":"3","access_user_id":"46","level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODA5NywiZXhwIjoxNzcwODg4MTAyfQ.Y0Gqoctv_507hLZIjfS32XFfge4BR75P7ZtroMEvr_k","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODA5NywiZXhwIjoxNzcwODg4MTAyfQ.Y0Gqoctv_507hLZIjfS32XFfge4BR75P7ZtroMEvr_k","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODEwMywiZXhwIjoxNzcwODg4MTA4fQ.pTG2RdF_hyJxW9pnNdSjL11fKJX2uvHvL2MBQRO4XdE","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: access token refreshed","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"level":"info","message":"Auth middleware: cookies received"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/stages/classification/1","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/stages/classification/1","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/stages/classification/1","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/stages/classification/1","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"context":"NestFactory","level":"info","message":"Starting Nest application..."}
+{"context":"InstanceLoader","level":"info","message":"PassportModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigHostModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AppModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ConfigModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"DatabaseModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"UserModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ProfileModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"SessionModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"JwtModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"WinstonModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"TokenModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"ClassificationModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"StageModule dependencies initialized"}
+{"context":"InstanceLoader","level":"info","message":"AuthModule dependencies initialized"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/api}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"AuthController {/api/auth}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/logout, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/auth/profile, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"ClassificationController {/api/classifications}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/classifications, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StageController {/api/stages}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/api/stages/classification/:classification_id, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/classifications","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsInNlc3Npb25faWQiOjMsImlhdCI6MTc3MDg4ODIxMSwiZXhwIjoxNzcwOTc0NjExfQ.ff7v9U8FphsSEZf0zluE4qLEoNHyGVu8esAFttvXD-0","level":"info","message":"Auth middleware: cookies received","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2Iiwic2Vzc2lvbl9pZCI6IjMiLCJpYXQiOjE3NzA4ODgwOTEsImV4cCI6MTc3MzQ4MDA5MX0.P5mGGv4oEfNlB02Ep3naXrUPNOi6Avc_ZNd3bGrNyuo"}
+{"access_session_id":3,"access_user_id":46,"level":"info","message":"Auth middleware: token payload verified","method":"GET","path":"/api/stages/classification/1","refresh_session_id":"3","refresh_user_id":"46"}
+{"level":"info","message":"Auth middleware: refresh token is active in DB","session_id":3,"user_id":46}
