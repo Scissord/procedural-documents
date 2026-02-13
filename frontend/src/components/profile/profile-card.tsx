@@ -13,7 +13,7 @@ interface ProfileCardProps {
 }
 
 export function ProfileCard({ user: initialUser }: ProfileCardProps) {
-  const { user, updateUser } = useUserStore();
+  const { user, } = useUserStore();
   const notificationsStore = useNotificationStore.getState();
   const currentUser = user || initialUser;
   const [isEditingPhone, setIsEditingPhone] = useState(false);
@@ -56,24 +56,15 @@ export function ProfileCard({ user: initialUser }: ProfileCardProps) {
 
   const handleSavePhone = async () => {
     setIsSaving(true);
-    try {
-      const result = await AuthService.updateProfile({ phone: phoneValue || undefined });
 
-      if (typeof result === 'object' && result !== null) {
-        updateUser(result);
-        setIsEditingPhone(false);
-        notificationsStore.addNotification({
-          type: 'default',
-          title: 'Успех!',
-          description: 'Телефон успешно обновлен.',
-        });
-      } else {
-        notificationsStore.addNotification({
-          type: 'destructive',
-          title: 'Ошибка!',
-          description: typeof result === 'string' ? result : 'Не удалось обновить телефон',
-        });
-      }
+    try {
+      notificationsStore.addNotification({
+        type: 'default',
+        title: 'Недоступно',
+        description: 'Редактирование профиля временно отключено',
+      });
+      setIsEditingPhone(false);
+
     } catch (error) {
       notificationsStore.addNotification({
         type: 'destructive',
