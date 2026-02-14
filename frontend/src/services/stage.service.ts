@@ -1,10 +1,10 @@
-import { base_url } from '@/utils';
+import { BASE_URL } from '@/utils';
 import { IResponse } from '@/interfaces';
 
 export const StageService = {
   async findByClassificationId(classification_id: number): Promise<IResponse> {
     const response = await fetch(
-      `${base_url}/stages/classification/${classification_id}`,
+      `${BASE_URL}/stages/classification/${classification_id}`,
       {
         method: 'GET',
         headers: {

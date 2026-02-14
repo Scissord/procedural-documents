@@ -1,4 +1,4 @@
-export interface IUserDocument {
+export interface IAppDocument {
   id: number;
   user_id: number;
   situation: string;

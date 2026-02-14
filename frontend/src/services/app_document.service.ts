@@ -1,9 +1,9 @@
 import { IResponse } from '@/interfaces';
 import { BASE_URL } from '@/utils';
 
-export const ClassificationService = {
+export const AppDocumentService = {
   async get(): Promise<IResponse> {
-    const response = await fetch(`${BASE_URL}/classifications`, {
+    const response = await fetch(`${BASE_URL}/app-documents`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

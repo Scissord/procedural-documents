@@ -39,10 +39,10 @@ export class AuthMiddleware implements NestMiddleware {
       const accessTokenFromCookie = this.extractCookie(req, 'access_token');
       const refresh_token = this.extractCookie(req, 'refresh_token');
 
-      this.logger.info('Auth middleware: cookies received', {
-        access_token: accessTokenFromCookie,
-        refresh_token,
-      });
+      // this.logger.info('Auth middleware: cookies received', {
+      //   access_token: accessTokenFromCookie,
+      //   refresh_token,
+      // });
 
       if (!accessTokenFromCookie || !refresh_token) {
         throw new UnauthorizedException(
@@ -55,15 +55,6 @@ export class AuthMiddleware implements NestMiddleware {
       );
       const accessPayload = accessTokenState.payload;
       const refreshPayload = await this.verifyRefreshToken(refresh_token);
-
-      this.logger.info('Auth middleware: token payload verified', {
-        path: req.originalUrl ?? req.url,
-        method: req.method,
-        access_user_id: accessPayload.id,
-        access_session_id: accessPayload.session_id,
-        refresh_user_id: refreshPayload.id,
-        refresh_session_id: refreshPayload.session_id,
-      });
 
       const access_user_id = Number(accessPayload.id);
       const access_session_id = Number(accessPayload.session_id);
@@ -102,14 +93,6 @@ export class AuthMiddleware implements NestMiddleware {
           refresh_token,
         );
 
-        this.logger.warn('Auth middleware: refresh token is not active', {
-          user_id,
-          session_id,
-          reason: diagnostics.reason,
-          expires_at: diagnostics.expires_at,
-          revoked_at: diagnostics.revoked_at,
-        });
-
         if (diagnostics.reason === 'mismatch') {
           throw new UnauthorizedException('Refresh token mismatch with DB');
         }
@@ -122,11 +105,6 @@ export class AuthMiddleware implements NestMiddleware {
 
         throw new UnauthorizedException('Refresh token is not active');
       }
-
-      this.logger.info('Auth middleware: refresh token is active in DB', {
-        user_id,
-        session_id,
-      });
 
       let access_token = accessTokenFromCookie;
       if (accessTokenState.expired) {
@@ -141,11 +119,6 @@ export class AuthMiddleware implements NestMiddleware {
           secure: isProduction,
           sameSite: 'lax',
           maxAge: 24 * 60 * 60 * 1000,
-        });
-
-        this.logger.info('Auth middleware: access token refreshed', {
-          user_id,
-          session_id,
         });
       }
 

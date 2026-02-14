@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { IUser } from '@/interfaces/user';
+import { IUser } from '@/interfaces/auth/user';
 
 interface State {
   user: IUser | null;
@@ -18,9 +18,7 @@ export const useUserStore = create<State>()(
 
       updateUser: (data) =>
         set((state) => ({
-          user: state.user
-            ? { ...state.user, ...data }
-            : null,
+          user: state.user ? { ...state.user, ...data } : null,
         })),
 
       logout: () => set({ user: null }),

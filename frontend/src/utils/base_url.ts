@@ -1,1 +1,1 @@
-export const base_url = 'http://localhost:3001/api';
+export const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL;

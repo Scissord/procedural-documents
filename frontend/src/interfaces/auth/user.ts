@@ -1,3 +1,5 @@
+import { IProfile } from './profile';
+
 export interface IUserBase {
   login?: string;
 }
@@ -20,4 +22,5 @@ export interface IUser extends IUserBase {
   gender: 'male' | 'female' | 'other';
   locale: string;
   timezone: string;
+  profile: IProfile;
 }

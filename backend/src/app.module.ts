@@ -12,6 +12,7 @@ import { SessionModule } from './session/session.module';
 import { TokenModule } from './token/token.module';
 import { ClassificationModule } from './classification/classification.module';
 import { StageModule } from './stage/stage.module';
+import { RefDocumentModule } from './ref_document/ref_document.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { StageModule } from './stage/stage.module';
     TokenModule,
     ClassificationModule,
     StageModule,
+    RefDocumentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

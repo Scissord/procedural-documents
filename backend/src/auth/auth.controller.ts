@@ -1,24 +1,22 @@
 import {
   Body,
   Controller,
-  Get,
+  Patch,
   Req,
   Ip,
   Post,
   Res,
   UnauthorizedException,
-  UseGuards,
   Headers,
 } from '@nestjs/common';
 import type { Response } from 'express';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
-import { JwtAuthGuard } from './jwt-auth.guard';
-import { CurrentAccessToken, CurrentUser } from './current-user.decorator';
-import { JwtTokenGuard } from './jwt-token.guard';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 import type { LogoutRequest } from './logout.middleware';
+import type { AuthRequest } from './auth.middleware';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -54,13 +52,13 @@ export class AuthController {
     );
   }
 
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard, JwtTokenGuard)
-  @Get('profile')
-  profile(
-    @CurrentUser() user: { id: string },
-    @CurrentAccessToken() access_token: string,
-  ) {
-    return this.authService.profile(user.id, access_token);
+  @Patch('profile')
+  profile(@Req() req: AuthRequest, @Body() dto: UpdateProfileDto) {
+    const auth = req.auth;
+    if (!auth) {
+      throw new UnauthorizedException('Auth context is missing');
+    }
+
+    return this.authService.updateProfileTx(auth.user_id, dto);
   }
 }

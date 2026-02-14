@@ -1,18 +1,14 @@
 import {
-  IUser,
+  IUpdateProfileInput,
   IRegistrationInput,
   ILoginInput,
-  ILoginOutput,
   IResponse,
 } from '@/interfaces';
-import { base_url } from '@/utils';
-import { useNotificationStore } from '@/store';
-
-const BASE_URL = process.env.NEXT_BACKEND_API_URL!;
+import { BASE_URL } from '@/utils';
 
 export const AuthService = {
   async register(data: IRegistrationInput): Promise<IResponse> {
-    const response = await fetch(`${base_url}/auth/register`, {
+    const response = await fetch(`${BASE_URL}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +23,7 @@ export const AuthService = {
   },
 
   async login(data: ILoginInput): Promise<IResponse> {
-    const response = await fetch(`${base_url}/auth/login`, {
+    const response = await fetch(`${BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +38,7 @@ export const AuthService = {
   },
 
   async logout(): Promise<IResponse> {
-    const response = await fetch(`${base_url}/auth/logout`, {
+    const response = await fetch(`${BASE_URL}/auth/logout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,9 +51,9 @@ export const AuthService = {
     return result;
   },
 
-  async update(data: ILoginInput): Promise<IResponse> {
-    const response = await fetch(`${base_url}/auth/login`, {
-      method: 'POST',
+  async updateProfile(data: IUpdateProfileInput): Promise<IResponse> {
+    const response = await fetch(`${BASE_URL}/auth/profile`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },

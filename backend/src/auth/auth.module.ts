@@ -11,7 +11,6 @@ import type { StringValue } from 'ms';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
-import { JwtTokenGuard } from './jwt-token.guard';
 import { DatabaseModule } from 'src/db/database.module';
 import { UserModule } from 'src/user/user.module';
 import { ProfileModule } from 'src/profile/profile.module';
@@ -39,13 +38,7 @@ import { LogoutMiddleware } from './logout.middleware';
     TokenModule,
   ],
   controllers: [AuthController],
-  providers: [
-    AuthService,
-    JwtStrategy,
-    JwtTokenGuard,
-    AuthMiddleware,
-    LogoutMiddleware,
-  ],
+  providers: [AuthService, JwtStrategy, AuthMiddleware, LogoutMiddleware],
 })
 export class AuthModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

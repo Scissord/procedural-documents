@@ -1,6 +1,6 @@
 'use client';
 
-import { Landing, ModulesGrid } from '@/components';
+import { Landing, Documents } from '@/components';
 import { useUserStore } from '@/store';
 
 export default function Home() {
@@ -12,6 +12,6 @@ export default function Home() {
     return <Landing />;
   }
 
-  // Если пользователь авторизован, показываем модули
-  return <ModulesGrid />;
+  // Если пользователь авторизован, показываем его сгенерированные документы
+  return <Documents />;
 }

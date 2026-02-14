@@ -4,6 +4,20 @@ import { PgPoolClient, PgService } from '../db/pg.service';
 import type { IProfile } from './profile.model';
 import { profileQuery } from './profile.query';
 
+type ProfileUpdateData = Partial<
+  Pick<
+    IProfile,
+    | 'first_name'
+    | 'last_name'
+    | 'middle_name'
+    | 'phone'
+    | 'birthday'
+    | 'gender'
+    | 'locale'
+    | 'timezone'
+  >
+>;
+
 @Injectable()
 export class ProfileService {
   constructor(
@@ -36,6 +50,26 @@ export class ProfileService {
     const result = await this.pgService.query<IProfile>(
       profileQuery.findByUserId,
       [this.configService.getOrThrow<string>('SECRET_KEY'), user_id],
+    );
+
+    return result.rows[0] ?? null;
+  }
+
+  async updateByUserId(user_id: number, data: ProfileUpdateData) {
+    const result = await this.pgService.query<IProfile>(
+      profileQuery.updateByUserId,
+      [
+        this.configService.getOrThrow<string>('SECRET_KEY'),
+        user_id,
+        data.first_name ?? null,
+        data.last_name ?? null,
+        data.middle_name ?? null,
+        data.phone ?? null,
+        data.birthday ?? null,
+        data.gender ?? null,
+        data.locale ?? null,
+        data.timezone ?? null,
+      ],
     );
 
     return result.rows[0] ?? null;

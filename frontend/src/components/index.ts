@@ -25,15 +25,17 @@ export * from './auth/login';
 export * from './auth/registration';
 
 // LANDING & MODULES
-export * from './landing';
-export * from './modules-grid';
-export * from './protected-route';
+export * from './home/landing';
+export * from './home/documents';
 
 // THEME
-export * from './theme-provider';
-export * from './theme-toggle';
-export * from './floating-theme-button';
+export * from './theme/theme-provider';
+export * from './theme/theme-toggle';
+export * from './theme/floating-theme-button';
 
 // HEADER
-export * from './main-header';
-export * from './footer';
+export * from './layout/header';
+export * from './layout/footer';
+
+// PROFILE
+export * from './profile/profile-card';

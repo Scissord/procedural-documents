@@ -1,6 +1,7 @@
 import {
   ConflictException,
   Injectable,
+  NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
@@ -15,6 +16,7 @@ import { TokenService } from 'src/token/token.service';
 import { Response } from 'express';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
 export class AuthService {
@@ -182,16 +184,56 @@ export class AuthService {
     }
   }
 
-  async profile(user_id: string, access_token: string) {
+  async profile(user_id: string) {
     const user = await this.userService.findById(user_id);
 
     if (!user) {
       throw new UnauthorizedException('User not found');
     }
 
-    user.access_token = access_token;
-
     return user;
+  }
+
+  async updateProfileTx(user_id: number, dto: UpdateProfileDto) {
+    const profile = await this.profileService.findByUserId(user_id);
+    if (!profile) {
+      throw new NotFoundException('User not found');
+    }
+
+    const user = await this.userService.findById(String(user_id));
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const payload: UpdateProfileDto = {};
+    for (const [key, value] of Object.entries(dto)) {
+      if (typeof value !== 'string') {
+        continue;
+      }
+
+      const normalized = value.trim();
+      if (normalized.length > 0) {
+        payload[key as keyof UpdateProfileDto] = normalized;
+      }
+    }
+
+    const nextProfile =
+      Object.keys(payload).length > 0
+        ? await this.profileService.updateByUserId(user_id, payload)
+        : profile;
+
+    if (!nextProfile) {
+      throw new NotFoundException('User not found');
+    }
+
+    return {
+      statusCode: 200,
+      message: 'Profile updated successfully',
+      data: {
+        ...user,
+        profile: nextProfile,
+      },
+    };
   }
 
   async logoutTx(

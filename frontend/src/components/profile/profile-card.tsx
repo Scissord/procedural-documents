@@ -1,118 +1,152 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, Button, Input, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components';
-import { IUser, IUserDocument } from '@/interfaces';
-import { User, Mail, Phone, Calendar, MapPin, Clock, Edit2, Check, X, FileText } from 'lucide-react';
-import { AuthService, DocumentService } from '@/services';
-import { useUserStore } from '@/store';
-import { useNotificationStore } from '@/store';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Input,
+} from '@/components';
+import { IUser } from '@/interfaces';
+import { AuthService } from '@/services';
+import { useNotificationStore, useUserStore } from '@/store';
+import { formatMessageTime } from '@/utils/date_utils';
 
 interface ProfileCardProps {
   user: IUser;
 }
 
-export function ProfileCard({ user: initialUser }: ProfileCardProps) {
-  const { user, } = useUserStore();
-  const notificationsStore = useNotificationStore.getState();
-  const currentUser = user || initialUser;
-  const [isEditingPhone, setIsEditingPhone] = useState(false);
-  const [phoneValue, setPhoneValue] = useState(currentUser?.phone || '');
+type EditableProfileForm = {
+  first_name: string;
+  last_name: string;
+  middle_name: string;
+  phone: string;
+  birthday: string;
+  gender: string;
+  locale: string;
+  timezone: string;
+};
+
+const EMPTY_FORM: EditableProfileForm = {
+  first_name: '',
+  last_name: '',
+  middle_name: '',
+  phone: '',
+  birthday: '',
+  gender: '',
+  locale: '',
+  timezone: '',
+};
+
+export function ProfileCard({ user }: ProfileCardProps) {
+  const DEFAULT_AVATAR_SRC = '/imgs/default-avatar.png';
+  const setUser = useUserStore((state) => state.setUser);
+  const notificationStore = useNotificationStore();
   const [isSaving, setIsSaving] = useState(false);
-  const [documents, setDocuments] = useState<IUserDocument[]>([]);
-  const [isLoadingDocuments, setIsLoadingDocuments] = useState(false);
+  const [form, setForm] = useState<EditableProfileForm>(EMPTY_FORM);
+  const [avatarSrc, setAvatarSrc] = useState(DEFAULT_AVATAR_SRC);
 
-  const formatDate = (date: string | Date | null | undefined) => {
-    if (!date) return 'Не указано';
-    try {
-      const d = new Date(date);
-      if (isNaN(d.getTime())) return 'Не указано';
-      return d.toLocaleDateString('ru-RU', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      });
-    } catch {
-      return 'Не указано';
-    }
-  };
+  const sourceProfile = user.profile;
+  const displayName =
+    [
+      sourceProfile?.last_name,
+      sourceProfile?.first_name,
+      sourceProfile?.middle_name,
+    ]
+      .filter(Boolean)
+      .join(' ') ||
+    [user.last_name, user.first_name, user.middle_name]
+      .filter(Boolean)
+      .join(' ') ||
+    user.email;
+  const rawAvatarUrl = sourceProfile?.avatar_url ?? user.avatar_url ?? '';
 
-  const getGenderLabel = (gender: string) => {
-    const labels: Record<string, string> = {
-      male: 'Мужской',
-      female: 'Женский',
-      other: 'Другой',
+  const initialForm = useMemo<EditableProfileForm>(() => {
+    return {
+      first_name: sourceProfile?.first_name ?? user.first_name ?? '',
+      last_name: sourceProfile?.last_name ?? user.last_name ?? '',
+      middle_name: sourceProfile?.middle_name ?? user.middle_name ?? '',
+      phone: sourceProfile?.phone ?? user.phone ?? '',
+      birthday:
+        String(sourceProfile?.birthday ?? user.birthday ?? '')
+          .split('T')[0]
+          .trim() || '',
+      gender: sourceProfile?.gender ?? user.gender ?? '',
+      locale: sourceProfile?.locale ?? user.locale ?? '',
+      timezone: sourceProfile?.timezone ?? user.timezone ?? '',
     };
-    return labels[gender] || gender;
-  };
-
-  const fullName = [
-    currentUser?.last_name,
-    currentUser?.first_name,
-    currentUser?.middle_name,
-  ]
-    .filter(Boolean)
-    .join(' ') || currentUser?.first_name || 'Не указано';
-
-  const handleSavePhone = async () => {
-    setIsSaving(true);
-
-    try {
-      notificationsStore.addNotification({
-        type: 'default',
-        title: 'Недоступно',
-        description: 'Редактирование профиля временно отключено',
-      });
-      setIsEditingPhone(false);
-
-    } catch (error) {
-      notificationsStore.addNotification({
-        type: 'destructive',
-        title: 'Ошибка!',
-        description: 'Произошла ошибка при обновлении телефона',
-      });
-    } finally {
-      setIsSaving(false);
-    }
-  };
-
-  const handleCancelEdit = () => {
-    const current = user || initialUser;
-    setPhoneValue(current?.phone || '');
-    setIsEditingPhone(false);
-  };
+  }, [sourceProfile, user]);
 
   useEffect(() => {
-    const loadDocuments = async () => {
-      setIsLoadingDocuments(true);
-      try {
-        const result = await DocumentService.getUserDocuments();
-        if (Array.isArray(result)) {
-          setDocuments(result);
-        } else {
-          notificationsStore.addNotification({
-            type: 'destructive',
-            title: 'Ошибка!',
-            description: typeof result === 'string' ? result : 'Не удалось загрузить документы',
-          });
-        }
-      } catch (error) {
-        notificationsStore.addNotification({
-          type: 'destructive',
-          title: 'Ошибка!',
-          description: 'Произошла ошибка при загрузке документов',
-        });
-      } finally {
-        setIsLoadingDocuments(false);
+    setForm(initialForm);
+  }, [initialForm]);
+
+  useEffect(() => {
+    const nextAvatar = String(rawAvatarUrl).trim();
+    setAvatarSrc(nextAvatar.length > 0 ? nextAvatar : DEFAULT_AVATAR_SRC);
+  }, [rawAvatarUrl]);
+
+  const handleFieldChange = (key: keyof EditableProfileForm, value: string) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const buildPayload = () => {
+    const payload: Partial<EditableProfileForm> = {};
+    const keys = Object.keys(form) as Array<keyof EditableProfileForm>;
+
+    for (const key of keys) {
+      const currentValue = form[key].trim();
+      const initialValue = initialForm[key].trim();
+
+      if (currentValue.length === 0) {
+        continue;
       }
-    };
+      if (currentValue === initialValue) {
+        continue;
+      }
 
-    loadDocuments();
-  }, []);
+      payload[key] = currentValue;
+    }
 
-  const truncateText = (text: string, maxLength: number = 100) => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
+    return payload;
+  };
+
+  const handleSave = async () => {
+    const payload = buildPayload();
+
+    if (Object.keys(payload).length === 0) {
+      notificationStore.addNotification({
+        type: 'default',
+        title: 'Нет изменений',
+        description: 'Измените хотя бы одно поле, чтобы сохранить профиль.',
+      });
+      return;
+    }
+
+    setIsSaving(true);
+    const response = await AuthService.updateProfile(payload);
+    if (response.statusCode !== 200 || !response.data) {
+      const message = Array.isArray(response.message)
+        ? response.message[0]
+        : response.message;
+
+      notificationStore.addNotification({
+        type: 'destructive',
+        title: 'Ошибка',
+        description: String(response.message ?? 'Не удалось обновить профиль'),
+      });
+      return;
+    }
+
+    setUser(response.data as unknown as IUser);
+    notificationStore.addNotification({
+      type: 'default',
+      title: 'Успешно',
+      description: 'Профиль обновлен.',
+    });
+    setIsSaving(false);
   };
 
   return (
@@ -120,159 +154,87 @@ export function ProfileCard({ user: initialUser }: ProfileCardProps) {
       <Card>
         <CardHeader>
           <div className="flex items-center gap-4">
-            <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center">
-              {currentUser?.avatar_url ? (
-                <img
-                  src={currentUser.avatar_url}
-                  alt={fullName}
-                  className="h-20 w-20 rounded-full object-cover"
-                />
-              ) : (
-                <User className="h-10 w-10 text-primary" />
-              )}
+            <div className="h-20 w-20 overflow-hidden rounded-full border bg-muted">
+              <img
+                src={avatarSrc}
+                alt={displayName}
+                className="h-full w-full object-cover"
+                onError={() => setAvatarSrc(DEFAULT_AVATAR_SRC)}
+              />
             </div>
-            <div>
-              <CardTitle className="text-2xl">{fullName}</CardTitle>
-              <p className="text-muted-foreground mt-1">
-                Пользователь с {formatDate(currentUser?.created_at)}
+            <div className="min-w-0">
+              <CardTitle className="truncate">{displayName}</CardTitle>
+              <p className="text-sm text-muted-foreground truncate">
+                {user.email}
               </p>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-muted-foreground" />
-              <div>
-                <p className="text-sm text-muted-foreground">Email</p>
-                <p className="font-medium">{currentUser?.email || 'Не указано'}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-muted-foreground" />
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground">Телефон</p>
-                {isEditingPhone ? (
-                  <div className="flex items-center gap-2 mt-1">
-                    <Input
-                      value={phoneValue}
-                      onChange={(e) => setPhoneValue(e.target.value)}
-                      placeholder="+7 (999) 123-45-67"
-                      className="flex-1"
-                      disabled={isSaving}
-                    />
-                    <Button
-                      size="sm"
-                      onClick={handleSavePhone}
-                      disabled={isSaving}
-                      className="h-8 w-8 p-0"
-                    >
-                      <Check className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={handleCancelEdit}
-                      disabled={isSaving}
-                      className="h-8 w-8 p-0"
-                    >
-                      <X className="h-4 w-4" />
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <p className="font-medium">{currentUser?.phone || 'Не указано'}</p>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => setIsEditingPhone(true)}
-                      className="h-6 w-6 p-0"
-                    >
-                      <Edit2 className="h-3 w-3" />
-                    </Button>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {currentUser?.birthday && (
-              <div className="flex items-center gap-3">
-                <Calendar className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <p className="text-sm text-muted-foreground">Дата рождения</p>
-                  <p className="font-medium">{formatDate(currentUser.birthday)}</p>
-                </div>
-              </div>
-            )}
-
-            <div className="flex items-center gap-3">
-              <User className="h-5 w-5 text-muted-foreground" />
-              <div>
-                <p className="text-sm text-muted-foreground">Пол</p>
-                <p className="font-medium">{getGenderLabel(currentUser?.gender || '')}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <MapPin className="h-5 w-5 text-muted-foreground" />
-              <div>
-                <p className="text-sm text-muted-foreground">Часовой пояс</p>
-                <p className="font-medium">{currentUser?.timezone || 'Не указано'}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Clock className="h-5 w-5 text-muted-foreground" />
-              <div>
-                <p className="text-sm text-muted-foreground">Дата регистрации</p>
-                <p className="font-medium">{formatDate(currentUser?.created_at)}</p>
-              </div>
-            </div>
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p className="text-sm text-muted-foreground">Почта:</p>
+            <p className="font-medium">{user.email}</p>
+          </div>
+          <div>
+            <p className="text-sm text-muted-foreground">Дата регистрации:</p>
+            <p className="font-medium">
+              {formatMessageTime(String(user.created_at))}
+            </p>
           </div>
         </CardContent>
       </Card>
 
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <FileText className="h-5 w-5" />
-            Сгенерированные документы
-          </CardTitle>
+          <CardTitle>Редактирование профиля</CardTitle>
         </CardHeader>
-        <CardContent>
-          {isLoadingDocuments ? (
-            <p className="text-muted-foreground text-center py-4">Загрузка документов...</p>
-          ) : documents.length === 0 ? (
-            <p className="text-muted-foreground text-center py-4">У вас пока нет сгенерированных документов</p>
-          ) : (
-            <div className="rounded-md border">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>ID</TableHead>
-                    <TableHead>Ситуация</TableHead>
-                    <TableHead>Дата создания</TableHead>
-                    <TableHead>Дата обновления</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {documents.map((doc) => (
-                    <TableRow key={doc.id}>
-                      <TableCell className="font-medium">{doc.id}</TableCell>
-                      <TableCell className="max-w-md">
-                        <div className="truncate" title={doc.situation}>
-                          {truncateText(doc.situation, 100)}
-                        </div>
-                      </TableCell>
-                      <TableCell>{formatDate(doc.created_at)}</TableCell>
-                      <TableCell>{formatDate(doc.updated_at)}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          )}
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Input
+            value={form.first_name}
+            onChange={(e) => handleFieldChange('first_name', e.target.value)}
+            placeholder="first_name"
+          />
+          <Input
+            value={form.last_name}
+            onChange={(e) => handleFieldChange('last_name', e.target.value)}
+            placeholder="last_name"
+          />
+          <Input
+            value={form.middle_name}
+            onChange={(e) => handleFieldChange('middle_name', e.target.value)}
+            placeholder="middle_name"
+          />
+          <Input
+            value={form.phone}
+            onChange={(e) => handleFieldChange('phone', e.target.value)}
+            placeholder="phone"
+          />
+          <Input
+            value={form.birthday}
+            onChange={(e) => handleFieldChange('birthday', e.target.value)}
+            placeholder="birthday (YYYY-MM-DD)"
+          />
+          <Input
+            value={form.gender}
+            onChange={(e) => handleFieldChange('gender', e.target.value)}
+            placeholder="gender"
+          />
+          <Input
+            value={form.locale}
+            onChange={(e) => handleFieldChange('locale', e.target.value)}
+            placeholder="locale"
+          />
+          <Input
+            value={form.timezone}
+            onChange={(e) => handleFieldChange('timezone', e.target.value)}
+            placeholder="timezone"
+          />
+
+          <div className="md:col-span-2">
+            <Button onClick={handleSave} disabled={isSaving}>
+              {isSaving ? 'Сохраняем...' : 'Сохранить профиль'}
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>

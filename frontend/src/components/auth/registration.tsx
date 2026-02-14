@@ -4,20 +4,9 @@ import { Dispatch, SetStateAction, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import {
-  Label,
-  Input,
-  Button,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  Calendar,
-  RadioGroup,
-  RadioGroupItem,
-} from '@/components';
+import { Label, Input, Button, RadioGroup, RadioGroupItem } from '@/components';
 import { AuthService } from '@/services';
-import { ChevronDownIcon, EyeIcon, EyeOffIcon } from 'lucide-react';
-import { formatDate } from '@/utils';
+import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { useNotificationStore } from '@/store';
 import { IResponse } from '@/interfaces';
 
@@ -47,8 +36,7 @@ export const RegisterForm = ({
 }: {
   setTab: Dispatch<SetStateAction<string>>;
 }) => {
-  const notificationStore = useNotificationStore.getState();
-  const [open, setOpen] = useState(false);
+  const addNotification = useNotificationStore((s) => s.addNotification);
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordVerification, setShowPasswordVerification] =
     useState(false);
@@ -68,7 +56,7 @@ export const RegisterForm = ({
 
   const onSubmit = async (data: RegisterFormData) => {
     if (data.password !== data.password_verification) {
-      notificationStore.addNotification({
+      addNotification({
         type: 'destructive',
         title: 'Ошибка',
         description: 'Пароли не совпадают!',
@@ -89,7 +77,7 @@ export const RegisterForm = ({
     });
 
     if (response.statusCode === 201) {
-      notificationStore.addNotification({
+      addNotification({
         type: 'default',
         title: 'Успех!',
         description: 'Пользователь успешно зарегистрирован.',
@@ -100,7 +88,7 @@ export const RegisterForm = ({
         ? response.message[0]
         : response.message;
 
-      notificationStore.addNotification({
+      addNotification({
         type: 'destructive',
         title: 'Ошибка!',
         description:
