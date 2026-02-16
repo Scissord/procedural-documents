@@ -8,6 +8,8 @@ interface ChooseStageProps {
   isLoading: boolean;
   isClassificationsReady: boolean;
   isClassificationSelected: boolean;
+  selectedStageId: number | null;
+  onSelect: (stageId: number) => void;
 }
 
 export function ChooseStage({
@@ -15,6 +17,8 @@ export function ChooseStage({
   isLoading,
   isClassificationsReady,
   isClassificationSelected,
+  selectedStageId,
+  onSelect,
 }: ChooseStageProps) {
   if (!isClassificationsReady) {
     return null;
@@ -43,9 +47,15 @@ export function ChooseStage({
         ) : (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {stages.map((stage, idx) => (
-              <div
+              <button
                 key={stage.id}
-                className="rounded-lg border bg-background p-4 transition-colors hover:border-primary/60"
+                type="button"
+                className={`rounded-lg border bg-background p-4 text-left transition-colors hover:border-primary/60 ${
+                  selectedStageId === stage.id
+                    ? 'border-primary ring-1 ring-primary/40'
+                    : ''
+                }`}
+                onClick={() => onSelect(stage.id)}
               >
                 <div className="text-sm text-muted-foreground">
                   Этап {idx + 1}
@@ -53,7 +63,7 @@ export function ChooseStage({
                 <div className="mt-1 font-medium text-foreground">
                   {stage.name}
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         )}

@@ -10,9 +10,11 @@ import { UserModule } from './user/user.module';
 import { ProfileModule } from './profile/profile.module';
 import { SessionModule } from './session/session.module';
 import { TokenModule } from './token/token.module';
+import { RoleModule } from './role/role.module';
 import { ClassificationModule } from './classification/classification.module';
 import { StageModule } from './stage/stage.module';
 import { RefDocumentModule } from './ref_document/ref_document.module';
+import { AppDocumentModule } from './app_document/app_document.module';
 
 @Module({
   imports: [
@@ -31,9 +33,11 @@ import { RefDocumentModule } from './ref_document/ref_document.module';
     ProfileModule,
     SessionModule,
     TokenModule,
+    RoleModule,
     ClassificationModule,
     StageModule,
     RefDocumentModule,
+    AppDocumentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

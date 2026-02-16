@@ -39,3 +39,8 @@ export * from './layout/footer';
 
 // PROFILE
 export * from './profile/profile-card';
+
+// DOCUMENTS
+export * from './documents/loading';
+export * from './documents/left-card';
+export * from './documents/right-card';

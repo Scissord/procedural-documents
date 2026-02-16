@@ -1,0 +1,21 @@
+{
+  "user_id": 46,
+  "data": {
+    "fields": {
+      "situation": "1",
+      "court_name": "1",
+      "court_address": "1",
+      "plaintiff_fio_or_name": "1",
+      "plaintiff_address": "1",
+      "defendant_fio_or_name": "1",
+      "defendant_address": "1",
+      "price_of_claim": "1",
+      "plaintiff_iin_bin": "1",
+      "plaintiff_phone_email": "1",
+      "defendant_iin_bin": "1",
+      "defendant_phone_email": "1",
+      "representative": "1",
+      "document_id": "1"
+    }
+  }
+}

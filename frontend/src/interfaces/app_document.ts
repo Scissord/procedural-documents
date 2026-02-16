@@ -1,7 +1,7 @@
 export interface IAppDocument {
-  id: number;
+  id: string;
   user_id: number;
-  situation: string;
+  docs: any[];
   created_at: string;
   updated_at: string;
   deleted_at: string | null;

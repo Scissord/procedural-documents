@@ -1,4 +1,4 @@
-export interface IRefDocument extends Record<string, unknown> {
+export interface IRefDocument {
   id: number;
   name_ru: string;
   role_id: number;

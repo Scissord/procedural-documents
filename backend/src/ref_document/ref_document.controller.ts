@@ -2,6 +2,9 @@ import {
   BadRequestException,
   Controller,
   Get,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
   Query,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -46,5 +49,33 @@ export class RefDocumentController {
     }
 
     return this.refDocumentService.get(classification_id, stage_id, role_id);
+  }
+
+  @Get(':id')
+  async getById(
+    @Req() req: AuthRequest,
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<{
+    statusCode: number;
+    message: string;
+    data: { document: IRefDocument };
+  }> {
+    const auth = req.auth;
+    if (!auth) {
+      throw new UnauthorizedException('Auth context is missing');
+    }
+
+    const result = await this.refDocumentService.getById(id);
+    if (!result.data.document) {
+      throw new NotFoundException('Document not found');
+    }
+
+    return {
+      statusCode: result.statusCode,
+      message: result.message,
+      data: {
+        document: result.data.document,
+      },
+    };
   }
 }

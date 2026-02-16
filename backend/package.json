@@ -17,9 +17,12 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "seed:ref": "ts-node -r tsconfig-paths/register src/scripts/seed-ref.ts"
   },
   "dependencies": {
+    "@langchain/openai": "^1.2.7",
+    "@langchain/qdrant": "^1.0.1",
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
@@ -27,6 +30,7 @@
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.1",
     "@nestjs/swagger": "^11.2.5",
+    "@qdrant/js-client-rest": "^1.16.2",
     "@types/winston": "^2.4.4",
     "bcrypt": "^6.0.0",
     "class-transformer": "^0.5.1",

@@ -1,59 +1,53 @@
 'use client';
 
-import { IClassification } from '@/interfaces';
+import { IRole } from '@/interfaces';
 import { Loader2 } from 'lucide-react';
 
-interface ChooseClassificationProps {
-  classifications: IClassification[];
-  selectedClassificationId: number | null;
+interface ChooseRoleProps {
+  roles: IRole[];
+  selectedRoleId: number | null;
   isLoading: boolean;
-  isVisible: boolean;
-  onSelect: (classificationId: number) => void;
+  onSelect: (roleId: number) => void;
 }
 
-export function ChooseClassification({
-  classifications,
-  selectedClassificationId,
+export function ChooseRole({
+  roles,
+  selectedRoleId,
   isLoading,
-  isVisible,
   onSelect,
-}: ChooseClassificationProps) {
-  if (!isVisible) {
-    return null;
-  }
-
+}: ChooseRoleProps) {
   return (
     <section className="space-y-4">
-      <h1 className="text-4xl font-bold text-foreground">Выберите классификацию</h1>
+      <h1 className="text-4xl font-bold text-foreground">Выберите роль</h1>
 
       {isLoading ? (
         <div className="rounded-xl border bg-card p-8 shadow-sm">
           <div className="flex items-center gap-3 text-muted-foreground">
             <Loader2 className="h-5 w-5 animate-spin" />
-            <span>Загрузка классификаций...</span>
+            <span>Загрузка ролей...</span>
           </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {classifications.map((classification) => {
-            const isSelected = selectedClassificationId === classification.id;
+          {roles.map((role) => {
+            const isSelected = selectedRoleId === role.id;
 
             return (
               <button
-                key={classification.id}
+                key={role.id}
                 type="button"
                 className={`group flex min-h-24 flex-col items-start justify-between rounded-xl border p-5 text-left shadow-sm transition-all duration-200 ${
                   isSelected
                     ? 'border-primary bg-primary/10 ring-1 ring-primary/40'
                     : 'border-border bg-card hover:-translate-y-0.5 hover:border-primary/60 hover:shadow-md'
                 }`}
-                onClick={() => onSelect(classification.id)}
+                onClick={() => onSelect(role.id)}
               >
                 <div className="mt-2 text-lg font-semibold text-foreground">
-                  {classification.name}
+                  {role.name_ru}
                 </div>
                 <div className="mt-2 text-xs text-muted-foreground group-hover:text-primary">
-                  Нажмите, чтобы показать стадии
+                  Нажмите, чтобы показать классификации
                 </div>
               </button>
             );

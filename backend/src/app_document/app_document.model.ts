@@ -1,5 +1,5 @@
 export interface IAppDocument extends Record<string, unknown> {
-  id: number;
+  id: string;
   user_id: number;
   situation: string;
   created_at: string;
