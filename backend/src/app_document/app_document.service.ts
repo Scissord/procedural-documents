@@ -33,33 +33,76 @@ export class AppDocumentService {
     const template = this.promptTemplateService.buildTemplate(data.fields);
     const prompt = this.promptTemplateService.buildPrompt(template);
 
-    // this gonna be saved in base -> we don't need to save in minio
     const generatedText = await this.legalAgentService.generateDocument(prompt);
+
     const documents: { title: string; text: string }[] = [];
-    const splitRegex = /(ИСКОВОЕ ЗАЯВЛЕНИЕ|ПРЕДВАРИТЕЛЬНОЕ РЕШЕНИЕ СУДА)/g;
-    const matches = [...generatedText.matchAll(splitRegex)];
+    const sectionRegex = /===DOC_START:([^=]+)===([\s\S]*?)===DOC_END===/g;
 
-    for (let i = 0; i < matches.length; i++) {
-      const title = matches[i][0];
-      const startIndex = matches[i].index ?? 0; // если undefined, считаем с 0
-      const endIndex = matches[i + 1]?.index ?? generatedText.length;
+    const matches = [...(generatedText ?? '').matchAll(sectionRegex)];
 
-      const text = generatedText
-        .slice(startIndex + title.length, endIndex)
-        .trim();
-      documents.push({ title, text });
+    this.logger.info('Section matches', {
+      count: matches.length,
+      titles: matches.map((m) => (m[1] ?? '').trim()),
+    });
+
+    if (matches.length > 0) {
+      for (const m of matches) {
+        const rawTitle = (m[1] ?? '').trim();
+        const text = (m[2] ?? '').trim();
+
+        // Нормализуем заголовки (на случай лишних пробелов/регистра)
+        const upper = rawTitle.toUpperCase();
+        let normalizedTitle: string;
+
+        if (upper.includes('ИСКОВОЕ') && upper.includes('ЗАЯВЛЕНИЕ')) {
+          normalizedTitle = 'ИСКОВОЕ ЗАЯВЛЕНИЕ';
+        } else if (
+          upper.includes('ПРЕДВАРИТЕЛЬНОЕ') &&
+          upper.includes('РЕШЕНИЕ') &&
+          upper.includes('СУДА')
+        ) {
+          normalizedTitle = 'ПРЕДВАРИТЕЛЬНОЕ РЕШЕНИЕ СУДА';
+        } else {
+          // если прилетит неожиданный title — сохраним как есть, но лучше логировать
+          normalizedTitle = rawTitle;
+          this.logger.warn('Unknown section title received', { rawTitle });
+        }
+
+        if (text) {
+          documents.push({ title: normalizedTitle, text });
+        }
+      }
     }
+
+    // Fallback: если модель не соблюла формат — не теряем документ
+    if (documents.length === 0) {
+      documents.push({
+        title: 'ИСКОВОЕ ЗАЯВЛЕНИЕ',
+        text: (generatedText ?? '').trim(),
+      });
+    }
+
+    // (Опционально) можно гарантировать порядок блоков A -> B
+    documents.sort((a, b) => {
+      const rank = (t: string) =>
+        t === 'ИСКОВОЕ ЗАЯВЛЕНИЕ'
+          ? 0
+          : t === 'ПРЕДВАРИТЕЛЬНОЕ РЕШЕНИЕ СУДА'
+            ? 1
+            : 2;
+      return rank(a.title) - rank(b.title);
+    });
 
     const created = await this.pgService.query<IAppDocument>(
       `
-        INSERT INTO app.document (
-          user_id,
-          docs
-        )
-        VALUES ($1, $2)
-        RETURNING
-          id
-      `,
+      INSERT INTO app.document (
+        user_id,
+        docs
+      )
+      VALUES ($1, $2)
+      RETURNING
+        id
+    `,
       [user_id, JSON.stringify(documents)],
     );
 
@@ -83,7 +126,7 @@ export class AppDocumentService {
       `
         SELECT
           id,
-          situation,
+          docs,
           created_at,
           updated_at
         FROM app.document
