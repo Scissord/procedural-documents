@@ -141,6 +141,15 @@ export default function ModulesPage() {
     selectedStageId !== null;
 
   const handleContinue = () => {
+    if (!user?.id) {
+      addNotification({
+        type: 'destructive',
+        title: 'Ошибка!',
+        description: 'Для начала войдите в систему!',
+      });
+      return;
+    }
+
     if (!canContinue) {
       return;
     }
