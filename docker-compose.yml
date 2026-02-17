@@ -37,6 +37,7 @@ services:
     env_file:
       - ./backend/.env
     environment:
+      - NODE_ENV=production
       - QDRANT_URL=http://qdrant:6333
       - RABBITMQ_URL=amqp://rabbitmq:5672
       - RABBITMQ_QUEUE=document-generation
@@ -74,6 +75,7 @@ services:
     ports:
       - "3000:3000"
     environment:
+      # - NEXT_PUBLIC_API_URL=http://backend:3001
       - NODE_ENV=production
       - PORT=3000
     networks:
