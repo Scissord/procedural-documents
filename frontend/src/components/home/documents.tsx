@@ -13,9 +13,10 @@ export function Documents() {
   const router = useRouter();
   const addNotification = useNotificationStore((s) => s.addNotification);
 
-  const { user } = useUserStore(
+  const { logout } = useUserStore(
     useShallow((state) => ({
       user: state.user,
+      logout: state.logout,
     })),
   );
 
@@ -29,10 +30,21 @@ export function Documents() {
     if (response.statusCode === 200 && response.data) {
       setDocuments(response.data.documents as IAppDocument[]); // важно
     } else {
+      if (response.statusCode === 401) {
+        logout();
+        router.push('/');
+        return;
+      }
+
+      const message = Array.isArray(response.message)
+        ? response.message[0]
+        : response.message;
+
       addNotification({
         type: 'destructive',
         title: 'Ошибка!',
-        description: response.message as string,
+        description:
+          message || 'Ошибка на стороне сервера, пожалуйста попробуйте снова.',
       });
     }
     setIsLoading(false);
