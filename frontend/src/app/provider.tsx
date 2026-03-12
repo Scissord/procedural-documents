@@ -2,28 +2,51 @@
 
 import { useEffect } from 'react';
 import { useUserStore } from '@/store';
+import { AuthService } from '@/services';
 import {
   Confirmation,
   Notification,
   ThemeProvider,
   FloatingThemeButton,
 } from '@/components';
-import { useRouter } from 'next/navigation';
-// import { setup } from '@/api';
 
 export default function Provider({ children }: { children: React.ReactNode }) {
-  // const router = useRouter();
-  // const { user } = useUserStore();
+  const setUser = useUserStore((state) => state.setUser);
+  const logout = useUserStore((state) => state.logout);
+  const setSessionChecked = useUserStore((state) => state.setSessionChecked);
 
-  // const hasAccess = user?.id;
+  useEffect(() => {
+    let isMounted = true;
 
-  // useEffect(() => {
-  //   if (!hasAccess) {
-  //     router.push('/auth');
-  //   } else {
-  //     setup();
-  //   }
-  // }, [hasAccess]);
+    const syncUserByCookieSession = async () => {
+      try {
+        const response = await AuthService.profile();
+        if (!isMounted) {
+          return;
+        }
+
+        if (response.statusCode === 200 && response.data) {
+          setUser(response.data);
+          return;
+        }
+
+        if (response.statusCode === 401) {
+          logout();
+          return;
+        }
+      } finally {
+        if (isMounted) {
+          setSessionChecked(true);
+        }
+      }
+    };
+
+    void syncUserByCookieSession();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [logout, setSessionChecked, setUser]);
 
   return (
     <ThemeProvider>

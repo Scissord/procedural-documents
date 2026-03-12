@@ -5,9 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useNotificationStore, useUserStore } from '@/store';
 import { useShallow } from 'zustand/react/shallow';
 import { useEffect, useState } from 'react';
-import { IAppDocument } from '@/interfaces';
-import { AppDocumentService } from '@/services';
-import { Loader2 } from 'lucide-react';
+import { ICase } from '@/interfaces';
+import { CaseService } from '@/services';
 
 export function Documents() {
   const router = useRouter();
@@ -20,15 +19,15 @@ export function Documents() {
     })),
   );
 
-  const [documents, setDocuments] = useState<IAppDocument[]>([]);
+  const [cases, setCases] = useState<ICase[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleGetDocuments = async () => {
     setIsLoading(true);
-    const response = await AppDocumentService.get();
+    const response = await CaseService.get();
 
     if (response.statusCode === 200 && response.data) {
-      setDocuments(response.data.documents as IAppDocument[]); // важно
+      setCases(response.data.cases as ICase[]);
     } else {
       if (response.statusCode === 401) {
         logout();
@@ -62,13 +61,12 @@ export function Documents() {
     <TooltipProvider>
       <div className="bg-background p-8 min-h-screen">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-foreground mb-8">Документы</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-8">Кейсы</h1>
           <div className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden">
             <table className="w-full text-sm">
               <thead className="bg-muted/50">
                 <tr className="text-left">
-                  <th className="px-6 py-4 font-semibold">ID</th>
-                  <th className="px-6 py-4 font-semibold">Типы документов</th>
+                  <th className="px-6 py-4 font-semibold">№</th>
                   <th className="px-6 py-4 font-semibold">Дата создания</th>
                   <th className="px-6 py-4 font-semibold text-right">
                     Действия
@@ -77,47 +75,33 @@ export function Documents() {
               </thead>
 
               <tbody>
-                {documents.length === 0 && (
+                {cases.length === 0 && (
                   <tr>
                     <td
                       colSpan={4}
                       className="text-center py-10 text-muted-foreground"
                     >
-                      Документы отсутствуют
+                      Кейсы отсутствуют
                     </td>
                   </tr>
                 )}
 
-                {documents.map((doc) => (
+                {cases.map((c, idx) => (
                   <tr
-                    key={doc.id}
+                    key={c.id}
                     className="border-t border-border hover:bg-muted/30 transition-colors"
                   >
-                    <td className="px-6 py-4 font-medium">{doc.id}</td>
-
-                    <td className="px-6 py-4">
-                      <div className="flex flex-wrap gap-2">
-                        {Array.isArray(doc.docs) &&
-                          doc.docs.map((d: any, index: number) => (
-                            <span
-                              key={index}
-                              className="px-3 py-1 rounded-full text-xs bg-primary/10 text-primary font-medium"
-                            >
-                              {d.title}
-                            </span>
-                          ))}
-                      </div>
-                    </td>
+                    <td className="px-6 py-4 font-medium">{idx + 1}</td>
 
                     <td className="px-6 py-4 text-muted-foreground">
-                      {doc.created_at
-                        ? new Date(doc.created_at).toLocaleDateString('ru-RU')
+                      {c.created_at
+                        ? new Date(c.created_at).toLocaleDateString('ru-RU')
                         : '—'}
                     </td>
 
                     <td className="px-6 py-4 text-right">
                       <button
-                        onClick={() => router.push(`/documents/${doc.id}`)}
+                        onClick={() => router.push(`/cases/${c.id}`)}
                         className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition"
                       >
                         Открыть

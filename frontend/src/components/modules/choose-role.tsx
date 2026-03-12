@@ -31,23 +31,36 @@ export function ChooseRole({
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {roles.map((role) => {
             const isSelected = selectedRoleId === role.id;
+            const isDisabled = !role.is_active;
 
             return (
               <button
                 key={role.id}
                 type="button"
                 className={`group flex min-h-24 flex-col items-start justify-between rounded-xl border p-5 text-left shadow-sm transition-all duration-200 ${
+                  isDisabled
+                    ? 'cursor-not-allowed border-border/60 bg-muted/40 opacity-60'
+                    : ''
+                } ${
                   isSelected
                     ? 'border-primary bg-primary/10 ring-1 ring-primary/40'
                     : 'border-border bg-card hover:-translate-y-0.5 hover:border-primary/60 hover:shadow-md'
                 }`}
-                onClick={() => onSelect(role.id)}
+                disabled={isDisabled}
+                onClick={() => {
+                  if (isDisabled) {
+                    return;
+                  }
+                  onSelect(role.id);
+                }}
               >
                 <div className="mt-2 text-lg font-semibold text-foreground">
                   {role.name_ru}
                 </div>
                 <div className="mt-2 text-xs text-muted-foreground group-hover:text-primary">
-                  Нажмите, чтобы показать классификации
+                  {isDisabled
+                    ? 'Недоступно'
+                    : 'Нажмите, чтобы показать классификации'}
                 </div>
               </button>
             );

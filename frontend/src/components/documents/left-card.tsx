@@ -1,7 +1,8 @@
 'use client';
 
+import { useRef } from 'react';
 import { Button, Input, Label, Loading, RightCard } from '@/components';
-import { IAppDocument } from '@/interfaces';
+import { IAppDocument, IRefDocument } from '@/interfaces';
 
 const PLACEHOLDER_META: Record<
   string,
@@ -35,14 +36,16 @@ interface LeftCardProps {
   hasGenerateFilters: boolean;
   selectedRefDocumentId: number | null;
   handleTemplateChange: (templateId: number) => void;
-  refDocuments: any[];
+  refDocuments: IRefDocument[];
   formValues: Record<string, string>;
   handleFieldChange: (key: string, value: string) => void;
   placeholderKeys: any[];
   requiredPlaceholderKeys: Record<string, any>;
   handleGenerateDocument: () => void;
   isGeneratingDocument: boolean;
-  appDocument: IAppDocument | null;
+  appDocuments: IAppDocument[] | [];
+  isUploadingAppeal?: boolean;
+  handleUploadAppeal?: (file: File) => void;
 }
 
 export const LeftCard = ({
@@ -57,8 +60,16 @@ export const LeftCard = ({
   requiredPlaceholderKeys,
   handleGenerateDocument,
   isGeneratingDocument,
-  appDocument,
+  appDocuments,
+  isUploadingAppeal = false,
+  handleUploadAppeal,
 }: LeftCardProps) => {
+  const appealInputRef = useRef<HTMLInputElement | null>(null);
+  const latestDocument = appDocuments.length
+    ? appDocuments[appDocuments.length - 1]
+    : null;
+  const canUploadAppeal = !isGenerateMode && latestDocument?.stage === 0;
+
   return (
     <section className="rounded-xl border bg-card p-5 shadow-sm">
       <h1 className="mb-4 text-2xl font-semibold text-foreground">
@@ -77,9 +88,13 @@ export const LeftCard = ({
                 void handleTemplateChange(Number(e.target.value))
               }
             >
+              <option value="" disabled>
+                Выберите шаблон документа
+              </option>
               {refDocuments.map((doc) => (
-                <option key={doc.id} value={doc.id}>
+                <option key={doc.id} value={doc.id} disabled={!doc.is_active}>
                   {doc.name_ru}
+                  {!doc.is_active ? ' (недоступно)' : ''}
                 </option>
               ))}
             </select>
@@ -131,7 +146,42 @@ export const LeftCard = ({
           </div>
         </div>
       ) : (
-        <div className="space-y-3 text-sm">Документ в состоянии</div>
+        <div className="space-y-3 text-sm">
+          {appDocuments.length > 0 ? (
+            <div className="space-y-3 text-sm">
+              <div>Документ в состоянии</div>
+              {canUploadAppeal ? (
+                <div className="pt-2">
+                  <input
+                    ref={appealInputRef}
+                    type="file"
+                    accept=".pdf,.doc,.docx,.rtf,.txt"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (!file || !handleUploadAppeal) {
+                        return;
+                      }
+                      handleUploadAppeal(file);
+                      e.currentTarget.value = '';
+                    }}
+                  />
+                  <Button
+                    type="button"
+                    disabled={isUploadingAppeal}
+                    onClick={() => appealInputRef.current?.click()}
+                  >
+                    {isUploadingAppeal
+                      ? 'Загрузка возражения...'
+                      : 'Загрузить возражение'}
+                  </Button>
+                </div>
+              ) : null}
+            </div>
+          ) : (
+            <div className="space-y-3 text-sm">Документы отсутствуют</div>
+          )}
+        </div>
       )}
     </section>
   );

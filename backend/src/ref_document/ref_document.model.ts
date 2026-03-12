@@ -14,4 +14,5 @@ export interface IRefDocument extends Record<string, unknown> {
     template: string;
   }>;
   rules: Record<string, unknown>;
+  is_active: boolean;
 }

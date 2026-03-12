@@ -14,7 +14,6 @@ export const documents = [
         'defendant_fio_or_name',
         'defendant_address',
         'price_of_claim',
-        'situation',
       ],
       optional: [
         'plaintiff_iin_bin',
@@ -55,9 +54,11 @@ export const documents = [
     rules: {
       stages_allowed: ['Возбуждение дела'],
     },
+    is_active: true,
   },
   {
     id: 2,
+    is_active: false,
     name_ru: 'Исковое заявление (электронная подача)',
     role_id: 1,
     stage_id: 1,
@@ -119,6 +120,7 @@ export const documents = [
   },
   {
     id: 3,
+    is_active: false,
     name_ru: 'Исковое заявление (при обязательном досудебном порядке)',
     role_id: 1,
     stage_id: 1,
@@ -181,6 +183,7 @@ export const documents = [
   },
   {
     id: 4,
+    is_active: false,
     name_ru: 'Ходатайство об обеспечении иска',
     role_id: 1,
     stage_id: 1,
@@ -242,6 +245,7 @@ export const documents = [
   },
   {
     id: 5,
+    is_active: false,
     name_ru:
       'Ходатайство о принятии мер по обеспечению иска до предъявления иска',
     role_id: 1,
@@ -304,6 +308,7 @@ export const documents = [
   },
   {
     id: 6,
+    is_active: false,
     name_ru:
       'Ходатайство об освобождении / отсрочке / рассрочке уплаты государственной пошлины',
     role_id: 1,
@@ -366,6 +371,7 @@ export const documents = [
   },
   {
     id: 7,
+    is_active: false,
     name_ru: 'Ходатайство об истребовании доказательств',
     role_id: 1,
     stage_id: 1,
@@ -427,6 +433,7 @@ export const documents = [
   },
   {
     id: 8,
+    is_active: false,
     name_ru: 'Ходатайство об обеспечении доказательств',
     role_id: 1,
     stage_id: 1,
@@ -488,6 +495,7 @@ export const documents = [
   },
   {
     id: 9,
+    is_active: false,
     name_ru: 'Ходатайство о рассмотрении дела в упрощённом производстве',
     role_id: 1,
     stage_id: 1,
@@ -549,6 +557,7 @@ export const documents = [
   },
   {
     id: 10,
+    is_active: false,
     name_ru: 'Заявление об уточнении исковых требований',
     role_id: 1,
     stage_id: 2,
@@ -610,6 +619,7 @@ export const documents = [
   },
   {
     id: 11,
+    is_active: false,
     name_ru: 'Заявление об изменении предмета иска',
     role_id: 1,
     stage_id: 2,
@@ -671,6 +681,7 @@ export const documents = [
   },
   {
     id: 12,
+    is_active: false,
     name_ru: 'Заявление об изменении основания иска',
     role_id: 1,
     stage_id: 2,
@@ -732,6 +743,7 @@ export const documents = [
   },
   {
     id: 13,
+    is_active: false,
     name_ru: 'Заявление об увеличении размера исковых требований',
     role_id: 1,
     stage_id: 2,
@@ -793,6 +805,7 @@ export const documents = [
   },
   {
     id: 14,
+    is_active: false,
     name_ru: 'Заявление об уменьшении размера исковых требований',
     role_id: 1,
     stage_id: 2,
@@ -854,6 +867,7 @@ export const documents = [
   },
   {
     id: 15,
+    is_active: false,
     name_ru: 'Ходатайство о привлечении соответчика',
     role_id: 1,
     stage_id: 2,
@@ -915,6 +929,7 @@ export const documents = [
   },
   {
     id: 16,
+    is_active: false,
     name_ru:
       'Ходатайство о привлечении третьего лица (без самостоятельных требований)',
     role_id: 1,
@@ -977,6 +992,7 @@ export const documents = [
   },
   {
     id: 17,
+    is_active: false,
     name_ru:
       'Ходатайство о привлечении третьего лица (с самостоятельными требованиями)',
     role_id: 1,
@@ -1039,6 +1055,7 @@ export const documents = [
   },
   {
     id: 18,
+    is_active: false,
     name_ru: 'Ходатайство о замене ненадлежащего ответчика',
     role_id: 1,
     stage_id: 2,
@@ -1100,6 +1117,7 @@ export const documents = [
   },
   {
     id: 19,
+    is_active: false,
     name_ru: 'Ходатайство о соединении дел',
     role_id: 1,
     stage_id: 2,
@@ -1161,6 +1179,7 @@ export const documents = [
   },
   {
     id: 20,
+    is_active: false,
     name_ru: 'Ходатайство о разъединении исковых требований',
     role_id: 1,
     stage_id: 2,
@@ -1222,6 +1241,7 @@ export const documents = [
   },
   {
     id: 21,
+    is_active: false,
     name_ru: 'Ходатайство о назначении судебной экспертизы',
     role_id: 1,
     stage_id: 2,
@@ -1283,6 +1303,7 @@ export const documents = [
   },
   {
     id: 22,
+    is_active: false,
     name_ru: 'Письменные объяснения истца',
     role_id: 1,
     stage_id: 3,
@@ -1344,6 +1365,7 @@ export const documents = [
   },
   {
     id: 23,
+    is_active: false,
     name_ru: 'Возражения (пояснения) на доводы ответчика',
     role_id: 1,
     stage_id: 3,
@@ -1405,6 +1427,7 @@ export const documents = [
   },
   {
     id: 24,
+    is_active: false,
     name_ru: 'Ходатайство об отложении судебного заседания',
     role_id: 1,
     stage_id: 3,
@@ -1466,6 +1489,7 @@ export const documents = [
   },
   {
     id: 25,
+    is_active: false,
     name_ru: 'Ходатайство о приостановлении производства по делу',
     role_id: 1,
     stage_id: 3,
@@ -1527,6 +1551,7 @@ export const documents = [
   },
   {
     id: 26,
+    is_active: false,
     name_ru: 'Ходатайство о прекращении производства по делу',
     role_id: 1,
     stage_id: 3,
@@ -1588,6 +1613,7 @@ export const documents = [
   },
   {
     id: 27,
+    is_active: false,
     name_ru: 'Заявление об оставлении иска без рассмотрения',
     role_id: 1,
     stage_id: 3,
@@ -1649,6 +1675,7 @@ export const documents = [
   },
   {
     id: 28,
+    is_active: false,
     name_ru: 'Заявление об отказе от иска (полностью/частично)',
     role_id: 1,
     stage_id: 3,
@@ -1710,6 +1737,7 @@ export const documents = [
   },
   {
     id: 29,
+    is_active: false,
     name_ru: 'Мировое соглашение (проект для утверждения судом)',
     role_id: 1,
     stage_id: 3,
@@ -1776,6 +1804,7 @@ export const documents = [
   },
   {
     id: 30,
+    is_active: false,
     name_ru: 'Ходатайство о приобщении/учёте замечаний к протоколу',
     role_id: 1,
     stage_id: 3,
@@ -1837,6 +1866,7 @@ export const documents = [
   },
   {
     id: 31,
+    is_active: false,
     name_ru: 'Замечания на протокол судебного заседания',
     role_id: 1,
     stage_id: 3,
@@ -1898,6 +1928,7 @@ export const documents = [
   },
   {
     id: 32,
+    is_active: false,
     name_ru: 'Заявление об отводе (судьи/эксперта/специалиста/переводчика)',
     role_id: 1,
     stage_id: 3,
@@ -1959,6 +1990,7 @@ export const documents = [
   },
   {
     id: 33,
+    is_active: false,
     name_ru: 'Заявление о разъяснении решения суда',
     role_id: 1,
     stage_id: 4,
@@ -2020,6 +2052,7 @@ export const documents = [
   },
   {
     id: 34,
+    is_active: false,
     name_ru: 'Заявление об исправлении описок и арифметических ошибок',
     role_id: 1,
     stage_id: 4,
@@ -2081,6 +2114,7 @@ export const documents = [
   },
   {
     id: 35,
+    is_active: false,
     name_ru: 'Заявление о вынесении дополнительного решения',
     role_id: 1,
     stage_id: 4,
@@ -2142,6 +2176,7 @@ export const documents = [
   },
   {
     id: 36,
+    is_active: false,
     name_ru: 'Заявление о выдаче исполнительного листа',
     role_id: 1,
     stage_id: 4,
@@ -2203,6 +2238,7 @@ export const documents = [
   },
   {
     id: 37,
+    is_active: false,
     name_ru: 'Апелляционная жалоба',
     role_id: 1,
     stage_id: 5,
@@ -2264,6 +2300,7 @@ export const documents = [
   },
   {
     id: 38,
+    is_active: false,
     name_ru: 'Частная жалоба (на определение суда)',
     role_id: 1,
     stage_id: 5,
@@ -2325,6 +2362,7 @@ export const documents = [
   },
   {
     id: 39,
+    is_active: false,
     name_ru: 'Кассационная жалоба',
     role_id: 1,
     stage_id: 5,
@@ -2386,6 +2424,7 @@ export const documents = [
   },
   {
     id: 40,
+    is_active: false,
     name_ru: 'Ходатайство о восстановлении процессуального срока',
     role_id: 1,
     stage_id: 5,
@@ -2447,6 +2486,7 @@ export const documents = [
   },
   {
     id: 41,
+    is_active: false,
     name_ru: 'Ходатайство о приостановлении исполнения судебного акта',
     role_id: 1,
     stage_id: 5,
@@ -2508,6 +2548,7 @@ export const documents = [
   },
   {
     id: 42,
+    is_active: false,
     name_ru: 'Возражения на жалобу (апелляционную/частную/кассационную)',
     role_id: 1,
     stage_id: 5,
@@ -2569,6 +2610,7 @@ export const documents = [
   },
   {
     id: 43,
+    is_active: false,
     name_ru: 'Заявление о возбуждении исполнительного производства',
     role_id: 1,
     stage_id: 6,
@@ -2630,6 +2672,7 @@ export const documents = [
   },
   {
     id: 44,
+    is_active: false,
     name_ru: 'Ходатайство о применении мер принудительного исполнения',
     role_id: 1,
     stage_id: 6,
@@ -2691,6 +2734,7 @@ export const documents = [
   },
   {
     id: 45,
+    is_active: false,
     name_ru: 'Жалоба на действия (бездействие) судебного исполнителя',
     role_id: 1,
     stage_id: 6,
@@ -2752,6 +2796,7 @@ export const documents = [
   },
   {
     id: 46,
+    is_active: false,
     name_ru: 'Заявление об изменении способа и порядка исполнения решения',
     role_id: 1,
     stage_id: 6,
@@ -2813,6 +2858,7 @@ export const documents = [
   },
   {
     id: 47,
+    is_active: false,
     name_ru: 'Заявление о повороте исполнения судебного акта',
     role_id: 1,
     stage_id: 6,
@@ -2874,6 +2920,7 @@ export const documents = [
   },
   {
     id: 48,
+    is_active: false,
     name_ru: 'Отзыв (возражения) на исковое заявление',
     role_id: 2,
     stage_id: 2,
@@ -2938,6 +2985,7 @@ export const documents = [
   },
   {
     id: 49,
+    is_active: false,
     name_ru: 'Возражения относительно подсудности',
     role_id: 2,
     stage_id: 2,
@@ -3002,6 +3050,7 @@ export const documents = [
   },
   {
     id: 50,
+    is_active: false,
     name_ru: 'Ходатайство о передаче дела по подсудности',
     role_id: 2,
     stage_id: 2,
@@ -3066,6 +3115,7 @@ export const documents = [
   },
   {
     id: 51,
+    is_active: false,
     name_ru: 'Ходатайство о возвращении искового заявления',
     role_id: 2,
     stage_id: 2,
@@ -3130,6 +3180,7 @@ export const documents = [
   },
   {
     id: 52,
+    is_active: false,
     name_ru: 'Ходатайство об оставлении искового заявления без движения',
     role_id: 2,
     stage_id: 2,
@@ -3194,6 +3245,7 @@ export const documents = [
   },
   {
     id: 53,
+    is_active: false,
     name_ru: 'Ходатайство об оставлении иска без рассмотрения',
     role_id: 2,
     stage_id: 2,
@@ -3258,6 +3310,7 @@ export const documents = [
   },
   {
     id: 54,
+    is_active: false,
     name_ru: 'Встречный иск',
     role_id: 2,
     stage_id: 2,
@@ -3325,6 +3378,7 @@ export const documents = [
   },
   {
     id: 55,
+    is_active: false,
     name_ru: 'Ходатайство о привлечении третьих лиц',
     role_id: 2,
     stage_id: 2,
@@ -3389,6 +3443,7 @@ export const documents = [
   },
   {
     id: 56,
+    is_active: false,
     name_ru: 'Ходатайство о замене ненадлежащей стороны',
     role_id: 2,
     stage_id: 2,
@@ -3453,6 +3508,7 @@ export const documents = [
   },
   {
     id: 57,
+    is_active: false,
     name_ru: 'Ходатайство о соединении дел',
     role_id: 2,
     stage_id: 2,
@@ -3517,6 +3573,7 @@ export const documents = [
   },
   {
     id: 58,
+    is_active: false,
     name_ru: 'Ходатайство о разъединении исковых требований',
     role_id: 2,
     stage_id: 2,
@@ -3581,6 +3638,7 @@ export const documents = [
   },
   {
     id: 59,
+    is_active: false,
     name_ru: 'Ходатайство об истребовании доказательств',
     role_id: 2,
     stage_id: 2,
@@ -3645,6 +3703,7 @@ export const documents = [
   },
   {
     id: 60,
+    is_active: false,
     name_ru: 'Ходатайство об обеспечении доказательств',
     role_id: 2,
     stage_id: 2,
@@ -3709,6 +3768,7 @@ export const documents = [
   },
   {
     id: 61,
+    is_active: false,
     name_ru: 'Ходатайство об исключении недопустимых доказательств',
     role_id: 2,
     stage_id: 2,
@@ -3773,6 +3833,7 @@ export const documents = [
   },
   {
     id: 62,
+    is_active: false,
     name_ru: 'Ходатайство о назначении судебной экспертизы',
     role_id: 2,
     stage_id: 2,
@@ -3840,6 +3901,7 @@ export const documents = [
   },
   {
     id: 63,
+    is_active: false,
     name_ru: 'Ходатайство о повторной экспертизе',
     role_id: 2,
     stage_id: 7,
@@ -3904,6 +3966,7 @@ export const documents = [
   },
   {
     id: 64,
+    is_active: false,
     name_ru: 'Ходатайство о дополнительной экспертизе',
     role_id: 2,
     stage_id: 7,
@@ -3968,6 +4031,7 @@ export const documents = [
   },
   {
     id: 65,
+    is_active: false,
     name_ru: 'Ходатайство о вызове свидетелей',
     role_id: 2,
     stage_id: 7,
@@ -4032,6 +4096,7 @@ export const documents = [
   },
   {
     id: 66,
+    is_active: false,
     name_ru: 'Пояснения по заключению эксперта',
     role_id: 2,
     stage_id: 7,
@@ -4099,6 +4164,7 @@ export const documents = [
   },
   {
     id: 67,
+    is_active: false,
     name_ru: 'Возражения против заключения эксперта',
     role_id: 2,
     stage_id: 7,
@@ -4166,6 +4232,7 @@ export const documents = [
   },
   {
     id: 68,
+    is_active: false,
     name_ru: 'Письменные объяснения Ответчика',
     role_id: 2,
     stage_id: 7,
@@ -4230,6 +4297,7 @@ export const documents = [
   },
   {
     id: 69,
+    is_active: false,
     name_ru: 'Дополнительные возражения на доводы Истца',
     role_id: 2,
     stage_id: 7,
@@ -4294,6 +4362,7 @@ export const documents = [
   },
   {
     id: 70,
+    is_active: false,
     name_ru: 'Ходатайство об отложении судебного заседания',
     role_id: 2,
     stage_id: 7,
@@ -4358,6 +4427,7 @@ export const documents = [
   },
   {
     id: 71,
+    is_active: false,
     name_ru: 'Ходатайство о приостановлении производства по делу',
     role_id: 2,
     stage_id: 7,
@@ -4422,6 +4492,7 @@ export const documents = [
   },
   {
     id: 72,
+    is_active: false,
     name_ru: 'Ходатайство о прекращении производства по делу',
     role_id: 2,
     stage_id: 7,
@@ -4486,6 +4557,7 @@ export const documents = [
   },
   {
     id: 73,
+    is_active: false,
     name_ru: 'Заявление об отводе судьи',
     role_id: 2,
     stage_id: 7,
@@ -4545,6 +4617,7 @@ export const documents = [
   },
   {
     id: 74,
+    is_active: false,
     name_ru: 'Заявление об отводе эксперта',
     role_id: 2,
     stage_id: 7,
@@ -4607,6 +4680,7 @@ export const documents = [
   },
   {
     id: 75,
+    is_active: false,
     name_ru: 'Заявление об отводе специалиста',
     role_id: 2,
     stage_id: 7,
@@ -4666,6 +4740,7 @@ export const documents = [
   },
   {
     id: 76,
+    is_active: false,
     name_ru: 'Заявление об отводе переводчика',
     role_id: 2,
     stage_id: 7,
@@ -4725,6 +4800,7 @@ export const documents = [
   },
   {
     id: 77,
+    is_active: false,
     name_ru: 'Замечания на протокол судебного заседания',
     role_id: 2,
     stage_id: 7,
@@ -4786,6 +4862,7 @@ export const documents = [
   },
   {
     id: 78,
+    is_active: false,
     name_ru:
       'Ходатайство о приобщении доказательств к протоколу / материалам дела',
     role_id: 2,
@@ -4853,6 +4930,7 @@ export const documents = [
   },
   {
     id: 79,
+    is_active: false,
     name_ru: 'Заявление о заключении мирового соглашения',
     role_id: 2,
     stage_id: 7,
@@ -4917,6 +4995,7 @@ export const documents = [
   },
   {
     id: 80,
+    is_active: false,
     name_ru: 'Проект мирового соглашения (для утверждения судом)',
     role_id: 2,
     stage_id: 7,
@@ -4981,6 +5060,7 @@ export const documents = [
   },
   {
     id: 81,
+    is_active: false,
     name_ru: 'Возражения против утверждения мирового соглашения',
     role_id: 2,
     stage_id: 7,
@@ -5045,6 +5125,7 @@ export const documents = [
   },
   {
     id: 82,
+    is_active: false,
     name_ru: 'Заявление о разъяснении решения суда',
     role_id: 2,
     stage_id: 8,
@@ -5109,6 +5190,7 @@ export const documents = [
   },
   {
     id: 83,
+    is_active: false,
     name_ru: 'Заявление об исправлении описок и арифметических ошибок',
     role_id: 2,
     stage_id: 8,
@@ -5173,6 +5255,7 @@ export const documents = [
   },
   {
     id: 84,
+    is_active: false,
     name_ru: 'Заявление о вынесении дополнительного решения',
     role_id: 2,
     stage_id: 8,
@@ -5237,6 +5320,7 @@ export const documents = [
   },
   {
     id: 85,
+    is_active: false,
     name_ru: 'Ходатайство о приостановлении исполнения решения суда',
     role_id: 2,
     stage_id: 8,
@@ -5301,6 +5385,7 @@ export const documents = [
   },
   {
     id: 86,
+    is_active: false,
     name_ru: 'Апелляционная жалоба',
     role_id: 2,
     stage_id: 5,
@@ -5366,6 +5451,7 @@ export const documents = [
   },
   {
     id: 87,
+    is_active: false,
     name_ru: 'Частная жалоба (на определение суда)',
     role_id: 2,
     stage_id: 5,
@@ -5431,6 +5517,7 @@ export const documents = [
   },
   {
     id: 88,
+    is_active: false,
     name_ru: 'Возражения на апелляционную жалобу',
     role_id: 2,
     stage_id: 5,
@@ -5495,6 +5582,7 @@ export const documents = [
   },
   {
     id: 89,
+    is_active: false,
     name_ru: 'Кассационная жалоба',
     role_id: 2,
     stage_id: 5,
@@ -5560,6 +5648,7 @@ export const documents = [
   },
   {
     id: 90,
+    is_active: false,
     name_ru: 'Возражения на кассационную жалобу',
     role_id: 2,
     stage_id: 5,
@@ -5624,6 +5713,7 @@ export const documents = [
   },
   {
     id: 91,
+    is_active: false,
     name_ru: 'Ходатайство о восстановлении процессуального срока',
     role_id: 2,
     stage_id: 5,
@@ -5688,6 +5778,7 @@ export const documents = [
   },
   {
     id: 92,
+    is_active: false,
     name_ru: 'Заявление об отсрочке исполнения решения суда',
     role_id: 2,
     stage_id: 6,
@@ -5755,6 +5846,7 @@ export const documents = [
   },
   {
     id: 93,
+    is_active: false,
     name_ru: 'Заявление о рассрочке исполнения решения суда',
     role_id: 2,
     stage_id: 6,
@@ -5822,6 +5914,7 @@ export const documents = [
   },
   {
     id: 94,
+    is_active: false,
     name_ru: 'Заявление об изменении способа и порядка исполнения решения',
     role_id: 2,
     stage_id: 6,

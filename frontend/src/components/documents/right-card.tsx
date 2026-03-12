@@ -1,6 +1,7 @@
 'use client';
 
 import { IAppDocument, IRefDocument } from '@/interfaces';
+import { formatMessageTime } from '@/utils/date_utils';
 import { Loader2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -10,7 +11,7 @@ interface LeftCardProps {
   selectedRefDocument: IRefDocument | null;
   formValues: Record<string, string>;
   handleFieldChange: (key: string, value: string) => void;
-  appDocument: IAppDocument | null;
+  appDocuments: IAppDocument[] | [];
   isGeneratingDocument: boolean;
 }
 
@@ -20,7 +21,7 @@ export const RightCard = ({
   selectedRefDocument,
   formValues,
   handleFieldChange,
-  appDocument,
+  appDocuments,
   isGeneratingDocument,
 }: LeftCardProps) => {
   const [selectedDoc, setSelectedDoc] = useState<{
@@ -29,10 +30,18 @@ export const RightCard = ({
   } | null>(null);
 
   useEffect(() => {
-    if (appDocument) {
-      setSelectedDoc(appDocument.docs[0]);
+    if (appDocuments.length === 0) {
+      setSelectedDoc(null);
+      return;
     }
-  }, [appDocument]);
+
+    const latestDocument = appDocuments[appDocuments.length - 1];
+    const latestDocs = latestDocument?.docs ?? [];
+    const analysisDoc =
+      latestDocs.find((item) => item.title === 'АНАЛИЗ УЯЗВИМОСТЕЙ') ?? null;
+
+    setSelectedDoc(analysisDoc ?? latestDocs[0] ?? null);
+  }, [appDocuments]);
 
   return (
     <section className="rounded-xl border bg-card p-5 shadow-sm">
@@ -66,18 +75,28 @@ export const RightCard = ({
             Шаблон документа не выбран.
           </p>
         )
-      ) : appDocument ? (
+      ) : appDocuments.length > 0 ? (
         <>
-          <div className="flex items-center gap-3 mb-3">
-            {appDocument?.docs.map((doc: any, idx: number) => (
-              <div
-                key={idx}
-                onClick={() => setSelectedDoc(doc)}
-                className="rounded-md border bg-background p-2 cursor-pointer
-                hover:bg-blue-700 hover:opacity-70
-                transition-colors duration-300 ease-in-out"
-              >
-                <p className="font-medium">{doc.title}</p>
+          <div className="flex flex-col gap-3 mb-3">
+            {appDocuments?.map((doc: IAppDocument, idx: number) => (
+              <div key={idx} className="border rounded-md p-2">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="font-medium text-xl">Этап {idx + 1}</p>
+                  <p>{formatMessageTime(doc.created_at)}</p>
+                </div>
+                <div className="flex items-center gap-3 mb-3">
+                  {doc.docs.map((doc: any, index: number) => (
+                    <div
+                      key={index}
+                      onClick={() => setSelectedDoc(doc)}
+                      className="rounded-md border bg-background p-2 cursor-pointer
+                    hover:bg-blue-700 hover:opacity-70
+                    transition-colors duration-300 ease-in-out"
+                    >
+                      <p className="font-medium">{doc.title}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

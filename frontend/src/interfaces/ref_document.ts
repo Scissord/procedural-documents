@@ -1,6 +1,7 @@
 export interface IRefDocument {
   id: number;
   name_ru: string;
+  is_active: boolean;
   role_id: number;
   stage_id: number;
   classification_id: number;

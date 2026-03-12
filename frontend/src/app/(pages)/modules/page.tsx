@@ -151,7 +151,7 @@ export default function ModulesPage() {
       stage_id: String(selectedStageId),
     });
 
-    router.push(`/documents/generate?${params.toString()}`);
+    router.push(`/cases/generate?${params.toString()}`);
   };
 
   return (

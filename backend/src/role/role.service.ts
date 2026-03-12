@@ -16,7 +16,8 @@ export class RoleService {
         SELECT
           id,
           name_ru,
-          code
+          code,
+          is_active
         FROM ref.role
         ORDER BY id ASC
       `,

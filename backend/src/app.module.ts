@@ -15,6 +15,7 @@ import { ClassificationModule } from './classification/classification.module';
 import { StageModule } from './stage/stage.module';
 import { RefDocumentModule } from './ref_document/ref_document.module';
 import { AppDocumentModule } from './app_document/app_document.module';
+import { CaseModule } from './case/case.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { AppDocumentModule } from './app_document/app_document.module';
     ClassificationModule,
     StageModule,
     RefDocumentModule,
+    CaseModule,
     AppDocumentModule,
   ],
   controllers: [AppController],

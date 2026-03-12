@@ -184,14 +184,30 @@ export class AuthService {
     }
   }
 
-  async profile(user_id: string) {
-    const user = await this.userService.findById(user_id);
+  async profile(user_id: number | string) {
+    const normalizedUserId = Number(user_id);
+    if (!Number.isFinite(normalizedUserId)) {
+      throw new UnauthorizedException('Invalid user id');
+    }
+
+    const user = await this.userService.findById(String(user_id));
+    const profile = await this.profileService.findByUserId(normalizedUserId);
 
     if (!user) {
       throw new UnauthorizedException('User not found');
     }
+    if (!profile) {
+      throw new UnauthorizedException('Profile not found');
+    }
 
-    return user;
+    return {
+      statusCode: 200,
+      message: 'Profile fetched successfully',
+      data: {
+        ...user,
+        profile,
+      },
+    };
   }
 
   async updateProfileTx(user_id: number, dto: UpdateProfileDto) {

@@ -11,3 +11,4 @@ export * from './ref_document';
 export * from './role';
 export * from './stage';
 export * from './response';
+export * from './case';

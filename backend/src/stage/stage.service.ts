@@ -16,7 +16,8 @@ export class StageService {
         SELECT
           id,
           name,
-          classification_id
+          classification_id,
+          is_active
         FROM ref.stage
         WHERE classification_id = $1
         ORDER BY id ASC

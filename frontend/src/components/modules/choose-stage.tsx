@@ -46,25 +46,36 @@ export function ChooseStage({
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {stages.map((stage, idx) => (
-              <button
-                key={stage.id}
-                type="button"
-                className={`rounded-lg border bg-background p-4 text-left transition-colors hover:border-primary/60 ${
-                  selectedStageId === stage.id
-                    ? 'border-primary ring-1 ring-primary/40'
-                    : ''
-                }`}
-                onClick={() => onSelect(stage.id)}
-              >
-                <div className="text-sm text-muted-foreground">
-                  Этап {idx + 1}
-                </div>
-                <div className="mt-1 font-medium text-foreground">
-                  {stage.name}
-                </div>
-              </button>
-            ))}
+            {stages.map((stage, idx) => {
+              const isDisabled = !stage.is_active;
+              const isSelected = selectedStageId === stage.id;
+
+              return (
+                <button
+                  key={stage.id}
+                  type="button"
+                  className={`rounded-lg border bg-background p-4 text-left transition-colors ${
+                    isDisabled
+                      ? 'cursor-not-allowed border-border/60 bg-muted/40 opacity-60'
+                      : 'hover:border-primary/60'
+                  } ${isSelected ? 'border-primary ring-1 ring-primary/40' : ''}`}
+                  disabled={isDisabled}
+                  onClick={() => {
+                    if (isDisabled) {
+                      return;
+                    }
+                    onSelect(stage.id);
+                  }}
+                >
+                  <div className="text-sm text-muted-foreground">
+                    Этап {idx + 1}
+                  </div>
+                  <div className="mt-1 font-medium text-foreground">
+                    {stage.name}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         )}
       </div>

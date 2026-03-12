@@ -78,4 +78,20 @@ export class LegalAgentService {
 
     return this.llmService.generate(finalPrompt);
   }
+
+  async generateWithoutRag(prompt: string): Promise<string> {
+    return this.llmService.generate(prompt);
+  }
+
+  async generateDocumentWithRagQuery(
+    prompt: string,
+    ragQuery: string,
+  ): Promise<string> {
+    const ragContext = await this.buildRagContext(ragQuery);
+    const finalPrompt = ragContext
+      ? `${prompt}\n\nКОНТЕКСТ ИЗ ПРАВОВОЙ БАЗЫ:\n${ragContext}`
+      : prompt;
+
+    return this.llmService.generate(finalPrompt);
+  }
 }

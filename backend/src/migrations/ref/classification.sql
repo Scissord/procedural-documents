@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS ref.classification (
   id BIGSERIAL PRIMARY KEY,
   name varchar(255),
   code varchar(255),
+  is_active BOOLEAN NOT NULL DEFAULT false,
   created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
   deleted_at TIMESTAMPTZ

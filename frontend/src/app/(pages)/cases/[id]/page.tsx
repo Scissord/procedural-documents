@@ -12,12 +12,11 @@ import {
 } from '@/components';
 import { AppDocumentService, RefDocumentService } from '@/services';
 import { IAppDocument, IRefDocument } from '@/interfaces';
-import { Loader2 } from 'lucide-react';
 import { useNotificationStore } from '@/store';
 
 type FormValues = Record<string, string>;
 
-export default function DocumentPage() {
+export default function CasePage() {
   const router = useRouter();
 
   const params = useParams<{ id: string }>();
@@ -38,12 +37,13 @@ export default function DocumentPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoadingTemplate, setIsLoadingTemplate] = useState(false);
   const [isGeneratingDocument, setIsGeneratingDocument] = useState(false);
+  const [isUploadingAppeal, setIsUploadingAppeal] = useState(false);
   const [refDocuments, setRefDocuments] = useState<IRefDocument[]>([]);
   const [selectedRefDocumentId, setSelectedRefDocumentId] = useState<
     number | null
   >(null);
   const [formValues, setFormValues] = useState<FormValues>({});
-  const [appDocument, setAppDocument] = useState<IAppDocument | null>(null);
+  const [appDocuments, setAppDocuments] = useState<IAppDocument[] | []>([]);
   const [selectedRefDocument, setSelectedRefDocument] =
     useState<IRefDocument | null>(null);
 
@@ -62,6 +62,11 @@ export default function DocumentPage() {
   );
 
   const handleTemplateChange = async (templateId: number) => {
+    const selectedTemplate = refDocuments.find((doc) => doc.id === templateId);
+    if (selectedTemplate && !selectedTemplate.is_active) {
+      return;
+    }
+
     setSelectedRefDocumentId(templateId);
     setIsLoadingTemplate(true);
     const response = await RefDocumentService.getById(templateId);
@@ -108,10 +113,10 @@ export default function DocumentPage() {
 
     if (response.statusCode === 200) {
       const doc = response.data?.document as IAppDocument;
-      const docId = doc?.id;
+      const case_id = doc?.case_id;
 
-      if (docId && typeof docId === 'string') {
-        router.push(`/documents/${docId}`);
+      if (case_id && typeof case_id === 'string') {
+        router.push(`/cases/${case_id}`);
       } else {
         addNotification({
           type: 'destructive',
@@ -125,10 +130,38 @@ export default function DocumentPage() {
   };
 
   const handleFetchDocument = async () => {
-    const response = await AppDocumentService.getById(uuid);
+    const response = await AppDocumentService.getChronology(uuid);
+
     if (response.statusCode === 200) {
-      setAppDocument((response?.data?.document as IAppDocument) ?? []);
+      console.log(response);
+      setAppDocuments((response?.data?.documents as IAppDocument[]) ?? []);
     }
+  };
+
+  const handleUploadAppeal = async (file: File) => {
+    setIsUploadingAppeal(true);
+    const response = await AppDocumentService.uploadAppeal(file, uuid);
+
+    if (response.statusCode === 200) {
+      addNotification({
+        type: 'default',
+        title: 'Успех!',
+        description: 'Возражение успешно загружено.',
+      });
+      await handleFetchDocument();
+    } else {
+      const message = Array.isArray(response.message)
+        ? response.message[0]
+        : response.message;
+      addNotification({
+        type: 'destructive',
+        title: 'Ошибка!',
+        description:
+          message || 'Не удалось загрузить возражение. Попробуйте еще раз.',
+      });
+    }
+
+    setIsUploadingAppeal(false);
   };
 
   useEffect(() => {
@@ -156,7 +189,9 @@ export default function DocumentPage() {
         if (response.statusCode === 200) {
           const docs = (response.data?.documents as IRefDocument[]) ?? [];
           setRefDocuments(docs);
-          const firstDocumentId = docs[0]?.id ?? null;
+          const firstActiveDocumentId =
+            docs.find((doc) => doc.is_active)?.id ?? null;
+          const firstDocumentId = firstActiveDocumentId;
           setSelectedRefDocumentId(firstDocumentId);
 
           if (firstDocumentId !== null) {
@@ -230,7 +265,9 @@ export default function DocumentPage() {
           requiredPlaceholderKeys={requiredPlaceholderKeys}
           handleGenerateDocument={handleGenerateDocument}
           isGeneratingDocument={isGeneratingDocument}
-          appDocument={appDocument}
+          appDocuments={appDocuments}
+          isUploadingAppeal={isUploadingAppeal}
+          handleUploadAppeal={handleUploadAppeal}
         />
         <RightCard
           isGenerateMode={isGenerateMode}
@@ -238,7 +275,7 @@ export default function DocumentPage() {
           selectedRefDocument={selectedRefDocument}
           formValues={formValues}
           handleFieldChange={handleFieldChange}
-          appDocument={appDocument}
+          appDocuments={appDocuments}
           isGeneratingDocument={isGeneratingDocument}
         />
       </div>

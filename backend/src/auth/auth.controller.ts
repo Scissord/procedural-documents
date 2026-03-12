@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Patch,
   Req,
   Ip,
@@ -50,6 +51,16 @@ export class AuthController {
       req.auth.refresh_token,
       res,
     );
+  }
+
+  @Get('profile')
+  getProfile(@Req() req: AuthRequest) {
+    const auth = req.auth;
+    if (!auth) {
+      throw new UnauthorizedException('Auth context is missing');
+    }
+
+    return this.authService.profile(auth.user_id);
   }
 
   @Patch('profile')

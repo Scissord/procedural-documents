@@ -12,7 +12,15 @@ export class ClassificationService {
     data: { classifications: IClassification[] };
   }> {
     const classifications = await this.pgService.query<IClassification>(
-      'SELECT id, name, code FROM ref.classification ORDER BY id ASC',
+      `
+        SELECT
+          id,
+          name,
+          code,
+          is_active
+        FROM ref.classification
+        ORDER BY id ASC
+      `,
     );
 
     return {

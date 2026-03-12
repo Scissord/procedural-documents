@@ -25,7 +25,8 @@ export class RefDocumentService {
           classification_id,
           placeholders,
           sections,
-          rules
+          rules,
+          is_active
         FROM ref.document
         WHERE
           classification_id = $1
@@ -60,7 +61,8 @@ export class RefDocumentService {
           classification_id,
           placeholders,
           sections,
-          rules
+          rules,
+          is_active
         FROM ref.document
         WHERE id = $1
         LIMIT 1

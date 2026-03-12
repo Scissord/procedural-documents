@@ -24,36 +24,36 @@ async function seed() {
 
     for (const c of classifications) {
       await client.query(
-        `INSERT INTO ref.classification (id, name, code)
-         VALUES ($1, $2, $3)
+        `INSERT INTO ref.classification (id, name, code, is_active)
+         VALUES ($1, $2, $3, $4)
          ON CONFLICT (id) DO NOTHING`,
-        [c.id, c.name, c.code],
+        [c.id, c.name, c.code, c.is_active],
       );
     }
 
     for (const s of stages) {
       await client.query(
-        `INSERT INTO ref.stage (id, name, classification_id)
-         VALUES ($1, $2, $3)
+        `INSERT INTO ref.stage (id, name, classification_id, is_active)
+         VALUES ($1, $2, $3, $4)
          ON CONFLICT (id) DO NOTHING`,
-        [s.id, s.name, s.classification_id],
+        [s.id, s.name, s.classification_id, s.is_active],
       );
     }
 
     for (const r of roles) {
       await client.query(
-        `INSERT INTO ref.role (id, name_ru, code)
-         VALUES ($1, $2, $3)
+        `INSERT INTO ref.role (id, name_ru, code, is_active)
+         VALUES ($1, $2, $3, $4)
          ON CONFLICT (id) DO NOTHING`,
-        [r.id, r.name_ru, r.code],
+        [r.id, r.name_ru, r.code, r.is_active],
       );
     }
 
     for (const d of documents) {
       await client.query(
         `INSERT INTO ref.document
-          (id, name_ru, role_id, stage_id, classification_id, placeholders, sections, rules)
-         VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7::jsonb, $8::jsonb)
+          (id, name_ru, role_id, stage_id, classification_id, placeholders, sections, rules, is_active)
+         VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7::jsonb, $8::jsonb, $9)
          ON CONFLICT (id) DO NOTHING`,
         [
           d.id,
@@ -64,6 +64,7 @@ async function seed() {
           JSON.stringify(d.placeholders ?? {}),
           JSON.stringify(d.sections ?? []),
           JSON.stringify(d.rules ?? {}),
+          d.is_active,
         ],
       );
     }

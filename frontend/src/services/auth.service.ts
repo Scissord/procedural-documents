@@ -51,6 +51,20 @@ export const AuthService = {
     return result;
   },
 
+  async profile(): Promise<IResponse> {
+    const response = await fetch(`${BASE_URL}/auth/profile`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+    });
+
+    const result: IResponse = await response.json();
+
+    return result;
+  },
+
   async updateProfile(data: IUpdateProfileInput): Promise<IResponse> {
     const response = await fetch(`${BASE_URL}/auth/profile`, {
       method: 'PATCH',

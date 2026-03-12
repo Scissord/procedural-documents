@@ -1,9 +1,7 @@
-export interface IAppDocument {
+export interface ICase {
   id: string;
   user_id: number;
-  stage: number;
-  docs: any[];
-  case_id: string;
+  status: number;
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
